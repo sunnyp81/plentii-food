@@ -1,0 +1,213 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Alcohol Units Calculator UK",
+    "url": "https://plentii.food/tools/alcohol-units-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Calculate UK alcohol units and calories from pints, glasses, and shots. Track a week against NHS low-risk guidance of 14 units."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many units are in a pint of lager?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A pint of regular-strength lager (4% ABV) contains 2.3 units. A stronger pint at 5% ABV contains 2.8 units. A single pint of 5% lager uses up 20% of the NHS weekly guideline of 14 units." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does alcohol have so many calories?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Alcohol contains 7 calories per gram — almost as energy-dense as fat (9 cal/g) and nearly double carbohydrate or protein (4 cal/g). On top of that, alcoholic drinks often contain sugar from mixers, fruit juice, or residual sugars in wine and beer. A night of four pints can easily add 800 to 1,000 kcal." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the NHS low-risk guideline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The NHS recommends no more than 14 units per week for both men and women, spread over three or more days. This replaced the older daily limits in 2016. 14 units is roughly equivalent to 6 pints of 4% lager, 6 medium glasses of 13% wine, or 14 single measures of spirits." }
+      }
+    ]
+  }
+];
+
+const drinks = [
+  { label: 'Pint of lager (4%)', ml: 568, abv: 4, calExtra: 30 },
+  { label: 'Pint of lager (5%)', ml: 568, abv: 5, calExtra: 30 },
+  { label: 'Large glass wine 250 ml (13%)', ml: 250, abv: 13, calExtra: 10 },
+  { label: 'Small glass wine 175 ml (13%)', ml: 175, abv: 13, calExtra: 8 },
+  { label: 'Single spirit 25 ml (40%)', ml: 25, abv: 40, calExtra: 60 },
+  { label: 'Double spirit 50 ml (40%)', ml: 50, abv: 40, calExtra: 60 },
+  { label: 'Bottle of beer 330 ml (5%)', ml: 330, abv: 5, calExtra: 20 },
+  { label: 'Can of cider 440 ml (4.5%)', ml: 440, abv: 4.5, calExtra: 40 },
+];
+---
+<Base title="Alcohol Units Calculator UK — NHS Guidance — Plentii" description="Calculate UK alcohol units and calories from pints, glasses, and shots. Track a week against NHS low-risk guidance of 14 units." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'Alcohol Units Calculator'}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Tool · Free · No account</span>
+      <h1>Alcohol Units Calculator</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">How many units and calories are in your drinks — and how that stacks up against the NHS 14-unit weekly guideline.</p>
+    </header>
+    <div class="max-w-[720px] mx-auto px-6">
+      <div class="calc">
+        <div class="calc-header">
+          <h2>Your drink</h2>
+          <span class="calc-tag">NHS formula</span>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="alcohol-form">
+            <div class="calc-row">
+              <label for="drink">Drink type</label>
+              <select id="drink" class="calc-select">
+                {drinks.map((d, i) => (
+                  <option value={String(i)}>{d.label}</option>
+                ))}
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="qty">Number of drinks</label>
+              <input type="number" id="qty" class="calc-input" value="1" min="1" max="50" step="1">
+            </div>
+            <button type="submit" class="calc-button">Calculate</button>
+          </form>
+          <div class="calc-result" id="result">
+            <span class="calc-result-empty">Pick a drink and hit calculate.</span>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Calorie figures are approximate and include estimated mixer calories for spirits. NHS low-risk guideline: 14 units/week spread over 3+ days.</p>
+      </div>
+    </div>
+    <div class="article-body">
+      <h2>How UK alcohol units work</h2>
+      <p>A UK alcohol unit is defined as 10 ml (8 g) of pure alcohol. The formula is straightforward:</p>
+      <div class="callout">
+        <strong>The formula</strong>
+        <p>Units = (volume in ml &times; ABV%) &divide; 1,000</p>
+        <p>Example: a pint of 4% lager = (568 &times; 4) &divide; 1,000 = 2.27 units</p>
+      </div>
+      <p>This is the same formula the NHS uses. The tricky part is that serving sizes in pubs and bars vary — a "large" wine can be 175 ml or 250 ml depending on the venue, and craft beers often run 6-8 % ABV rather than the 4-5 % assumed in standard guidance.</p>
+
+      <h2>NHS low-risk guideline — 14 units per week</h2>
+      <p>Since 2016, the NHS Chief Medical Officers' guidance has been the same for men and women: no more than 14 units per week, spread over three or more days with several drink-free days. Previously, men were allowed 21 units and women 14.</p>
+      <p>14 units per week is roughly equivalent to:</p>
+      <ul>
+        <li>6 pints of 4 % lager</li>
+        <li>6 medium (175 ml) glasses of 13 % wine</li>
+        <li>14 single measures (25 ml) of 40 % spirits</li>
+      </ul>
+      <p>The guideline is based on keeping the risk of alcohol-related health problems low — not eliminating it entirely. The CMOs are clear that there is no "safe" level of drinking.</p>
+
+      <h2>Alcohol calories — why they are invisible in most trackers</h2>
+      <p>Alcohol contains 7 kcal per gram — nearly as energy-dense as fat (9 kcal/g) and almost double protein or carbohydrate (4 kcal/g). A pint of 5 % lager contains roughly 240 kcal. A large glass of wine is around 190 kcal. A double gin and tonic with regular tonic clocks in at roughly 170 kcal.</p>
+      <p>Most food-tracking apps handle alcohol poorly. They may log the drink but not the post-pub kebab, the reduced inhibition around snacking, or the next-day reduction in activity. The real calorie cost of a heavy drinking session is typically 1.5-2x the alcohol calories alone.</p>
+
+      <h2>Common drinks in units and calories</h2>
+      <div class="key-facts">
+        <div class="fact">
+          <span class="fact-num">Pint of lager (4%)</span>
+          <span class="fact-headline">2.3 units &middot; ~180 kcal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Pint of lager (5%)</span>
+          <span class="fact-headline">2.8 units &middot; ~240 kcal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Large wine 250 ml (13%)</span>
+          <span class="fact-headline">3.3 units &middot; ~190 kcal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Small wine 175 ml (13%)</span>
+          <span class="fact-headline">2.3 units &middot; ~135 kcal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Single spirit 25 ml (40%)</span>
+          <span class="fact-headline">1.0 units &middot; ~120 kcal</span>
+          <span class="fact-body">With regular tonic</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Double spirit 50 ml (40%)</span>
+          <span class="fact-headline">2.0 units &middot; ~180 kcal</span>
+          <span class="fact-body">With regular tonic</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Bottle of beer 330 ml (5%)</span>
+          <span class="fact-headline">1.7 units &middot; ~150 kcal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Can of cider 440 ml (4.5%)</span>
+          <span class="fact-headline">2.0 units &middot; ~200 kcal</span>
+        </div>
+      </div>
+
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many units are in a pint of lager?</summary>
+          <div class="answer">A pint of regular-strength lager (4 % ABV) contains 2.3 units. A stronger pint at 5 % ABV contains 2.8 units. A single pint of 5 % lager uses up 20 % of the NHS weekly guideline of 14 units.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Why does alcohol have so many calories?</summary>
+          <div class="answer">Alcohol contains 7 calories per gram — almost as energy-dense as fat (9 cal/g) and nearly double carbohydrate or protein (4 cal/g). On top of that, alcoholic drinks often contain sugar from mixers, fruit juice, or residual sugars in wine and beer. A night of four pints can easily add 800 to 1,000 kcal.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the NHS low-risk guideline?</summary>
+          <div class="answer">The NHS recommends no more than 14 units per week for both men and women, spread over three or more days. This replaced the older daily limits in 2016. 14 units is roughly equivalent to 6 pints of 4 % lager, 6 medium glasses of 13 % wine, or 14 single measures of spirits.</div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    {label:'Tool', title:'TDEE calculator', description:'Find your maintenance calories with UK-friendly units.', href:'/tools/tdee-calculator-uk/'},
+    {label:'Tool', title:'BMI calculator UK', description:'Quick BMI check with NHS categories.', href:'/tools/bmi-calculator-uk/'},
+    {label:'Guide', title:'What is a calorie?', description:'Energy basics explained without the jargon.', href:'/guides/what-is-a-calorie/'}
+  ]} />
+</Base>
+<script>
+  const drinks = [
+    { ml: 568, abv: 4, calExtra: 30 },
+    { ml: 568, abv: 5, calExtra: 30 },
+    { ml: 250, abv: 13, calExtra: 10 },
+    { ml: 175, abv: 13, calExtra: 8 },
+    { ml: 25, abv: 40, calExtra: 60 },
+    { ml: 50, abv: 40, calExtra: 60 },
+    { ml: 330, abv: 5, calExtra: 20 },
+    { ml: 440, abv: 4.5, calExtra: 40 },
+  ];
+
+  document.getElementById('alcohol-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const idx = parseInt((document.getElementById('drink') as HTMLSelectElement).value);
+    const qty = parseFloat((document.getElementById('qty') as HTMLInputElement).value);
+    const d = drinks[idx];
+    const drinkLabel = (document.getElementById('drink') as HTMLSelectElement).selectedOptions[0].text;
+
+    const unitsPerDrink = (d.ml * d.abv) / 1000;
+    const totalUnits = Math.round(unitsPerDrink * qty * 10) / 10;
+    const alcoholCals = unitsPerDrink * 80;
+    const totalCals = Math.round((alcoholCals + d.calExtra) * qty);
+    const weeklyPct = Math.round((totalUnits / 14) * 100);
+    const barWidth = Math.min(weeklyPct, 100);
+    const barColour = weeklyPct > 100 ? '#DC2626' : weeklyPct > 70 ? '#C68F1F' : '#2D5A3D';
+
+    document.getElementById('result')!.innerHTML = `
+      <span class="calc-result-headline">Units & calories</span>
+      <span class="calc-result-primary">${totalUnits}<span class="unit">units</span></span>
+      <div class="calc-result-row"><span class="label">Drink</span><span class="value">${drinkLabel}</span></div>
+      <div class="calc-result-row"><span class="label">Quantity</span><span class="value">${qty}</span></div>
+      <div class="calc-result-row"><span class="label">Approx calories</span><span class="value">${totalCals.toLocaleString()} kcal</span></div>
+      <div class="calc-result-row"><span class="label">Weekly allowance used</span><span class="value">${weeklyPct}% of 14 units</span></div>
+      <div style="margin-top:12px;background:var(--color-border);border-radius:999px;height:10px;overflow:hidden;">
+        <div style="width:${barWidth}%;height:100%;background:${barColour};border-radius:999px;transition:width 0.4s;"></div>
+      </div>
+      <div style="font-size:0.78rem;color:var(--color-ink-faint);margin-top:6px;text-align:right;">${totalUnits} of 14 units</div>
+    `;
+  });
+</script>

@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WW Points to Calories Converter",
+    "url": "https://plentii.food/tools/ww-points-to-calories-converter/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Convert Weight Watchers points to calories across ProPoints, SmartPoints, and PersonalPoints eras."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many calories is 1 WW point?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on the era. Under the older ProPoints system, 1 point was roughly 35 kcal. Under SmartPoints and the current PersonalPoints system, 1 point is closer to 33 kcal on average. However, the actual calorie content per point varies by food because WW adjusts points for protein, sugar, saturated fat, and fibre content." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do protein-rich foods have fewer points than their calories suggest?",
+        "acceptedAnswer": { "@type": "Answer", "text": "WW rewards lean protein because it has a high thermic effect (your body uses more energy digesting it) and it keeps you full for longer. A chicken breast might have 165 kcal but score only 2-3 points, while a 165 kcal chocolate bar could score 7-8 points because of its sugar and fat content." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this converter accurate for ZeroPoint foods?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. ZeroPoint foods (like chicken breast, eggs, or fruit, depending on your plan) carry zero points but absolutely have calories. This converter is designed for pointed foods only. ZeroPoint foods should be tracked separately if you are also counting calories." }
+      }
+    ]
+  }
+];
+---
+<Base title="WW Points to Calories Converter — All Eras — Plentii" description="Convert Weight Watchers points to calories. Works for ProPoints, SmartPoints, and PersonalPoints — all three eras." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'WW Points to Calories'}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Tool · Free · No account</span>
+      <h1>WW Points to Calories</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Convert Weight Watchers points to approximate calories across all three programme eras.</p>
+    </header>
+    <div class="max-w-[720px] mx-auto px-6">
+      <div class="calc">
+        <div class="calc-header">
+          <h2>Convert points</h2>
+          <span class="calc-tag">All eras</span>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="ww-form">
+            <div class="calc-row">
+              <label for="points">Points</label>
+              <input type="number" id="points" class="calc-input" value="23" min="1" max="500" step="1">
+            </div>
+            <div class="calc-row">
+              <label for="era">Programme era</label>
+              <select id="era" class="calc-select">
+                <option value="35">ProPoints (2010-2015)</option>
+                <option value="33" selected>SmartPoints (2016-2021)</option>
+                <option value="33">PersonalPoints (2022+)</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="profile">Food profile</label>
+              <select id="profile" class="calc-select">
+                <option value="40">Lean protein (chicken, fish, eggs)</option>
+                <option value="35" selected>Mixed / average</option>
+                <option value="30">High-sugar / high-fat</option>
+              </select>
+            </div>
+            <button type="submit" class="calc-button">Convert</button>
+          </form>
+          <div class="calc-result" id="result">
+            <span class="calc-result-empty">Enter your points and hit convert.</span>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Rough estimate only. WW points factor in protein, sugar, saturated fat, and fibre — not just calories. Not affiliated with WW International.</p>
+      </div>
+    </div>
+    <div class="article-body">
+      <h2>How the conversion works by era</h2>
+      <p>Weight Watchers has overhauled its points system several times, and each version weighs nutrients differently:</p>
+      <ul>
+        <li><strong>ProPoints (2010-2015)</strong> — based primarily on protein, carbohydrate, fat, and fibre. Roughly 35 kcal per point for average foods.</li>
+        <li><strong>SmartPoints (2016-2021)</strong> — increased the penalty for sugar and saturated fat. Lean protein became even cheaper in points. Average conversion dropped to roughly 33 kcal per point.</li>
+        <li><strong>PersonalPoints (2022+)</strong> — personalised ZeroPoint food lists plus added fibre and unsaturated fat bonuses. The per-point calorie average stays around 33 kcal but individual foods can vary widely.</li>
+      </ul>
+      <p>The food profile selector adjusts the conversion. Lean proteins convert at roughly 40 kcal per point (they are under-pointed relative to calories). High-sugar or high-fat foods convert at roughly 30 kcal per point (they are over-pointed).</p>
+
+      <h2>Why protein-heavy foods convert differently</h2>
+      <p>WW deliberately makes lean protein cheap in points because it has a high thermic effect of food (TEF) — your body uses roughly 20-30 % of protein calories just to digest it — and it suppresses appetite more effectively than fat or carbohydrate. This means a 200 kcal chicken breast might score only 2 points, while a 200 kcal slice of cake scores 8-10 points.</p>
+      <p>For calorie-counting purposes, this creates a disconnect. If you eat mostly lean protein, your actual calorie intake will be significantly higher than a simple points-times-average conversion suggests. The food profile dropdown helps account for this.</p>
+
+      <h2>Not affiliated with WW</h2>
+      <p>This tool is an independent estimate. WW (formerly Weight Watchers) is a trademark of WW International, Inc. For official points values, use the WW app. We have no commercial relationship with WW.</p>
+
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many calories is 1 WW point?</summary>
+          <div class="answer">It depends on the era. Under ProPoints, 1 point was roughly 35 kcal. Under SmartPoints and PersonalPoints, 1 point is closer to 33 kcal on average. However, the actual calorie content per point varies by food because WW adjusts points for protein, sugar, saturated fat, and fibre content.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Why do protein-rich foods have fewer points than their calories suggest?</summary>
+          <div class="answer">WW rewards lean protein because it has a high thermic effect (your body uses more energy digesting it) and it keeps you full for longer. A chicken breast might have 165 kcal but score only 2-3 points, while a 165 kcal chocolate bar could score 7-8 points because of its sugar and fat content.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is this converter accurate for ZeroPoint foods?</summary>
+          <div class="answer">No. ZeroPoint foods (like chicken breast, eggs, or fruit, depending on your plan) carry zero points but absolutely have calories. This converter is designed for pointed foods only. ZeroPoint foods should be tracked separately if you are also counting calories.</div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    {label:'Guide', title:'What are WW points?', description:'How the points system works and why it keeps changing.', href:'/guides/what-are-ww-points/'},
+    {label:'Tool', title:'Syns to calories', description:'Convert Slimming World syns to approximate calories.', href:'/tools/syns-to-calories-converter/'},
+    {label:'Tool', title:'TDEE calculator', description:'Find your maintenance calories with UK-friendly units.', href:'/tools/tdee-calculator-uk/'}
+  ]} />
+</Base>
+<script>
+  document.getElementById('ww-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const points = parseFloat((document.getElementById('points') as HTMLInputElement).value);
+    const eraFactor = parseFloat((document.getElementById('era') as HTMLSelectElement).value);
+    const profileFactor = parseFloat((document.getElementById('profile') as HTMLSelectElement).value);
+    const avgFactor = (eraFactor + profileFactor) / 2;
+    const kcal = Math.round(points * avgFactor);
+    const eraLabel = (document.getElementById('era') as HTMLSelectElement).selectedOptions[0].text;
+    const profileLabel = (document.getElementById('profile') as HTMLSelectElement).selectedOptions[0].text;
+
+    document.getElementById('result')!.innerHTML = `
+      <span class="calc-result-headline">Approximate calories</span>
+      <span class="calc-result-primary">${kcal.toLocaleString()}<span class="unit">kcal</span></span>
+      <div class="calc-result-row"><span class="label">Points entered</span><span class="value">${points}</span></div>
+      <div class="calc-result-row"><span class="label">Era</span><span class="value">${eraLabel.split('(')[0].trim()}</span></div>
+      <div class="calc-result-row"><span class="label">Food profile</span><span class="value">${profileLabel.split('(')[0].trim()}</span></div>
+      <div class="calc-result-row"><span class="label">Effective rate</span><span class="value">${avgFactor.toFixed(1)} kcal/pt</span></div>
+      <div class="calc-translate">
+        <span class="calc-translate-label">Context</span>
+        <div class="calc-translate-grid">
+          <div class="pill"><span class="lab">% of 2,000 kcal</span><span class="val">${Math.round(kcal / 2000 * 100)}%</span></div>
+          <div class="pill"><span class="lab">Syns (approx)</span><span class="val">~${Math.round(kcal / 20)}</span></div>
+        </div>
+      </div>
+    `;
+  });
+</script>

@@ -1,0 +1,178 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is TDEE? Total Daily Energy Expenditure (UK Guide)",
+    "description": "TDEE is the total calories your body burns in a day — including BMR, activity, digestion, and movement. How to estimate yours, and why it changes with age.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-is-tdee/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a good TDEE for a woman?",
+        "acceptedAnswer": { "@type": "Answer", "text": "There is no single 'good' TDEE — it depends on your age, height, weight, muscle mass, and activity level. A moderately active woman aged 30-40 weighing 65 kg typically has a TDEE of 1,900 to 2,200 kcal. The NHS reference intake of 2,000 kcal is a rough population average, not a personal target." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate my TDEE?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The most common method is to calculate your BMR using the Mifflin-St Jeor equation, then multiply by an activity factor (1.2 for sedentary up to 1.9 for very active). Use a TDEE calculator for the maths, then verify by tracking your weight over 2-4 weeks and adjusting." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does TDEE decrease with age?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. TDEE decreases by roughly 1-2% per decade after age 30, primarily because of declining muscle mass (sarcopenia) and reduced spontaneous activity (NEAT). Resistance training and maintaining an active lifestyle can slow this decline significantly." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between TDEE and BMR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "BMR (Basal Metabolic Rate) is the calories you burn at complete rest — just keeping your organs running. TDEE (Total Daily Energy Expenditure) is BMR plus all additional energy costs: digestion (TEF), exercise (EAT), and non-exercise movement (NEAT). TDEE is always higher than BMR, typically by 30-80% depending on activity level." }
+      }
+    ]
+  }
+];
+---
+<Base title="What Is TDEE? Total Daily Energy Expenditure (UK Guide) — Plentii" description="TDEE is the total calories your body burns in a day — including BMR, activity, digestion, and movement. How to estimate yours, and why it changes with age." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"What is TDEE?"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 7 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What is TDEE?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Total Daily Energy Expenditure &mdash; the number every diet quietly assumes you know.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: SACN &middot; ISSN &middot; NHS</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">TDEE is the total number of calories your body burns in a day. It is the number that determines whether you gain weight, lose weight, or stay the same. Every diet &mdash; Slimming World, Weight Watchers, keto, carnivore, intermittent fasting &mdash; works by putting you below this number, whether or not it tells you so. Knowing your TDEE is the difference between guessing and choosing.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>The four components of TDEE</h2>
+      <p>Your total daily energy expenditure is the sum of four things. Understanding what each one contributes helps you see where the real levers are.</p>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked bar showing TDEE components: BMR 60-75%, NEAT 15-20%, EAT 5-10%, TEF 8-10%">
+          <rect x="60" y="30" width="480" height="40" rx="4" fill="#2D5A3D"/>
+          <text x="300" y="56" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FAF7F2" font-weight="500">BMR &middot; 60&ndash;75%</text>
+
+          <rect x="60" y="78" width="480" height="40" rx="4" fill="#4A524D"/>
+          <rect x="60" y="78" width="200" height="40" rx="4" fill="#4A524D"/>
+          <text x="160" y="104" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FAF7F2" font-weight="500">NEAT &middot; 15&ndash;20%</text>
+
+          <rect x="60" y="126" width="480" height="40" rx="4" fill="#C68F1F"/>
+          <rect x="60" y="126" width="96" height="40" rx="4" fill="#C68F1F"/>
+          <text x="108" y="152" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FAF7F2" font-weight="500">EAT &middot; 5&ndash;10%</text>
+
+          <rect x="60" y="174" width="480" height="40" rx="4" fill="#8B928D"/>
+          <rect x="60" y="174" width="86" height="40" rx="4" fill="#8B928D"/>
+          <text x="103" y="200" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FAF7F2" font-weight="500">TEF &middot; 8&ndash;10%</text>
+
+          <text x="555" y="56" font-family="'Inter', sans-serif" font-size="9" fill="#8B928D" text-anchor="end">Basal Metabolic Rate</text>
+          <text x="555" y="104" font-family="'Inter', sans-serif" font-size="9" fill="#8B928D" text-anchor="end">Non-Exercise Activity</text>
+          <text x="555" y="152" font-family="'Inter', sans-serif" font-size="9" fill="#8B928D" text-anchor="end">Exercise Activity</text>
+          <text x="555" y="200" font-family="'Inter', sans-serif" font-size="9" fill="#8B928D" text-anchor="end">Thermic Effect of Food</text>
+        </svg>
+        <p class="viz-caption">BMR dominates, but NEAT is the most variable component and the one most people underestimate.</p>
+      </div>
+
+      <p><strong>BMR (Basal Metabolic Rate)</strong> is the energy your body needs to keep you alive at complete rest: heartbeat, breathing, brain function, organ maintenance, temperature regulation. It accounts for 60&ndash;75% of total expenditure in most people. You cannot increase it quickly, but you can protect it by maintaining muscle mass.</p>
+      <p><strong>TEF (Thermic Effect of Food)</strong> is the energy cost of digesting, absorbing, and metabolising what you eat. It accounts for about 8&ndash;10% of TDEE. Protein has the highest thermic effect (20&ndash;30% of its calories are burned during digestion), followed by carbs (5&ndash;10%) and fat (0&ndash;3%). This is one reason high-protein diets have a small metabolic advantage.</p>
+      <p><strong>EAT (Exercise Activity Thermogenesis)</strong> is the energy burned during deliberate exercise: gym sessions, runs, swims, sport. For most people it is 5&ndash;10% of TDEE, which is lower than it feels. A 45-minute moderate gym session burns roughly 250&ndash;500 kcal. Important, but not the biggest lever.</p>
+      <p><strong>NEAT (Non-Exercise Activity Thermogenesis)</strong> is everything else: walking, standing, fidgeting, carrying shopping, climbing stairs, playing with your children. NEAT is the wild card. Research shows it can vary by 1,500 to 2,000 kcal per day between otherwise similar individuals. An office worker who drives to work and sits all evening might burn 200 kcal from NEAT. A teacher who is on their feet all day, walks to school, and does housework in the evening might burn 1,200 kcal. Same body, vastly different TDEE.</p>
+
+      <h2>How to calculate TDEE</h2>
+      <p>The standard method is a two-step process: estimate your BMR, then multiply by an activity factor.</p>
+
+      <div class="callout">
+        <strong>Mifflin-St Jeor equation (most accurate for most people)</strong>
+        Men: BMR = (10 &times; weight in kg) + (6.25 &times; height in cm) &minus; (5 &times; age in years) + 5<br/>
+        Women: BMR = (10 &times; weight in kg) + (6.25 &times; height in cm) &minus; (5 &times; age in years) &minus; 161
+      </div>
+
+      <p>The Katch-McArdle formula is more accurate if you know your body fat percentage, because it uses lean body mass rather than total weight. If you have had a DEXA scan or reliable calliper measurement, it is worth using. Otherwise, Mifflin-St Jeor is the better default.</p>
+
+      <h2>Activity multipliers (the honest version)</h2>
+      <p>After calculating BMR, you multiply by an activity factor. Most calculators give you five options. Most people pick the wrong one &mdash; almost always too high.</p>
+      <ul>
+        <li><strong>1.2 &mdash; Sedentary.</strong> Desk job, no structured exercise, drives everywhere. This is the correct choice for most UK adults, even ones who think they are more active.</li>
+        <li><strong>1.375 &mdash; Lightly active.</strong> Desk job but walks 7,000+ steps per day, or light exercise 1&ndash;3 days per week.</li>
+        <li><strong>1.55 &mdash; Moderately active.</strong> On feet at work (retail, teaching, nursing) and exercises 3&ndash;5 days per week. Or desk job with daily structured exercise plus 10,000+ steps.</li>
+        <li><strong>1.725 &mdash; Very active.</strong> Physically demanding job (construction, farming) plus regular training. Or serious recreational athlete training 5&ndash;7 days per week.</li>
+        <li><strong>1.9 &mdash; Extremely active.</strong> Professional athlete, military training, or manual labour plus daily intense training. Almost nobody should select this.</li>
+      </ul>
+      <p>If you are unsure, pick the lower option. You can always adjust upward if you lose weight too quickly (which is a much nicer problem to have than the reverse).</p>
+
+      <h2>TDEE for UK women and men by age</h2>
+      <p>These are illustrative examples using the Mifflin-St Jeor equation with moderate activity (1.55 multiplier). Your number will differ.</p>
+      <ul>
+        <li><strong>Woman, 28, 65 kg, 165 cm, moderately active:</strong> BMR ~1,380 kcal &rarr; TDEE ~2,140 kcal</li>
+        <li><strong>Woman, 52, 70 kg, 163 cm, moderately active:</strong> BMR ~1,240 kcal &rarr; TDEE ~1,920 kcal</li>
+        <li><strong>Man, 30, 82 kg, 178 cm, moderately active:</strong> BMR ~1,790 kcal &rarr; TDEE ~2,775 kcal</li>
+        <li><strong>Man, 55, 85 kg, 176 cm, moderately active:</strong> BMR ~1,630 kcal &rarr; TDEE ~2,525 kcal</li>
+      </ul>
+      <p>Notice the 28-year-old woman and the 55-year-old man differ by roughly 400 kcal despite him being 20 kg heavier. Age, sex, and muscle mass all matter. Use a <a href="/tools/tdee-calculator-uk/">TDEE calculator</a> for your own numbers.</p>
+
+      <h2>TDEE drops with age</h2>
+      <p>After about age 30, TDEE declines by roughly 1&ndash;2% per decade. Two factors drive this.</p>
+      <p><strong>Sarcopenia</strong> is the age-related loss of muscle mass. Muscle is metabolically expensive tissue: it burns calories at rest. As you lose muscle, your BMR drops. The average adult loses about 3&ndash;5% of their muscle mass per decade after 30 if they do not resistance train. By 60, that is 10&ndash;15% less muscle, and a meaningfully lower metabolism.</p>
+      <p><strong>NEAT suppression.</strong> Older adults tend to move less spontaneously. They take fewer steps, fidget less, and are less likely to choose the stairs. This is partly physical (joint pain, fatigue) and partly behavioural (less active job, less childcare, more screen time). The NEAT drop can be larger than the BMR drop.</p>
+      <p>The single most effective intervention for both is resistance training. It preserves muscle mass (protecting BMR), improves joint health and energy levels (protecting NEAT), and has a direct calorie cost itself (EAT). If you do one thing for your metabolism as you age, lift weights.</p>
+
+      <h2>TDEE in pregnancy, breastfeeding, perimenopause, and andropause</h2>
+      <p><strong>Pregnancy.</strong> Energy needs increase by roughly 70 kcal/day in the first trimester, 260 kcal/day in the second, and 200 kcal/day in the third (SACN 2011). "Eating for two" is a myth &mdash; the actual increase is modest. Focus on nutrient density, not volume.</p>
+      <p><strong>Breastfeeding.</strong> Milk production costs approximately 300&ndash;500 kcal per day. Most guidelines suggest eating at or just below TDEE (a small deficit is fine; aggressive restriction is not, as it can reduce milk supply and energy levels).</p>
+      <p><strong>Perimenopause.</strong> Declining oestrogen affects body composition (more visceral fat, less muscle), sleep quality, and mood. TDEE may not change dramatically, but the distribution of weight shifts. Resistance training and adequate protein (2.0+ g/kg) are more important than ever. Aggressive calorie restriction during this phase can worsen symptoms.</p>
+      <p><strong>Andropause.</strong> Testosterone declines gradually from about age 40. The effect on TDEE is modest (testosterone affects muscle mass, which affects BMR), but the practical impact on motivation, energy, and recovery is real. The same advice applies: lift weights, eat enough protein, and do not crash diet.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is a good TDEE for a woman?</summary>
+          <div class="answer">
+            <p>There is no single "good" TDEE &mdash; it depends on your age, height, weight, muscle mass, and activity level. A moderately active woman aged 30&ndash;40 weighing 65 kg typically has a TDEE of 1,900 to 2,200 kcal. The NHS reference intake of 2,000 kcal is a rough population average, not a personal target.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I calculate my TDEE?</summary>
+          <div class="answer">
+            <p>The most common method is to calculate your BMR using the Mifflin-St Jeor equation, then multiply by an activity factor (1.2 for sedentary up to 1.9 for very active). Use a <a href="/tools/tdee-calculator-uk/">TDEE calculator</a> for the maths, then verify by tracking your weight over 2&ndash;4 weeks and adjusting.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does TDEE decrease with age?</summary>
+          <div class="answer">
+            <p>Yes. TDEE decreases by roughly 1&ndash;2% per decade after age 30, primarily because of declining muscle mass (sarcopenia) and reduced spontaneous activity (NEAT). Resistance training and maintaining an active lifestyle can slow this decline significantly.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the difference between TDEE and BMR?</summary>
+          <div class="answer">
+            <p>BMR (Basal Metabolic Rate) is the calories you burn at complete rest &mdash; just keeping your organs running. TDEE (Total Daily Energy Expenditure) is BMR plus all additional energy costs: digestion (TEF), exercise (EAT), and non-exercise movement (NEAT). TDEE is always higher than BMR, typically by 30&ndash;80% depending on activity level.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "TDEE calculator", description: "Estimate your total daily energy expenditure with UK-specific defaults.", href: "/tools/tdee-calculator-uk/" },
+    { label: "Guide", title: "Calorie deficit", description: "How big, how long, and what to expect.", href: "/guides/calorie-deficit/" },
+    { label: "Guide", title: "What is BMR?", description: "The energy cost of keeping you alive.", href: "/guides/what-is-bmr/" }
+  ]} />
+</Base>

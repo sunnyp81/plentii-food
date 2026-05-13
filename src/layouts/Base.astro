@@ -1,0 +1,86 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: object[];
+}
+
+const { title, description, canonical, schema = [] } = Astro.props;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site).href;
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  {schema.map(s => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+</head>
+<body>
+  <header class="sticky top-0 z-50 border-b border-border" style="background: color-mix(in srgb, var(--color-bg) 85%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+    <div class="max-w-[1400px] mx-auto px-6 py-[18px] flex items-center justify-between gap-8">
+      <a href="/" class="font-display text-[1.35rem] font-medium tracking-tight text-ink" style="font-variation-settings: 'opsz' 144, 'SOFT' 30;">plentii<span class="text-amber">.</span></a>
+      <nav class="flex gap-7 items-center">
+        <a href="/#metrics" class="text-[0.95rem] text-ink-soft font-medium hidden md:inline hover:text-green">Metrics</a>
+        <a href="/#tools" class="text-[0.95rem] text-ink-soft font-medium hidden md:inline hover:text-green">Tools</a>
+        <a href="/foods/" class="text-[0.95rem] text-ink-soft font-medium hidden md:inline hover:text-green">Foods</a>
+        <a href="/best/" class="text-[0.95rem] text-ink-soft font-medium hidden md:inline hover:text-green">Best of</a>
+        <a href="/about/" class="text-[0.95rem] text-ink-soft font-medium hidden md:inline hover:text-green">About</a>
+        <a href="/#start" class="px-4 py-2 bg-ink text-bg rounded-full text-[0.95rem] font-medium hover:bg-green-dark transition-colors">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="bg-ink text-[rgba(250,247,242,0.7)] pt-20 pb-10 mt-20">
+    <div class="max-w-[1400px] mx-auto px-6">
+      <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-16 max-md:grid-cols-2 max-md:gap-8">
+        <div class="max-md:col-span-2">
+          <div class="font-display text-bg text-[1.6rem] font-medium mb-3">plentii<span class="text-amber">.</span></div>
+          <p class="text-[0.9rem] max-w-[32ch]">Diet-agnostic food data and decision tools, built for UK adults who are done picking a tribe.</p>
+        </div>
+        <div>
+          <h5 class="text-bg text-[0.78rem] uppercase tracking-widest font-semibold mb-4">Metrics</h5>
+          <ul class="space-y-2.5 list-none p-0">
+            <li><a href="/calories/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Calories</a></li>
+            <li><a href="/syns/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Syns</a></li>
+            <li><a href="/macros/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Macros</a></li>
+            <li><a href="/#metrics" class="text-[0.92rem] hover:text-[var(--color-bg)]">All 15 &rarr;</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-bg text-[0.78rem] uppercase tracking-widest font-semibold mb-4">Tools</h5>
+          <ul class="space-y-2.5 list-none p-0">
+            <li><a href="/tools/tdee-calculator-uk/" class="text-[0.92rem] hover:text-[var(--color-bg)]">TDEE</a></li>
+            <li><a href="/tools/macros-calculator/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Macros</a></li>
+            <li><a href="/tools/bmi-calculator-uk/" class="text-[0.92rem] hover:text-[var(--color-bg)]">BMI UK</a></li>
+            <li><a href="/tools/alcohol-units-calculator/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Alcohol units</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-bg text-[0.78rem] uppercase tracking-widest font-semibold mb-4">Guides</h5>
+          <ul class="space-y-2.5 list-none p-0">
+            <li><a href="/about/" class="text-[0.92rem] hover:text-[var(--color-bg)]">About plentii</a></li>
+            <li><a href="/guides/calorie-deficit/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Calorie deficit</a></li>
+            <li><a href="/guides/what-are-macros/" class="text-[0.92rem] hover:text-[var(--color-bg)]">Macros explained</a></li>
+            <li><a href="/guides/what-is-tdee/" class="text-[0.92rem] hover:text-[var(--color-bg)]">TDEE explained</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex justify-between flex-wrap gap-4 text-[0.82rem]">
+        <span>&copy; 2026 plentii.food &middot; Independent &middot; Not affiliated with Slimming World, WW, or any other programme.</span>
+        <span><a href="/privacy/" style="color: rgba(250,247,242,0.7);">Privacy</a> &middot; <a href="/affiliate-disclosure/" style="color: rgba(250,247,242,0.7);">Affiliate disclosure</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Syns to Calories Converter",
+    "url": "https://plentii.food/tools/syns-to-calories-converter/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Convert Slimming World syns to approximate calories. Accounts for food type variance."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is 1 syn exactly 20 calories?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not exactly. The 20 kcal per syn figure is a rough average. Slimming World calculates syns using a proprietary formula that weighs energy density, fat, sugar, and satiety. For most mixed foods the 20 kcal approximation is close, but high-fat items like butter can run higher (around 22 kcal per syn) and starchy items lower (around 18 kcal per syn)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do some foods have more syns than their calorie count suggests?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Slimming World penalises energy-dense, low-satiety foods. A tablespoon of cooking oil is calorie-dense but does not fill you up, so it scores proportionally more syns than, say, a slice of bread with similar calories but more volume and fibre." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this converter to track calories on Slimming World?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can use it for a rough sense-check, but the two systems are not interchangeable. Slimming World categorises whole food groups as free or speed foods — those carry zero syns regardless of calories. This converter only handles syn-counted items." }
+      }
+    ]
+  }
+];
+---
+<Base title="Syns to Calories Converter — Free UK Tool — Plentii" description="Convert Slimming World syns to calories. 1 syn ≈ 20 kcal — but macro composition shifts the real value. See the maths and the limits." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'Syns to Calories'}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Tool · Free · No account</span>
+      <h1>Syns to Calories</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Convert Slimming World syns to approximate calories. The 1 syn &asymp; 20 kcal rule works most of the time — here is when it does not.</p>
+    </header>
+    <div class="max-w-[720px] mx-auto px-6">
+      <div class="calc">
+        <div class="calc-header">
+          <h2>Convert syns</h2>
+          <span class="calc-tag">Approximate</span>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="syns-form">
+            <div class="calc-row">
+              <label for="syns">Number of syns</label>
+              <input type="number" id="syns" class="calc-input" value="15" min="0.5" max="500" step="0.5">
+            </div>
+            <div class="calc-row">
+              <label for="food-type">Food type</label>
+              <select id="food-type" class="calc-select">
+                <option value="20">General / mixed</option>
+                <option value="19">Chocolate / sweets</option>
+                <option value="20">Alcohol</option>
+                <option value="22">Cooking oil / butter</option>
+                <option value="18">Bread / cereal</option>
+              </select>
+            </div>
+            <button type="submit" class="calc-button">Convert</button>
+          </form>
+          <div class="calc-result" id="result">
+            <span class="calc-result-empty">Enter syns and hit convert.</span>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Rough estimate. Slimming World uses a proprietary formula — this converter approximates from published data. Not affiliated with Slimming World.</p>
+      </div>
+    </div>
+    <div class="article-body">
+      <h2>The 1 syn &asymp; 20 kcal rule — when it works, when it does not</h2>
+      <p>For most everyday foods — a packet of crisps, a biscuit, a glass of wine — multiplying syns by 20 gives a calorie figure within 10 % of reality. The rule breaks down at the extremes: pure fat (cooking oil, butter) packs more energy per syn because Slimming World already penalises it for low satiety, while starchy foods with fibre come in slightly under.</p>
+
+      <h2>Why macro composition changes the conversion</h2>
+      <p>Slimming World's syn formula weights fat content heavily. A tablespoon of olive oil (around 120 kcal) scores 6 syns — that is 20 kcal per syn. But a tablespoon of butter (around 100 kcal) also scores roughly 6 syns at about 17 kcal per syn, because butter is almost pure saturated fat. Meanwhile, a slice of white bread (around 80 kcal) at 4.5 syns converts to roughly 18 kcal per syn because its energy comes mostly from starch.</p>
+      <p>The takeaway: if you are eating mostly from the chocolate, crisps, and alcohol categories, 20 kcal per syn is reliable. For oils and spreads, expect the real calorie count to be slightly higher than the simple multiplication suggests.</p>
+
+      <h2>Common foods in syns and calories</h2>
+      <div class="key-facts">
+        <div class="fact">
+          <span class="fact-num">Cadbury Freddo</span>
+          <span class="fact-headline">5.5 syns &asymp; 95 kcal</span>
+          <span class="fact-body">17.3 kcal per syn</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Bag of Walkers crisps (25 g)</span>
+          <span class="fact-headline">6 syns &asymp; 132 kcal</span>
+          <span class="fact-body">22 kcal per syn</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Large glass wine (250 ml)</span>
+          <span class="fact-headline">9 syns &asymp; 190 kcal</span>
+          <span class="fact-body">21.1 kcal per syn</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">1 tbsp olive oil</span>
+          <span class="fact-headline">6 syns &asymp; 120 kcal</span>
+          <span class="fact-body">20 kcal per syn</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">2 digestive biscuits</span>
+          <span class="fact-headline">7 syns &asymp; 140 kcal</span>
+          <span class="fact-body">20 kcal per syn</span>
+        </div>
+      </div>
+
+      <h2>Plentii is not affiliated with Slimming World</h2>
+      <p>This tool is an independent estimate built from publicly available nutritional data. Slimming World is a registered trademark of Miles-Bramwell Executive Services Limited. We have no relationship with them. For official syn values, use the Slimming World app or consult your group consultant.</p>
+
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is 1 syn exactly 20 calories?</summary>
+          <div class="answer">Not exactly. The 20 kcal per syn figure is a rough average. Slimming World calculates syns using a proprietary formula that weighs energy density, fat, sugar, and satiety. For most mixed foods the 20 kcal approximation is close, but high-fat items like butter can run higher (around 22 kcal per syn) and starchy items lower (around 18 kcal per syn).</div>
+        </details>
+        <details class="faq-item">
+          <summary>Why do some foods have more syns than their calorie count suggests?</summary>
+          <div class="answer">Slimming World penalises energy-dense, low-satiety foods. A tablespoon of cooking oil is calorie-dense but does not fill you up, so it scores proportionally more syns than, say, a slice of bread with similar calories but more volume and fibre.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use this converter to track calories on Slimming World?</summary>
+          <div class="answer">You can use it for a rough sense-check, but the two systems are not interchangeable. Slimming World categorises whole food groups as free or speed foods — those carry zero syns regardless of calories. This converter only handles syn-counted items.</div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    {label:'Guide', title:'What is a syn?', description:'How Slimming World syns work and why they differ from calories.', href:'/guides/what-is-a-syn/'},
+    {label:'Tool', title:'WW points to calories', description:'Convert Weight Watchers points across all three eras.', href:'/tools/ww-points-to-calories-converter/'},
+    {label:'Tool', title:'TDEE calculator', description:'Find your maintenance calories with UK-friendly units.', href:'/tools/tdee-calculator-uk/'}
+  ]} />
+</Base>
+<script>
+  document.getElementById('syns-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const syns = parseFloat((document.getElementById('syns') as HTMLInputElement).value);
+    const factor = parseFloat((document.getElementById('food-type') as HTMLSelectElement).value);
+    const kcal = Math.round(syns * factor);
+    const foodLabel = (document.getElementById('food-type') as HTMLSelectElement).selectedOptions[0].text;
+
+    document.getElementById('result')!.innerHTML = `
+      <span class="calc-result-headline">Approximate calories</span>
+      <span class="calc-result-primary">${kcal.toLocaleString()}<span class="unit">kcal</span></span>
+      <div class="calc-result-row"><span class="label">Syns entered</span><span class="value">${syns}</span></div>
+      <div class="calc-result-row"><span class="label">Food type</span><span class="value">${foodLabel}</span></div>
+      <div class="calc-result-row"><span class="label">Conversion factor</span><span class="value">${factor} kcal/syn</span></div>
+      <div class="calc-translate">
+        <span class="calc-translate-label">Context</span>
+        <div class="calc-translate-grid">
+          <div class="pill"><span class="lab">% of 2,000 kcal</span><span class="val">${Math.round(kcal / 2000 * 100)}%</span></div>
+          <div class="pill"><span class="lab">WW pts (approx)</span><span class="val">~${Math.round(kcal / 35)}</span></div>
+        </div>
+      </div>
+    `;
+  });
+</script>

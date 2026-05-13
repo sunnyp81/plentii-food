@@ -1,0 +1,56 @@
+---
+import '../../../styles/global.css';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import Related from '../../../components/Related.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Plentii Editorial",
+    "url": "https://plentii.food/about/team/plentii-editorial/",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Plentii",
+      "url": "https://plentii.food/"
+    }
+  }
+];
+---
+<Base title="Plentii Editorial — Institutional Author — Plentii" description="Plentii Editorial is the institutional author byline for content produced by the plentii team." schema={schema}>
+  <main class="pt-16 pb-20">
+    <div class="article-body">
+      <Breadcrumb crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
+        { label: 'Team', href: '/about/team/' },
+        { label: 'Plentii Editorial' }
+      ]} />
+
+      <h1 class="!text-[clamp(2.4rem,2rem+2vw,3.6rem)] mb-3">Plentii Editorial</h1>
+      <span class="inline-block px-4 py-1.5 bg-green-soft text-green text-[0.82rem] font-mono uppercase tracking-widest rounded-full mb-8">Institutional Author</span>
+
+      <p>Plentii Editorial is the collective byline for content produced by the plentii team. It appears on pages where no single individual author is the primary contributor, or where the content represents the editorial position of plentii as a whole.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Editorial standards</h2>
+      <ul>
+        <li>All content published under this byline follows the standards set out in the <a href="/about/editorial-policy/">editorial policy</a>.</li>
+        <li>Factual claims are sourced from published data (see <a href="/about/methodology/">methodology</a>).</li>
+        <li>Content is reviewed by the editor before publication.</li>
+        <li>Health-condition content is flagged for clinical review where a reviewer is available.</li>
+      </ul>
+
+      <h2>Why an institutional byline</h2>
+      <p>Many content sites use fictional author personas with stock photos. Plentii does not. Where a named individual writes or reviews content, they are credited by name. Where no single individual is the primary author, the institutional byline is used. This is more honest than inventing people.</p>
+    </div>
+  </main>
+
+  <Related items={[
+    { label: 'Person', title: 'Sunny Patel', description: 'Founder and editor. MBA, SEO consultant, not a clinical contributor.', href: '/about/team/sunny-patel/' },
+    { label: 'People', title: 'Team', description: 'The full team behind plentii and the roles we are hiring for.', href: '/about/team/' },
+    { label: 'Standards', title: 'Editorial Policy', description: 'How content is researched, written, reviewed, and corrected.', href: '/about/editorial-policy/' }
+  ]} />
+</Base>

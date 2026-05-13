@@ -1,0 +1,208 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Calorie Surplus and Recomp UK — Lean Bulk Guide",
+    "description": "Building muscle needs energy — but how much? Lean bulk vs recomposition vs traditional bulk, with the maths and the realistic timelines.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/calorie-surplus-and-recomp/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many extra calories do I need to build muscle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A surplus of 5-15% above TDEE (roughly 200-500 kcal per day) is sufficient for most people. Larger surpluses do not build muscle faster — they just add more fat. A man with a TDEE of 2,800 kcal would aim for 2,940-3,220 kcal. A woman with a TDEE of 2,000 kcal would aim for 2,100-2,300 kcal." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I build muscle and lose fat at the same time?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, this is called body recomposition. It works best for beginners (first 6-12 months of resistance training), people returning to training after a break, anyone with high body fat (20%+ for men, 30%+ for women), and people on performance-enhancing drugs. For trained intermediates at a normal body fat, it is too slow to be practical — a bulk/cut cycle is more efficient." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much muscle can I gain in a year?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Using the McDonald model: a male beginner can expect roughly 9-11 kg of muscle in year one, 4.5-5.5 kg in year two, 2-3 kg in year three, and 1-1.5 kg in year four and beyond. Women can expect roughly half these rates. These are upper estimates assuming consistent training, adequate nutrition, and sufficient sleep." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a dirty bulk?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A dirty bulk is eating in a large calorie surplus (30-50%+ above TDEE) with no particular attention to food quality. It maximises muscle gain speed slightly but adds far more fat than a lean bulk. A typical outcome: 10 kg of weight gain over 6 months, of which only 2-3 kg is muscle. The subsequent cut to remove 7-8 kg of fat takes longer than the bulk and risks losing some of the muscle gained." }
+      }
+    ]
+  }
+];
+---
+<Base title="Calorie Surplus and Recomp UK — Lean Bulk Guide — Plentii" description="Building muscle needs energy — but how much? Lean bulk vs recomposition vs traditional bulk, with the maths and the realistic timelines." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"Calorie surplus & recomp"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Practical &middot; 9 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">Calorie surplus and recomposition.</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Build muscle without burying it in fat &mdash; the three approaches, the maths, and the timelines that are actually true.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Practical Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: ISSN &middot; NSCA &middot; McDonald Model</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Half the people who land on a nutrition site need to eat less. The other half need to eat more &mdash; they want to build muscle, recover better, or fill out a frame that years of undereating or cardio have whittled down. If that is you, the question is not whether to eat a surplus, but how big, for how long, and which of the three approaches fits your situation.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>The three approaches</h2>
+
+      <p><strong>Traditional bulk.</strong> Eat in a large surplus (20&ndash;30%+ above TDEE), train hard, accept that you will gain significant fat alongside muscle. When you have added enough mass, switch to a prolonged cut to strip the fat. This was the default bodybuilding approach for decades. It works &mdash; you will get bigger &mdash; but you will also spend a lot of time being heavier and softer than you want to be, and the subsequent cut is long and psychologically draining.</p>
+      <p>The main advantage of a traditional bulk is simplicity: you do not need to track closely, you never feel hungry, and your training performance is excellent because energy is abundant. The main disadvantage is that most of the weight you gain is fat, not muscle. For every kilogram of muscle gained, you typically add 2&ndash;3 kg of fat (or more if the surplus is excessive).</p>
+
+      <p><strong>Lean bulk.</strong> Eat in a small, controlled surplus (5&ndash;15% above TDEE, roughly 200&ndash;500 kcal/day). Train with progressive overload. Track weight weekly and adjust calories so that weight gain stays within 0.25&ndash;0.5 kg per week for men, 0.12&ndash;0.25 kg per week for women. The fat-to-muscle gain ratio is much better: roughly 1:1 in a good lean bulk versus 2&ndash;3:1 in a traditional bulk.</p>
+      <p>The downside is that it requires more precision. You need to weigh yourself regularly, adjust calories monthly, and accept that visible progress is slow. But the payoff is that you spend less time cutting afterward and stay leaner year-round.</p>
+
+      <p><strong>Recomposition.</strong> Eat at or slightly below maintenance while resistance training. The goal is to lose fat and build muscle simultaneously, without the scale moving much. Your weight stays roughly the same, but your body composition improves: measurements change, clothes fit differently, and the mirror gradually shifts.</p>
+      <p>Recomposition is real, but it is slow, and it does not work equally well for everyone (more on that below).</p>
+
+      <h2>How big should the surplus be?</h2>
+      <p>Muscle protein synthesis &mdash; the biological process of building new muscle tissue &mdash; has a ceiling. You cannot force faster growth by eating more than that ceiling allows. Extra calories beyond what your body can use for muscle growth are stored as fat. The practical implication: a modest surplus builds muscle at the same rate as a large one, with much less fat gain.</p>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing approximate muscle gain by training year: Year 1 men 9-11 kg, women 4.5-5.5 kg; Year 2 men 4.5-5.5 kg, women 2.25-2.75 kg; Year 3 men 2-3 kg, women 1-1.5 kg; Year 4+ men 1-1.5 kg, women 0.5-0.75 kg">
+          <text x="300" y="20" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8B928D" letter-spacing="0.08em">REALISTIC ANNUAL MUSCLE GAIN (McDONALD MODEL)</text>
+          <g transform="translate(0,40)">
+            <text x="80" y="22" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Year 1</text>
+            <rect x="85" y="8" width="360" height="14" rx="2" fill="#2D5A3D"/>
+            <text x="450" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2D5A3D">9&ndash;11 kg</text>
+            <rect x="85" y="26" width="180" height="14" rx="2" fill="#C68F1F"/>
+            <text x="270" y="38" font-family="'JetBrains Mono', monospace" font-size="10" fill="#C68F1F">4.5&ndash;5.5 kg</text>
+
+            <text x="80" y="65" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Year 2</text>
+            <rect x="85" y="51" width="180" height="14" rx="2" fill="#2D5A3D"/>
+            <text x="270" y="63" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2D5A3D">4.5&ndash;5.5 kg</text>
+            <rect x="85" y="69" width="90" height="14" rx="2" fill="#C68F1F"/>
+            <text x="180" y="81" font-family="'JetBrains Mono', monospace" font-size="10" fill="#C68F1F">2.25&ndash;2.75 kg</text>
+
+            <text x="80" y="108" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Year 3</text>
+            <rect x="85" y="94" width="90" height="14" rx="2" fill="#2D5A3D"/>
+            <text x="180" y="106" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2D5A3D">2&ndash;3 kg</text>
+            <rect x="85" y="112" width="45" height="14" rx="2" fill="#C68F1F"/>
+            <text x="135" y="124" font-family="'JetBrains Mono', monospace" font-size="10" fill="#C68F1F">1&ndash;1.5 kg</text>
+
+            <text x="80" y="151" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Year 4+</text>
+            <rect x="85" y="137" width="45" height="14" rx="2" fill="#2D5A3D"/>
+            <text x="135" y="149" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2D5A3D">1&ndash;1.5 kg</text>
+            <rect x="85" y="155" width="22" height="14" rx="2" fill="#C68F1F"/>
+            <text x="112" y="167" font-family="'JetBrains Mono', monospace" font-size="10" fill="#C68F1F">0.5&ndash;0.75 kg</text>
+          </g>
+          <g transform="translate(400,180)">
+            <rect x="0" y="0" width="10" height="10" rx="2" fill="#2D5A3D"/><text x="15" y="9" font-family="'Inter', sans-serif" font-size="9" fill="#4A524D">Men</text>
+            <rect x="50" y="0" width="10" height="10" rx="2" fill="#C68F1F"/><text x="65" y="9" font-family="'Inter', sans-serif" font-size="9" fill="#4A524D">Women</text>
+          </g>
+        </svg>
+        <p class="viz-caption">Muscle gain slows dramatically after the first year. These are upper estimates with optimal training and nutrition.</p>
+      </div>
+
+      <p>Using the McDonald model: a male beginner can gain roughly 9&ndash;11 kg of muscle in year one. That is about 0.75&ndash;0.9 kg per month. To support that rate, you need a surplus of roughly 200&ndash;400 kcal per day &mdash; far less than most people think. A 5&ndash;15% surplus above TDEE is the recommendation for a lean bulk.</p>
+      <p>For a man with a TDEE of 2,800 kcal, that is 2,940&ndash;3,220 kcal per day. For a woman with a TDEE of 2,000 kcal, that is 2,100&ndash;2,300 kcal per day. Monitor your weight weekly. If you are gaining faster than 0.5 kg per week (men) or 0.25 kg per week (women), reduce the surplus slightly &mdash; the excess is going to fat.</p>
+
+      <h2>Realistic muscle gain rates</h2>
+      <p>The McDonald model is the most widely cited framework. It assumes consistent training (3&ndash;5 days per week, progressive overload), adequate nutrition (surplus + sufficient protein), and normal hormone status.</p>
+      <ul>
+        <li><strong>Year 1 (beginner):</strong> Men ~9&ndash;11 kg, Women ~4.5&ndash;5.5 kg</li>
+        <li><strong>Year 2 (intermediate):</strong> Men ~4.5&ndash;5.5 kg, Women ~2.25&ndash;2.75 kg</li>
+        <li><strong>Year 3 (intermediate-advanced):</strong> Men ~2&ndash;3 kg, Women ~1&ndash;1.5 kg</li>
+        <li><strong>Year 4+ (advanced):</strong> Men ~1&ndash;1.5 kg, Women ~0.5&ndash;0.75 kg</li>
+      </ul>
+      <p>These numbers are upper-end estimates. Genetics, sleep quality, stress levels, age, and training programme quality all affect the actual outcome. Most men will not gain 11 kg of muscle in their first year. Most will gain 5&ndash;8 kg, which is still a dramatic transformation.</p>
+      <p>Women build muscle at roughly 50% of the male rate, primarily because of lower testosterone levels. This is not a disadvantage &mdash; it simply means expectations need to be calibrated accordingly. A woman who gains 3&ndash;4 kg of muscle in her first year has made excellent progress.</p>
+
+      <h2>Recomposition: when it works and when it does not</h2>
+      <p>Body recomposition &mdash; losing fat and gaining muscle simultaneously &mdash; is possible, but not for everyone.</p>
+      <p><strong>Good candidates for recomposition:</strong></p>
+      <ul>
+        <li>True beginners (first 6&ndash;12 months of resistance training). The "newbie gains" effect means you can build muscle at an accelerated rate even without a surplus.</li>
+        <li>People returning to training after a break of 3+ months. Muscle memory (myonuclear retention) allows faster regrowth.</li>
+        <li>People with high body fat (above 20% for men, above 30% for women). Your body has ample stored energy to fuel muscle growth without needing dietary surplus.</li>
+        <li>People using performance-enhancing drugs (not a recommendation, but a reality that changes the biology).</li>
+      </ul>
+      <p><strong>Poor candidates for recomposition:</strong></p>
+      <ul>
+        <li>Trained intermediates and advanced lifters at a normal body fat. The rate of possible muscle gain is too slow for recomposition to be measurable.</li>
+        <li>People who are already lean (below 12% for men, below 20% for women). There is not enough stored fat to fuel muscle growth without dietary surplus.</li>
+        <li>People who want visible results quickly. Recomposition is the slowest path.</li>
+        <li>People over 50 without significant training history. The anabolic resistance of ageing makes surplus-fuelled training more effective than recomposition.</li>
+      </ul>
+
+      <h2>Macros for a surplus</h2>
+      <p>Protein is still the priority. The same 1.6&ndash;2.2 g/kg recommendation from our <a href="/guides/what-are-macros/">macros guide</a> applies, and arguably the lower end (1.6&ndash;1.8 g/kg) is sufficient during a surplus because you are not in an energy deficit and muscle protein breakdown is lower.</p>
+
+      <div class="callout">
+        <strong>Example: 75 kg male, lean bulk</strong>
+        TDEE: 2,700 kcal. Surplus target: 2,970 kcal (+10%).<br/>
+        Protein: 75 &times; 1.8 = 135 g &times; 4 = 540 kcal (18%)<br/>
+        Fat: 2,970 &times; 0.28 = 832 kcal &div; 9 = 92 g (28%)<br/>
+        Carbs: 2,970 &minus; 540 &minus; 832 = 1,598 kcal &div; 4 = 400 g (54%)
+      </div>
+
+      <p>Notice the high carbohydrate intake. This is intentional. Carbs fuel training performance (glycogen), support recovery, and spare protein from being used as fuel. During a surplus phase, carbs are your friend.</p>
+
+      <h2>Surplus in your 40s and 50s</h2>
+      <p>Building muscle after 40 is absolutely possible, but two factors change.</p>
+      <p><strong>Anabolic resistance.</strong> As you age, your muscles become less responsive to the anabolic (muscle-building) signal from both training and protein. The practical fix: increase protein slightly (2.0+ g/kg), ensure leucine-rich sources (dairy, eggs, meat), and consider distributing protein across 4 meals rather than 2&ndash;3.</p>
+      <p><strong>Recovery.</strong> Connective tissue takes longer to repair. Joint stress accumulates faster. Training volume may need to be lower than in your 20s, with more recovery days. This does not mean lighter weights &mdash; it means smarter programming. Three well-designed training days per week will outperform five mediocre ones.</p>
+      <p>The surplus size does not need to change. A 5&ndash;15% surplus still works. The rate of muscle gain will be slower (closer to the Year 3&ndash;4 numbers in the McDonald model), but it is still meaningful. A 50-year-old man who gains 2 kg of muscle over a year has made a real difference to his metabolism, strength, bone density, and quality of life.</p>
+
+      <h2>Why dirty bulks backfire</h2>
+      <p>A dirty bulk (eating 30&ndash;50%+ above TDEE, often with no attention to food quality) is tempting because it is easy. You eat whatever you want, whenever you want, and the scale goes up satisfyingly fast.</p>
+      <p>Here is the maths on why it is a bad strategy for most people:</p>
+      <p>A man bulks for 6 months at a 1,000 kcal/day surplus. He gains 10 kg of bodyweight. Of that, approximately 2.5&ndash;3 kg is muscle (because you cannot force faster growth regardless of how much you eat) and 7&ndash;7.5 kg is fat.</p>
+      <p>He now needs to cut 7&ndash;7.5 kg of fat. At a 500 kcal/day deficit, that takes roughly 15&ndash;16 weeks. During that cut, he will likely lose 0.5&ndash;1 kg of the muscle he built, especially if protein is not prioritised. Net result after the full bulk-cut cycle: roughly 1.5&ndash;2.5 kg of net muscle gain, after 6 months of bulking plus 4 months of cutting &mdash; 10 months total.</p>
+      <p>Compare to a lean bulk over the same period: 10 months at a 300 kcal surplus, gaining 0.3&ndash;0.4 kg per week. Total weight gain: roughly 5&ndash;6 kg, of which 2.5&ndash;3 kg is muscle and 2.5&ndash;3 kg is fat. A brief 6&ndash;8 week mini-cut removes the fat. Net result: roughly the same muscle gain, but you spent 10 months looking and feeling better instead of 6 months bloated and 4 months dieting.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many extra calories do I need to build muscle?</summary>
+          <div class="answer">
+            <p>A surplus of 5&ndash;15% above TDEE (roughly 200&ndash;500 kcal per day) is sufficient for most people. Larger surpluses do not build muscle faster &mdash; they just add more fat. A man with a TDEE of 2,800 kcal would aim for 2,940&ndash;3,220 kcal. A woman with a TDEE of 2,000 kcal would aim for 2,100&ndash;2,300 kcal.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I build muscle and lose fat at the same time?</summary>
+          <div class="answer">
+            <p>Yes, this is called body recomposition. It works best for beginners (first 6&ndash;12 months of resistance training), people returning to training after a break, anyone with high body fat (20%+ for men, 30%+ for women), and people on performance-enhancing drugs. For trained intermediates at a normal body fat, it is too slow to be practical &mdash; a bulk/cut cycle is more efficient.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How much muscle can I gain in a year?</summary>
+          <div class="answer">
+            <p>Using the McDonald model: a male beginner can expect roughly 9&ndash;11 kg of muscle in year one, 4.5&ndash;5.5 kg in year two, 2&ndash;3 kg in year three, and 1&ndash;1.5 kg in year four and beyond. Women can expect roughly half these rates. These are upper estimates assuming consistent training, adequate nutrition, and sufficient sleep.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is a dirty bulk?</summary>
+          <div class="answer">
+            <p>A dirty bulk is eating in a large calorie surplus (30&ndash;50%+ above TDEE) with no particular attention to food quality. It maximises muscle gain speed slightly but adds far more fat than a lean bulk. A typical outcome: 10 kg of weight gain over 6 months, of which only 2&ndash;3 kg is muscle. The subsequent cut to remove 7&ndash;8 kg of fat takes longer than the bulk and risks losing some of the muscle gained.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "Macros calculator", description: "Calculate your personalised protein, fat, and carb targets.", href: "/tools/macros-calculator/" },
+    { label: "Guide", title: "What are macros?", description: "Protein, fat, and carbs explained for UK adults.", href: "/guides/what-are-macros/" },
+    { label: "Guide", title: "Men's nutrition", description: "Nutrition fundamentals for UK men across all life stages.", href: "/guides/mens-nutrition/" }
+  ]} />
+</Base>

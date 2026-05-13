@@ -1,0 +1,228 @@
+---
+import '../../styles/global.css';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What We Mean by Good Eating",
+    "description": "The full case for eating well as a UK adult without picking a diet tribe. Why every metric is partial, why most diets work for the same reason, and what to do once you stop counting someone else's currency.",
+    "author": {
+      "@type": "Organization",
+      "name": "Plentii"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Plentii",
+      "url": "https://plentii.food/"
+    },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-15"
+  }
+];
+
+const relatedItems = [
+  { label: 'Tools', title: 'Free calculators', description: 'TDEE, macros, BMI, syns-to-calories, WW-to-calories, alcohol units. All UK-native.', href: '/#tools' },
+  { label: 'Metrics', title: '15 metrics explained', description: 'Every dieting metric, what it measures, who uses it, and where it breaks down.', href: '/#metrics' },
+  { label: 'Migration', title: 'Migration guides', description: 'Leaving Slimming World, WW, or keto? Translate what you know into what comes next.', href: '/#bridges' },
+];
+---
+
+<Base title="What We Mean by Good Eating — Plentii Manifesto" description="The full case for eating well as a UK adult without picking a diet tribe. Why every metric is partial, why most diets work for the same reason, and what to do once you stop counting someone else's currency." schema={schema}>
+
+  <article class="pt-16 pb-20">
+
+    <!-- Header -->
+    <header class="article-header max-w-[680px] mx-auto px-6 mb-12">
+      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+      <p class="article-eyebrow font-mono text-[0.78rem] uppercase tracking-[0.14em] text-amber mb-4">The plentii manifesto</p>
+      <h1 class="max-w-[14ch] mb-6" style="font-size: clamp(2.8rem, 2rem + 4vw, 5rem);">What we mean by good eating.</h1>
+      <p class="text-ink-soft text-[1.25rem] leading-relaxed max-w-[48ch] font-display" style="font-weight: 350; letter-spacing: -0.01em;">Every diet teaches a different metric and claims theirs is the truth. None of them is. The honest answer is more interesting — and a lot more freeing.</p>
+      <p class="article-meta font-mono text-[0.78rem] text-ink-faint tracking-wide mt-6">Plentii editorial · ~14 min read · Updated April 2026</p>
+    </header>
+
+    <!-- Body -->
+    <div class="article-body">
+
+      <p class="lede">Most adults in the UK have been on a diet. Many have been on several. Each programme teaches you to count something different — calories, syns, points, macros, net carbs, units, portions, exchanges, blocks — and each one implies, or outright states, that their number is the number that matters. Slimming World says count syns and fill up on free foods. Weight Watchers says count points and they'll penalise saturated fat for you. Keto says ignore calories and watch net carbs. IIFYM says forget food quality and hit your macros. The NHS says eat from the Eatwell Plate and don't overthink it. They can't all be right. And yet millions of people have lost weight on every single one of them.</p>
+
+      <p>That contradiction is what plentii exists to resolve. Not by inventing a sixteenth metric and pretending it's the real one, but by translating between all fifteen. Every food in our database carries every score. Every calculator converts one system into another. Every guide explains what a given metric is actually measuring, where it's useful, and where it falls apart. The goal is not to tell you which diet to follow. The goal is to make you fluent enough in all of them that you can build your own approach — one that fits your life, your preferences, your health needs, and your budget.</p>
+
+      <p>This page is the long version of that argument. It explains why we think tribalism in nutrition is a waste of energy, what the evidence actually says about eating well, and what plentii is building to help. If you'd rather skip ahead and use the tools, nobody's offended. But if you've ever felt confused by contradictory advice, or wondered why every programme seems to work for six months and then stop, this is the page that answers those questions.</p>
+
+      <h2>The problem with picking a tribe</h2>
+
+      <p>Diets have become identities. People don't just follow Slimming World — they <em>are</em> Slimming World. They go to group, they post syn values on Facebook, they organise their weekly shop around free foods, and they defend the system against anyone who suggests it might not be the only way. The same is true for keto, for carnivore, for veganism-as-weight-loss, for Weight Watchers, for IIFYM, for whatever Noom is calling itself this quarter. Every programme builds a community, a vocabulary, and a worldview. That's not an accident. Community drives adherence, and adherence is the only thing that actually determines whether a diet works.</p>
+
+      <p>The problem is that every tribe's internal logic is coherent enough to feel like truth — and different enough from every other tribe to feel like opposition. Slimming World teaches that pasta is free and cheese is expensive. Keto teaches that cheese is free and pasta is poison. They can't both be objectively correct, and yet people lose weight on both. The meta-analyses are clear on this: when you control for adherence and calorie intake, no macronutrient split consistently outperforms any other for fat loss. Low-carb beats low-fat in some trials. Low-fat beats low-carb in others. When you zoom out far enough, the confidence intervals overlap and the effect sizes converge. The variable that actually predicts outcomes is not the ratio of protein to carbohydrate. It's whether the person kept doing it.</p>
+
+      <p>That finding should liberate people, but it doesn't, because it undermines the commercial model of every diet brand. If adherence is the real variable, then the best diet is whichever one you'll actually sustain — and that might not be the one that charges you £25 a month for group sessions, or £15 a month for an app, or £200 for a 12-week transformation plan. The industry has a structural incentive to keep you inside the tribe, because the moment you realise that all roads lead to the same thermodynamic destination, you stop paying for the map.</p>
+
+      <blockquote>Adherence beats optimisation. The best diet is the one you'll actually keep doing.</blockquote>
+
+      <p>That's not a licence to eat badly and call it sustainable. It's a recognition that arguing about whether 40/30/30 beats 50/25/25 is a rounding error compared to the question of whether you'll still be doing this in January. And it's an argument for building tools that help you understand <em>all</em> the systems — so that when life changes and your old approach stops fitting, you can migrate to a new one without starting from zero.</p>
+
+      <p>Plentii's job is to make that migration easy. We don't care which tribe you came from. We care that you can read the data, compare the systems, and pick what works now — not what worked for someone else ten years ago.</p>
+
+      <h2>What every metric is actually measuring</h2>
+
+      <p>Before you can translate between systems, you need to understand what each one is tracking. Most people on Slimming World couldn't tell you how a syn is calculated. Most people on Weight Watchers couldn't explain the difference between ProPoints and Personal Points. That's not stupidity — it's by design. Proprietary metrics are deliberately opaque because transparency would reveal that they're all approximations of the same underlying energy balance. Here's what each one is actually doing.</p>
+
+      <h3>Calories</h3>
+      <p><strong>Calories</strong> are the base unit. One kilocalorie is the energy needed to raise one kilogram of water by one degree Celsius. In practice, the calorie counts on food labels are derived from the Atwater system, which assigns 4 kcal per gram to protein, 4 kcal per gram to carbohydrate, 9 kcal per gram to fat, and 7 kcal per gram to alcohol. Those factors are averages — actual metabolic yield varies by food matrix, fibre content, processing, and individual gut microbiome — but they're close enough to be useful for weight management at population level. Calories are the one metric that every other system is ultimately derived from, even when the branding tries to hide it.</p>
+
+      <blockquote>Two 500-kcal meals can leave you very differently fed. A chicken salad and a Snickers bar contain similar energy, but the salad has more protein, more fibre, more volume, and a much higher satiety index. Calories tell you the energy. They don't tell you the experience.</blockquote>
+
+      <h3>Syns</h3>
+      <p><strong>Syns</strong> are Slimming World's proprietary unit. One syn is roughly 20 kcal, though the conversion is not officially acknowledged by the programme. Members are given a daily syn allowance (typically 15) and told to fill up on "free foods" — lean protein, pasta, rice, potatoes, fruit, vegetables — without counting them. The system works because the free foods are generally high-volume, high-satiety foods that make it hard to overeat, while the syn budget limits energy-dense treats. The vocabulary is the trap: once you think in syns rather than calories, you can't easily compare your intake with anyone outside the tribe, and you can't use any tool that doesn't speak syn. That's the lock-in.</p>
+
+      <h3>WW Points</h3>
+      <p><strong>WW Points</strong> have been through at least four generations. The original Points system was a simple calorie-and-fat formula. ProPoints added protein and fibre. SmartPoints shifted the weighting toward sugar and saturated fat, penalising them more heavily. Personal Points, the current version, customises the zero-point food list per user based on a questionnaire. At every iteration, the underlying mechanics are the same: take the calorie content, adjust it by macronutrient composition, and express the result in a proprietary number that can only be decoded inside the WW ecosystem. Each generation is a recalibration of the same energy-balance proxy, tuned to reflect whatever nutritional emphasis is fashionable at the time.</p>
+
+      <h3>Macros</h3>
+      <p><strong>Macros</strong> — protein, fat, and carbohydrate, expressed in grams — are what gym-goers, bodybuilders, and the IIFYM (If It Fits Your Macros) community track. The advantage of macros over raw calories is composition: two meals can have the same calorie count but very different macro profiles, and the macro profile affects muscle protein synthesis, satiety, hormonal response, and performance. The disadvantage is complexity. Tracking three numbers instead of one requires more effort, more data, and more tolerance for imprecision. For most people who aren't training seriously, tracking macros is overkill. For people who are, it's the minimum viable data.</p>
+
+      <h3>Net carbs</h3>
+      <p><strong>Net carbs</strong> are total carbohydrate minus fibre (and sometimes minus sugar alcohols), and they're the metric that defines the keto and low-carb world. The logic is that fibre isn't digested and therefore doesn't raise blood sugar, so it shouldn't count toward your carb budget. This is broadly true, though the exemption for sugar alcohols is more complicated — some (erythritol) genuinely don't spike glucose, while others (maltitol) do. Keto typically targets 20–50 g net carbs per day to maintain ketosis. The net-carb framing is useful for people managing blood sugar. It's misleading when it implies that a food with zero net carbs has zero metabolic impact, which isn't the case for high-fat, high-calorie keto snacks.</p>
+
+      <h3>Alcohol units</h3>
+      <p><strong>UK NHS alcohol units</strong> measure pure ethanol. One unit is 10 ml (8 g) of pure alcohol. The NHS recommends no more than 14 units per week, spread over three or more days. Units are calculated as volume (ml) × ABV (%) ÷ 1,000. A pint of 4% lager is 2.3 units. A 175 ml glass of 13% wine is 2.3 units. A 25 ml shot of 40% spirit is 1 unit. Alcohol is unique among nutrients because it has no metabolic use — the body treats it as a toxin and prioritises its metabolism over everything else, which is why drinking stalls fat loss even when calorie targets are nominally hit.</p>
+
+      <h3>GI and GL</h3>
+      <p><strong>Glycaemic index (GI)</strong> ranks foods by how quickly they raise blood glucose on a scale of 0–100, relative to pure glucose. <strong>Glycaemic load (GL)</strong> adjusts that ranking by portion size: GL = GI × carbs per serving ÷ 100. A watermelon has a high GI (~76) but a low GL (~5) because a serving contains little carbohydrate. GI/GL is useful for diabetics and for understanding blood-sugar response, but it's a poor proxy for overall diet quality — low-GI doesn't mean low-calorie, and the GI of a food changes depending on what you eat it with.</p>
+
+      <h3>Diabetic exchanges</h3>
+      <p><strong>Diabetic exchanges</strong> group foods into categories (starch, fruit, milk, vegetable, protein, fat) where one exchange within a category delivers roughly the same macronutrient and calorie content. The system was designed by the American Dietetic Association to simplify meal planning for people with diabetes. One starch exchange is 15 g carbohydrate, 3 g protein, and 80 kcal. One fruit exchange is 15 g carbohydrate and 60 kcal. The system predates apps and is less common in the UK, but it's still used in clinical settings and is a useful framework for people who want structure without weighing every ingredient.</p>
+
+      <h3>Satiety index</h3>
+      <p><strong>The satiety index</strong> comes from a 1995 study by Susanna Holt at the University of Sydney. Participants ate 240-kcal portions of 38 foods and reported their fullness every 15 minutes for two hours. White bread was set as the baseline (100). Boiled potatoes scored 323 — the highest of any food tested. Croissants scored 47 — the lowest. The index correlates with protein content, fibre, water volume, and energy density, but it's never been replicated at scale. It's a rough guide, not a precision tool — but it's a useful corrective for anyone who thinks all calories are equally satisfying.</p>
+
+      <div class="callout">
+        <strong>The shorter version</strong>
+        Every metric measures a different facet of the same food. Calories measure energy. Macros measure composition. Syns and points are proprietary proxies for energy with behavioural guardrails. Net carbs measure insulin-relevant carbohydrate. Units measure ethanol. GI/GL measures blood-sugar response. Satiety measures fullness. None of them is the whole picture. All of them are useful in context.
+      </div>
+
+      <h2>So what does "good eating" actually mean?</h2>
+
+      <p>If every metric is partial, then defining "good eating" requires stepping back from any single system and asking what the totality of the evidence supports. The answer is less dramatic than most diet books would have you believe — and more practical than most nutrition science communicates. Here are five things that the evidence consistently supports, regardless of which tribe you ask.</p>
+
+      <h3>1. Protein matters more than most people realise</h3>
+      <p>Protein is the most satiating macronutrient per calorie. It has the highest thermic effect of food (20–30% of protein calories are burned during digestion, versus 5–10% for carbs and 0–3% for fat). It's the only macronutrient that directly supports muscle protein synthesis, which becomes increasingly critical after 40 when sarcopenia — age-related muscle loss — starts to accelerate. The evidence supports 1.6–2.2 g of protein per kg of body weight per day for people who train, and at least 1.2 g/kg for people who don't. Most UK adults eat far less than this. Hitting a higher protein target almost always improves satiety, body composition, and metabolic health, regardless of whether the rest of your diet is low-carb, low-fat, or anything in between.</p>
+
+      <h3>2. Mostly real food, most of the time</h3>
+      <p>The ultra-processed food (UPF) evidence is now substantial enough to take seriously, even if the mechanisms are still debated. The NOVA classification system categorises foods into four groups, and Group 4 — ultra-processed — includes foods where the primary ingredients are industrial formulations (emulsifiers, hydrolysed proteins, hydrogenated oils, maltodextrin) rather than recognisable whole foods. UK adults derive roughly 57% of their calories from UPF, the highest proportion in Europe. Epidemiological studies consistently associate high UPF intake with obesity, type 2 diabetes, cardiovascular disease, and all-cause mortality, even after adjusting for total calorie intake. The Hall 2019 NIH study — the only randomised controlled trial of its kind — found that people offered an ultra-processed diet ad libitum ate roughly 500 kcal more per day than people offered an unprocessed diet matched for available calories, macros, sugar, sodium, and fibre. That's not a small effect. Eating mostly food that your grandmother would recognise as food is not a guarantee of health, but it stacks the deck heavily in your favour.</p>
+
+      <h3>3. Energy balance still rules</h3>
+      <p>No amount of macro optimisation, meal timing, or metabolic trickery overrides the first law of thermodynamics at the timescale that matters for body composition. If you consistently eat more energy than you expend, you will gain weight. If you consistently eat less, you will lose it. This is not a controversial claim in any branch of physics or physiology — it's only controversial in marketing. The debates about insulin, carbohydrate-insulin models, and metabolic advantage are debates about mechanism, not outcome. They argue about <em>why</em> certain diets make it easier to sustain a deficit (satiety, hormonal signalling, food reward), not about <em>whether</em> a deficit is required. It is.</p>
+
+      <h3>4. Fibre, sleep, daylight, and lifting</h3>
+      <p>Four things that consistently improve metabolic health, body composition, and longevity across every dietary pattern: adequate fibre (30 g/day per NHS guidance — most UK adults get about 18 g), sufficient sleep (7–9 hours, with consistent timing mattering as much as duration), daily daylight exposure (especially morning light, which regulates circadian cortisol and melatonin rhythms), and resistance training (which preserves lean mass during a deficit, increases resting metabolic rate, and is the single most effective intervention against sarcopenia). None of these are diet-specific. All of them are more impactful than the difference between 40/30/30 and 50/25/25.</p>
+
+      <h3>5. "Good" is allowed to vary</h3>
+      <p>A 25-year-old training for a marathon has different nutritional needs from a 55-year-old managing type 2 diabetes. A pregnant woman in her third trimester has different needs from a shift worker trying to lose two stone before a wedding. "Good eating" is not a fixed prescription — it's a set of principles applied to a specific context. The principles (adequate protein, mostly real food, sustainable energy balance, fibre, sleep, movement) stay constant. The implementation changes with your age, your activity level, your health status, your budget, and your life. Any system that pretends otherwise is selling simplicity at the cost of accuracy.</p>
+
+      <div class="key-facts">
+        <div class="fact">
+          <span class="fact-num">01</span>
+          <span class="fact-headline">Protein first</span>
+          <span class="fact-body">1.6–2.2 g/kg for trainees, 1.2 g/kg minimum. The most satiating macro, the highest thermic effect, and the only one that directly builds muscle.</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">02</span>
+          <span class="fact-headline">Mostly real food</span>
+          <span class="fact-body">57% of UK calories come from ultra-processed food. The Hall 2019 trial: UPF diets drove 500 kcal/day excess. Eat recognisable ingredients most of the time.</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">03</span>
+          <span class="fact-headline">Energy balance still rules</span>
+          <span class="fact-body">No macro split overrides thermodynamics. The debate is about which approach makes a deficit easier to sustain — not whether a deficit is required.</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">04</span>
+          <span class="fact-headline">Sleep, fibre, daylight, lifting</span>
+          <span class="fact-body">30 g fibre/day. 7–9 hours sleep. Morning light. Resistance training. More impactful than macro ratios. Not diet-specific.</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">05</span>
+          <span class="fact-headline">Context is the answer</span>
+          <span class="fact-body">Nutrition changes with age, activity, health status, and budget. Fixed prescriptions sell simplicity at the cost of accuracy.</span>
+        </div>
+      </div>
+
+      <span class="divider-mark"></span>
+
+      <h2>What plentii is doing about it</h2>
+
+      <p>Plentii is a translator. That's the core metaphor, and it's also the literal product. Every food in our database carries every metric — not just calories, but syns, points, macros, net carbs, GI, GL, exchanges, satiety, units, NHS portions, Noom colour, Zone blocks, and volumetrics density. When you look up a chicken breast, you see it through fifteen lenses simultaneously. When you use a calculator, you can convert between systems — syns to calories, calories to points, macros to exchanges — so that knowledge earned in one tribe transfers to another.</p>
+
+      <p>The calculators are designed for UK users. We use stones and pounds where appropriate. We reference NHS guidelines, not USDA ones. We quote prices in pounds, use British English, and cite UK-specific data (NHS Digital, NDNS, PHE, OHID) wherever possible. This isn't a localised American site — it's built for the country where Slimming World has 900,000 weekly members and the Eatwell Plate is taught in every school.</p>
+
+      <p>The migration guides are for people leaving a programme. If you've been on Slimming World for three years and you want to try calorie counting, you already know a lot — which foods are high-volume, which ones are energy-dense, how to build a plate. But you don't know how to translate that knowledge into a system that doesn't use syns. Plentii bridges that gap. We tell you what transfers, what doesn't, and what new skills you'll need to build.</p>
+
+      <p>The recommendations — when we make them — come from a diet-agnostic position. We recommend products and tools because they're useful, not because they belong to a particular programme. We disclose every affiliate relationship. We don't accept payment for editorial coverage. If we recommend a food scale, it's because a food scale is the single most impactful tool for anyone trying to manage their intake, regardless of what they're counting.</p>
+
+      <h2>What plentii will not do</h2>
+
+      <p>Commitments matter more than aspirations. Here are six things plentii will not do, and you can hold us to them.</p>
+
+      <p><strong>No before-and-afters.</strong> Bodies are not marketing material. We will never use transformation photos, weight-loss testimonials, or body comparison images to promote the site. If someone loses weight using our tools, that's their story to tell — not ours to exploit.</p>
+
+      <p><strong>No proprietary metric.</strong> We will not invent a "plentii score" or any branded number. Our job is to translate existing metrics, not to create a sixteenth one and lock you into it. The moment we invent our own score, we become another tribe — and the whole point is to not be one.</p>
+
+      <p><strong>No shame language.</strong> You will never read the words "guilt-free," "naughty," "clean," "cheat day," or "sinful" on this site, except in quoted criticism of those terms. Food is not a moral act. Eating a biscuit is not a transgression. Language that frames food as sin and dieting as penance is manipulative, and we won't use it.</p>
+
+      <p><strong>No medical advice.</strong> Plentii is a food data and education site, not a clinical service. We do not diagnose, treat, or prescribe. If you have a medical condition that affects your nutrition — diabetes, coeliac disease, an eating disorder, kidney disease, pregnancy complications — you need a qualified professional, not a website. We'll tell you what the data says. We won't tell you what to do with it if you're clinically vulnerable.</p>
+
+      <p><strong>No paywalls on the data.</strong> The food database, the calculators, the migration guides, and the metric explainers are free. We fund the site through affiliate commissions on products we genuinely recommend, clearly disclosed on every relevant page. If a revenue model requires locking useful data behind a subscription, we'd rather not have the revenue.</p>
+
+      <p><strong>No anonymous editorial.</strong> Every piece of content on plentii has a named author and a publication date. When we update a page, we note what changed and why. We disclose our conflicts, our funding sources, and our editorial process. If you can't tell who wrote something and when, you can't assess whether to trust it — and we'd rather be assessed than believed on faith.</p>
+
+      <h2>Who plentii is for</h2>
+
+      <p>Plentii is for UK adults who eat food and want to understand it better. More specifically, it's for:</p>
+
+      <ul>
+        <li><strong>People leaving a diet programme</strong> who want to take their knowledge with them instead of starting from scratch.</li>
+        <li><strong>People who've never tracked anything</strong> and want to understand the landscape before choosing an approach.</li>
+        <li><strong>People who track calories</strong> and want to understand what calories don't capture — satiety, micronutrient density, blood-sugar response.</li>
+        <li><strong>People who track macros</strong> and want to translate their data into other frameworks for comparison.</li>
+        <li><strong>People over 40</strong> who've noticed that what worked at 28 doesn't work at 45, and want evidence-based guidance on what to adjust.</li>
+        <li><strong>Partners and family members</strong> of someone on a diet programme who want to understand the system without joining it.</li>
+        <li><strong>Anyone who's tired of being told there's only one right way to eat</strong> and wants a source that presents the full picture without an agenda.</li>
+      </ul>
+
+      <p>Plentii is not for people who want to be told exactly what to eat. We don't sell meal plans, we don't prescribe macros, and we don't run a coaching service. If you want someone to hand you a menu, there are plenty of services that do that. We're for the people who want to understand the menu well enough to write their own.</p>
+
+      <h2>What we're building, in order</h2>
+
+      <p>Plentii is a build-in-public project. We're not funded by venture capital, we don't have a board, and we don't owe anyone a hockey-stick growth chart. That means we can build in the order that makes the most sense rather than the order that maximises quarterly metrics. Here's the sequence.</p>
+
+      <p><strong>Phase 1 (now):</strong> Metric explainers, calculators, and migration guides. These are the foundation — the content that establishes what plentii is and proves that diet-agnostic nutrition education has an audience. Every calculator is functional, UK-native, and translates its output into multiple systems.</p>
+
+      <p><strong>Phase 2:</strong> Food database. Every food scored across all fifteen metrics, with UK-specific portion sizes, supermarket availability, and price data where possible. This is the product that makes plentii genuinely useful as a daily tool rather than just a reference site.</p>
+
+      <p><strong>Phase 3:</strong> Comparison tools. Side-by-side food comparisons, meal builders, and swap suggestions — all powered by the multi-metric database. "You're eating X; here's what happens if you swap it for Y, measured in whichever unit you care about."</p>
+
+      <p><strong>Phase 4:</strong> Life-stage guides. Deep, evidence-based content for specific audiences — women over 40, men over 50, pregnant women, people managing type 2 diabetes, shift workers, people training for specific sports. Each guide built on the same diet-agnostic principles, applied to a specific context.</p>
+
+      <h2>How to start</h2>
+
+      <p>You don't need to read this entire manifesto to use plentii. Here are three suggestions depending on where you're coming from.</p>
+
+      <p><strong>If you're currently on a diet programme</strong> — find your metric in the <a href="/#metrics">15 metrics</a> section, read the explainer, and then try converting a typical day's intake using the relevant <a href="/#tools">calculator</a>. You'll see what your programme's numbers look like in other systems, and that context alone is valuable.</p>
+
+      <p><strong>If you've never tracked anything</strong> — start with the <a href="/tools/tdee-calculator-uk/">TDEE calculator</a> to understand your maintenance calories, then read the <a href="/calories/">calories explainer</a>. Calories are the base layer. Once you understand energy balance, every other metric is a refinement.</p>
+
+      <p><strong>If you're leaving a programme</strong> — go straight to the <a href="/#bridges">migration guides</a>. They're written specifically for people who've invested time in one system and want to carry that knowledge into whatever comes next.</p>
+
+      <p>That's the worldview. That's the plan. Welcome to plentii.</p>
+
+    </div>
+  </article>
+
+  <Related items={relatedItems} />
+
+</Base>

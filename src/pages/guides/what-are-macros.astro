@@ -1,0 +1,208 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Are Macros? UK Beginner's Guide to Tracking P/F/C",
+    "description": "Macros are the three calorie-containing nutrients in food: protein, fat, and carbs. Why they matter more than calories alone, and how to track them as a UK adult.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-are-macros/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to start tracking macros",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Calculate your TDEE", "text": "Use a TDEE calculator to estimate your total daily energy expenditure based on age, weight, height, and activity level." },
+      { "@type": "HowToStep", "position": 2, "name": "Set your calorie target", "text": "Subtract 300-500 kcal for fat loss, add 200-300 kcal for muscle gain, or eat at TDEE for maintenance." },
+      { "@type": "HowToStep", "position": 3, "name": "Set protein first", "text": "Aim for 1.6 to 2.2 g of protein per kg of bodyweight. Multiply by 4 to get protein calories." },
+      { "@type": "HowToStep", "position": 4, "name": "Set fat at 20-35%", "text": "Allocate 20-35% of remaining calories to fat. Multiply fat grams by 9 to verify." },
+      { "@type": "HowToStep", "position": 5, "name": "Fill the rest with carbs", "text": "Divide remaining calories by 4 to get carbohydrate grams. Adjust based on training and preference." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the three macronutrients?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The three macronutrients are protein (4 kcal per gram), fat (9 kcal per gram), and carbohydrate (4 kcal per gram). They are the only nutrients that provide calories. Alcohol also provides energy (7 kcal per gram) but is not classified as a macronutrient because the body has no requirement for it." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many grams of protein do I need per day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Current evidence supports 1.6 to 2.2 g of protein per kg of bodyweight for adults who are active or trying to lose fat while preserving muscle. For a 70 kg person, that is 112 to 154 g per day. Sedentary adults can manage with less (0.8 to 1.2 g/kg), but higher intakes improve satiety and body composition." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to track macros to lose weight?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. You can lose weight by tracking calories alone, or by following a structured plan like Slimming World or WW. Tracking macros gives you more control over body composition (how much of the weight you lose is fat versus muscle), but it is not essential for weight loss itself." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good macro split for fat loss?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A common starting point for fat loss is 30-35% protein, 25-30% fat, and 35-45% carbohydrate. But the exact split matters less than hitting your protein target and maintaining a calorie deficit. Start with protein at 1.6-2.2 g/kg, set fat at a minimum of 20% of calories, and fill the rest with carbs." }
+      }
+    ]
+  }
+];
+---
+<Base title="What Are Macros? UK Beginner's Guide to Tracking P/F/C — Plentii" description="Macros are the three calorie-containing nutrients in food: protein, fat, and carbs. Why they matter more than calories alone, and how to track them as a UK adult." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"What are macros?"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 10 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What are macros?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Protein, fat, and carbs explained for UK adults &mdash; and why protein matters more than the other two combined.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: BDA &middot; SACN &middot; ISSN</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Macros are the single biggest upgrade you can make to how you eat. Not because they are complicated &mdash; they are not &mdash; but because they shift your attention from a single number (calories) to the three nutrients that actually determine whether you lose fat, preserve muscle, feel full, and recover from training. Most people who track calories alone eventually hit a wall. Most people who learn to track macros do not.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>The three macronutrients</h2>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three macronutrients: Protein at 4 kcal per gram, Fat at 9 kcal per gram, Carbs at 4 kcal per gram">
+          <rect x="20" y="20" width="170" height="120" rx="10" fill="#2D5A3D"/>
+          <text x="105" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E8EEE9" letter-spacing="0.08em">PROTEIN</text>
+          <text x="105" y="82" text-anchor="middle" font-family="'Fraunces', serif" font-size="30" fill="#FAF7F2" font-weight="400">4</text>
+          <text x="105" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#E8EEE9">kcal / gram</text>
+          <text x="105" y="126" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#E8EEE9" opacity="0.7">meat, fish, eggs, dairy</text>
+
+          <rect x="215" y="20" width="170" height="120" rx="10" fill="#C68F1F"/>
+          <text x="300" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FAF7F2" letter-spacing="0.08em">FAT</text>
+          <text x="300" y="82" text-anchor="middle" font-family="'Fraunces', serif" font-size="30" fill="#FAF7F2" font-weight="400">9</text>
+          <text x="300" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#FAF7F2">kcal / gram</text>
+          <text x="300" y="126" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#FAF7F2" opacity="0.7">oils, nuts, avocado, butter</text>
+
+          <rect x="410" y="20" width="170" height="120" rx="10" fill="#4A524D"/>
+          <text x="495" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#E8EEE9" letter-spacing="0.08em">CARBS</text>
+          <text x="495" y="82" text-anchor="middle" font-family="'Fraunces', serif" font-size="30" fill="#FAF7F2" font-weight="400">4</text>
+          <text x="495" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#E8EEE9">kcal / gram</text>
+          <text x="495" y="126" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#E8EEE9" opacity="0.7">bread, rice, pasta, fruit</text>
+        </svg>
+        <p class="viz-caption">Every calorie you eat comes from one of these three macronutrients (or alcohol at 7 kcal/g).</p>
+      </div>
+
+      <p><strong>Protein</strong> is made of amino acids &mdash; the building blocks your body uses to repair muscle, produce enzymes, build immune cells, and maintain skin, hair, and nails. There are 20 amino acids, 9 of which are "essential" (your body cannot synthesise them; you must eat them). Animal proteins (meat, fish, eggs, dairy) contain all 9 in sufficient quantities. Most plant proteins are low in one or more, which is why vegans are advised to eat a variety of protein sources rather than relying on a single one.</p>
+      <p><strong>Fat</strong> is not just energy storage. It is a structural component of every cell membrane in your body. It insulates nerves, cushions organs, and is required to absorb vitamins A, D, E, and K. It is the raw material for sex hormones (testosterone, oestrogen), cortisol, and prostaglandins. Cutting fat too low (below about 15% of total calories) can disrupt hormone production, menstrual cycles, mood, and cognitive function.</p>
+      <p><strong>Carbohydrate</strong> is the body's preferred fuel for high-intensity activity. It is stored as glycogen in the liver (about 100 g) and muscles (about 400 g in a trained adult). When glycogen is full, excess carbohydrate is converted to fat. Carbs are not "essential" in the way protein and fat are &mdash; you can survive without them &mdash; but for most people who train, play sport, or simply want to feel energetic, they are the most practical fuel source.</p>
+
+      <h2>Why protein matters more</h2>
+      <p>If you only track one macronutrient, make it protein. Three reasons:</p>
+      <p><strong>Satiety.</strong> Protein is the most filling macronutrient per calorie. A 200 kcal chicken breast keeps you fuller for longer than 200 kcal of bread or 200 kcal of olive oil. If you struggle with hunger on a diet, increasing protein is the single most effective lever.</p>
+      <p><strong>Thermic effect.</strong> Your body burns energy digesting food. The thermic effect of protein is 20&ndash;30% (you burn 20&ndash;30 kcal digesting every 100 kcal of protein). For carbs it is 5&ndash;10%, and for fat it is 0&ndash;3%. In practical terms, a high-protein diet burns an extra 100&ndash;200 kcal per day compared to a low-protein diet at the same total calorie intake.</p>
+      <p><strong>Lean mass preservation.</strong> When you eat in a calorie deficit, your body draws energy from both fat stores and muscle tissue. Adequate protein (1.6&ndash;2.2 g/kg) combined with resistance training shifts the ratio heavily toward fat loss and away from muscle loss. Without sufficient protein, you lose weight but a significant fraction of that weight is the muscle you actually want to keep.</p>
+
+      <h2>How many macros do you need?</h2>
+
+      <div class="callout">
+        <strong>Protein: 1.6&ndash;2.2 g per kg of bodyweight</strong>
+        This range is supported by multiple meta-analyses and is suitable for adults who are active, dieting, or both. Sedentary adults can get by on less (0.8&ndash;1.2 g/kg), but the higher range improves satiety and body composition even without training.
+      </div>
+
+      <div class="callout">
+        <strong>Fat: 20&ndash;35% of total calories</strong>
+        Below 20% risks hormonal disruption. Above 35% leaves less room for protein and carbs. For most people, 25&ndash;30% is the sweet spot.
+      </div>
+
+      <div class="callout">
+        <strong>Carbohydrate: fill the rest</strong>
+        After protein and fat are set, the remaining calories go to carbohydrate. This is not because carbs are less important, but because protein and fat have minimum thresholds that matter for health, while carb intake is more flexible.
+      </div>
+
+      <h3>Worked example: 70 kg woman, fat loss</h3>
+      <p>TDEE: 2,000 kcal. Deficit target: 1,600 kcal.</p>
+      <ul>
+        <li><strong>Protein:</strong> 70 kg &times; 2.0 g/kg = 140 g &times; 4 kcal = 560 kcal (35%)</li>
+        <li><strong>Fat:</strong> 1,600 &times; 0.27 = 432 kcal &div; 9 = 48 g (27%)</li>
+        <li><strong>Carbs:</strong> 1,600 &minus; 560 &minus; 432 = 608 kcal &div; 4 = 152 g (38%)</li>
+      </ul>
+      <p>That is 140 g protein, 48 g fat, 152 g carbs. Simple. The protein target is the anchor; everything else adjusts around it.</p>
+
+      <h2>Macros versus calories versus syns versus points</h2>
+      <p>Calorie counting tells you how much to eat. Macro tracking tells you how much <em>of what</em> to eat. Syns and WW points are simplified calorie-counting systems that embed food-quality opinions into the scoring.</p>
+      <p>If your goal is weight loss and you do not care about body composition, calorie counting alone is sufficient. If you want to lose fat specifically (while preserving or building muscle), macro tracking is the tool that gives you that control. If you prefer simplicity and group support, syns or points work fine &mdash; just be aware that they hide the protein number, which is the one that matters most.</p>
+
+      <h2>Common macro splits</h2>
+      <p>These are starting points, not prescriptions. Adjust based on how you feel, how training is going, and what the scale and mirror tell you over two to four weeks.</p>
+      <ul>
+        <li><strong>Fat loss (cut):</strong> 30&ndash;35% protein, 25% fat, 40&ndash;45% carbs</li>
+        <li><strong>Maintenance:</strong> 25&ndash;30% protein, 25&ndash;30% fat, 40&ndash;50% carbs</li>
+        <li><strong>Lean bulk:</strong> 25% protein, 25&ndash;30% fat, 45&ndash;50% carbs</li>
+      </ul>
+      <p>Notice that protein stays high in all three scenarios. The main variable is the balance between fat and carbs, which is largely a matter of personal preference and training demands.</p>
+
+      <h2>Tracking without losing your mind</h2>
+      <p>There are three levels of macro tracking, and most people do best somewhere in the middle.</p>
+      <p><strong>Eyeball method.</strong> No app, no scale. You learn rough portion sizes: a palm of protein is about 30 g, a thumb of fat is about 15 g, a cupped hand of carbs is about 40 g. This is imprecise but sustainable, and it is enough for maintenance or slow fat loss.</p>
+      <p><strong>App tracking.</strong> You log meals in an app like MyFitnessPal, Cronometer, or Nutracheck. You weigh key ingredients (protein sources, oils, starches) and estimate the rest. This is the sweet spot for most people: accurate enough to make progress, not so tedious that you abandon it after a week.</p>
+      <p><strong>Strict weighing.</strong> You weigh everything on a digital food scale and log every gram. This is necessary for physique competitors and useful for a brief calibration period (one to two weeks) when you are learning portion sizes. It is not necessary or sustainable as a permanent habit for most people.</p>
+
+      <h2>Macros in popular UK foods</h2>
+      <p>All values per typical serving, rounded to the nearest gram.</p>
+      <ul>
+        <li><strong>Chicken breast (150 g, grilled):</strong> 46 g protein, 3 g fat, 0 g carbs &mdash; 213 kcal</li>
+        <li><strong>Salmon fillet (130 g, baked):</strong> 27 g protein, 16 g fat, 0 g carbs &mdash; 256 kcal</li>
+        <li><strong>Two large eggs (scrambled):</strong> 14 g protein, 12 g fat, 1 g carbs &mdash; 170 kcal</li>
+        <li><strong>Greek yoghurt, full-fat (170 g):</strong> 10 g protein, 9 g fat, 6 g carbs &mdash; 145 kcal</li>
+        <li><strong>Porridge oats (40 g dry, with water):</strong> 5 g protein, 3 g fat, 27 g carbs &mdash; 155 kcal</li>
+        <li><strong>Baked potato (220 g):</strong> 5 g protein, 0 g fat, 46 g carbs &mdash; 200 kcal</li>
+        <li><strong>White rice (180 g cooked):</strong> 4 g protein, 0 g fat, 47 g carbs &mdash; 234 kcal</li>
+        <li><strong>Wholemeal bread (2 slices, 80 g):</strong> 8 g protein, 2 g fat, 34 g carbs &mdash; 182 kcal</li>
+        <li><strong>Cheddar cheese (30 g):</strong> 8 g protein, 10 g fat, 0 g carbs &mdash; 122 kcal</li>
+        <li><strong>Banana (120 g):</strong> 1 g protein, 0 g fat, 27 g carbs &mdash; 108 kcal</li>
+      </ul>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are the three macronutrients?</summary>
+          <div class="answer">
+            <p>The three macronutrients are protein (4 kcal per gram), fat (9 kcal per gram), and carbohydrate (4 kcal per gram). They are the only nutrients that provide calories. Alcohol also provides energy (7 kcal per gram) but is not classified as a macronutrient because the body has no requirement for it.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How many grams of protein do I need per day?</summary>
+          <div class="answer">
+            <p>Current evidence supports 1.6 to 2.2 g of protein per kg of bodyweight for adults who are active or trying to lose fat while preserving muscle. For a 70 kg person, that is 112 to 154 g per day. Sedentary adults can manage with less (0.8 to 1.2 g/kg), but higher intakes improve satiety and body composition.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to track macros to lose weight?</summary>
+          <div class="answer">
+            <p>No. You can lose weight by tracking calories alone, or by following a structured plan like Slimming World or WW. Tracking macros gives you more control over body composition (how much of the weight you lose is fat versus muscle), but it is not essential for weight loss itself.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is a good macro split for fat loss?</summary>
+          <div class="answer">
+            <p>A common starting point for fat loss is 30&ndash;35% protein, 25&ndash;30% fat, and 35&ndash;45% carbohydrate. But the exact split matters less than hitting your protein target and maintaining a calorie deficit. Start with protein at 1.6&ndash;2.2 g/kg, set fat at a minimum of 20% of calories, and fill the rest with carbs.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "Macros calculator", description: "Calculate your personalised protein, fat, and carb targets.", href: "/tools/macros-calculator/" },
+    { label: "Guide", title: "Calorie surplus & recomp", description: "Build muscle without burying it in fat.", href: "/guides/calorie-surplus-and-recomp/" },
+    { label: "Guide", title: "Calorie deficit", description: "How big, how long, and what to expect.", href: "/guides/calorie-deficit/" }
+  ]} />
+</Base>

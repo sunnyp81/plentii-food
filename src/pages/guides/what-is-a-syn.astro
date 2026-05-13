@@ -1,0 +1,163 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is a Syn? Slimming World Explained Plainly",
+    "description": "Syns are Slimming World's name for calorie-equivalent units in non-free foods. How they're calculated, how to convert to calories, and what to know if you're leaving SW.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-is-a-syn/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many syns are in a calorie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One syn is approximately 20 kcal. So 100 kcal is roughly 5 syns. This is an approximation — Slimming World has never officially published the exact formula, but the 20 kcal figure is consistent across their published syn values." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are some foods free on Slimming World?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Free foods are foods that Slimming World considers unlikely to cause overeating in practice. They tend to be high in protein or fibre, bulky, and relatively low in calorie density. Lean chicken, eggs, potatoes, pasta, rice, beans, fruit, and most vegetables are all free. The theory is that you will naturally stop eating before you overconsume." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I have more than 15 syns a day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The standard Slimming World guidance for weight loss is 5 to 15 syns per day. Going above 15 regularly will slow weight loss for most people. For maintenance, 15 to 25 syns per day is typical, though individual results vary." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Slimming World just calorie counting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Functionally, yes. Syns are derived from calorie content, and the free food list is built around foods that are difficult to overconsume in calorie terms. The packaging is different — group support, food optimising language, no weighing of free foods — but the underlying mechanism is energy balance." }
+      }
+    ]
+  }
+];
+---
+<Base title="What Is a Syn? Slimming World Explained Plainly — Plentii" description="Syns are Slimming World's name for calorie-equivalent units in non-free foods. How they're calculated, how to convert to calories, and what to know if you're leaving SW." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"What is a syn?"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 7 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What is a syn?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Slimming World's metric, explained plainly &mdash; including the bits the meeting doesn't go into.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: Slimming World &middot; NHS &middot; BDA</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Syns are Slimming World's way of measuring the foods that are not on the free list. The name is short for "synergy" &mdash; the idea being that a small allowance of treats works in synergy with your free food choices to keep the plan sustainable. The system has worked for tens of thousands of people. It also has limits that are worth understanding before you decide whether to start, stay, or leave.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>What a syn actually measures</h2>
+      <p>Slimming World has never officially published the formula behind syn values. What they have published is thousands of individual syn counts for branded and generic foods, and when you reverse-engineer those numbers, a clear pattern emerges: one syn is approximately 20 kilocalories.</p>
+      <p>A Cadbury Freddo (18 g, 96 kcal) is 4.5 syns. A 25 ml measure of olive oil (about 200 kcal) is 10 syns. A Muller Light yoghurt (about 90 kcal) was reclassified from free to 1 syn when the recipe changed and the sugar content increased. In every case, the maths comes back to the same ratio.</p>
+
+      <div class="callout">
+        <strong>The 20-kcal rule</strong>
+        1 syn &asymp; 20 kcal. To estimate the syn value of any food, divide its calorie content by 20. This is not the official method, but it matches published syn values with remarkable consistency.
+      </div>
+
+      <p>The reason Slimming World does not foreground this connection is strategic: if members realised that syns are simply rebranded calories, the value proposition of the programme &mdash; group support, consultant guidance, a curated food list &mdash; would need to stand on its own merits rather than on a proprietary-seeming metric. That is not a criticism; the support genuinely helps many people. But the metric itself is not magic.</p>
+
+      <h2>Free foods, healthy extras, syns: the SW system</h2>
+      <p>Slimming World divides all food into three categories.</p>
+      <p><strong>Free foods</strong> are foods you can eat without weighing or measuring. The list includes lean meat, poultry, fish, eggs, potatoes, pasta, rice, couscous, beans, lentils, fruit, and most vegetables. The theory is that these foods are self-limiting: they are bulky, high in protein or fibre, and difficult to overconsume in practice. You are encouraged to fill your plate with them.</p>
+      <p><strong>Healthy Extras (HEX)</strong> are a daily measured allowance of calcium-rich and fibre-rich foods. HEX A covers dairy &mdash; typically 30 g of cheese or 250 ml of milk. HEX B covers high-fibre carbs &mdash; typically two Weetabix, a 35 g portion of muesli, or a 60 g wholemeal roll. You get one of each per day.</p>
+      <p><strong>Syns</strong> are everything else: oils, butter, sugar, chocolate, crisps, alcohol, sauces, condiments, and any branded product not on the free list. Your daily syn allowance is the system's way of building in flexibility without requiring you to count calories for everything you eat.</p>
+
+      <h2>How many syns a day</h2>
+      <p>Slimming World's standard guidance for active weight loss is 5 to 15 syns per day. Most consultants advise starting at 10 to 15 and adjusting based on results. In calorie terms, 15 syns is roughly 300 kcal &mdash; the approximate energy cost of a modest dessert or a couple of glasses of wine.</p>
+      <p>For weight maintenance after reaching target, most members settle around 15 to 25 syns per day, though this varies widely depending on activity level, metabolic rate, and how much free food they consume.</p>
+      <p>Breastfeeding members are typically advised to have up to 25 syns per day plus additional Healthy Extras. Pregnant members are encouraged to follow a modified plan under medical guidance, with a higher syn allowance and no restriction on Healthy Extras.</p>
+
+      <h2>Syns versus calories</h2>
+      <p>The conversion is straightforward in one direction (syns to calories) and less so in the other (calories to syns), because free foods have zero syns but are not zero calories.</p>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Conversion scale showing syns to calories: 1 syn equals 20 kcal, 5 syns equals 100 kcal, 10 syns equals 200 kcal, 15 syns equals 300 kcal, 20 syns equals 400 kcal">
+          <line x1="60" y1="70" x2="540" y2="70" stroke="#D4CDBF" stroke-width="2"/>
+          <g font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">
+            <circle cx="60" cy="70" r="18" fill="#2D5A3D"/><text x="60" y="74" fill="#FAF7F2" font-weight="500">1</text>
+            <text x="60" y="110" fill="#4A524D" font-size="10">20 kcal</text>
+            <circle cx="180" cy="70" r="18" fill="#2D5A3D"/><text x="180" y="74" fill="#FAF7F2" font-weight="500">5</text>
+            <text x="180" y="110" fill="#4A524D" font-size="10">100 kcal</text>
+            <circle cx="300" cy="70" r="18" fill="#2D5A3D"/><text x="300" y="74" fill="#FAF7F2" font-weight="500">10</text>
+            <text x="300" y="110" fill="#4A524D" font-size="10">200 kcal</text>
+            <circle cx="420" cy="70" r="18" fill="#2D5A3D"/><text x="420" y="74" fill="#FAF7F2" font-weight="500">15</text>
+            <text x="420" y="110" fill="#4A524D" font-size="10">300 kcal</text>
+            <circle cx="540" cy="70" r="18" fill="#2D5A3D"/><text x="540" y="74" fill="#FAF7F2" font-weight="500">20</text>
+            <text x="540" y="110" fill="#4A524D" font-size="10">400 kcal</text>
+          </g>
+          <text x="60" y="40" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">SYNS</text>
+          <text x="60" y="135" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">KCAL</text>
+        </svg>
+        <p class="viz-caption">Approximate conversion: multiply syns by 20 to get kilocalories.</p>
+      </div>
+
+      <p>A 15-syn day adds roughly 300 kcal from non-free sources. But a typical Slimming World member might also consume 1,400 to 1,800 kcal of free food on top of that. The total intake is a calorie-controlled diet &mdash; the programme just only makes you count the non-free portion.</p>
+      <p>This is both the strength and the weakness of the system. The strength: it reduces cognitive load. You only track a small number. The weakness: it hides the total, which makes it difficult to troubleshoot a plateau or to transition to independent eating if you decide to leave the programme.</p>
+
+      <h2>Why same-syn meals land differently</h2>
+      <p>If you have ever had two days at the same syn count but felt completely different &mdash; one day satisfied, the next day hungry &mdash; three factors explain it.</p>
+      <p><strong>Free food density.</strong> A lunch of grilled chicken, roasted vegetables, and new potatoes is free and around 500 kcal. A lunch of pasta with fat-free sauce is also free and could be 800 kcal if you load the plate. Both are zero syns, but the calorie difference is real, and it affects how much room you have left in your energy budget for the rest of the day.</p>
+      <p><strong>Macro composition.</strong> Protein is the most satiating macronutrient. A syn allowance spent on a high-protein snack (a small portion of cheese from your HEX, a lean meat wrap) will keep you fuller than the same syns spent on chocolate or crisps. The syn count is the same; the hormonal response is not.</p>
+      <p><strong>Healthy Extra creep.</strong> Your HEX A and HEX B allowances are measured portions, but portion creep is common. An extra 10 g of cheese daily is about 40 kcal &mdash; trivial in isolation, but 280 kcal over a week. If your weight loss stalls, the HEX portions are the first place to audit.</p>
+
+      <h2>Thinking of leaving Slimming World?</h2>
+      <p>If you have been on Slimming World for a while and are considering a switch to independent calorie or macro counting, the transition is straightforward but needs a plan. The biggest adjustment is learning to track free foods, which you may have been eating in unlimited quantities for months or years.</p>
+      <p>Our guide to <a href="/guides/from-sw-to-calories/">moving from Slimming World to calorie counting</a> walks through the process step by step, including how to find your actual TDEE, how to handle the psychological shift from "free" to "counted", and how to keep the habits that served you well on the programme.</p>
+
+      <h2>Not affiliated</h2>
+      <p>Plentii is not affiliated with, endorsed by, or connected to Slimming World in any way. "Slimming World" and "syns" are trademarks of Miles-Bramwell Executive Services Ltd. We reference the programme for educational purposes only.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many syns are in a calorie?</summary>
+          <div class="answer">
+            <p>One syn is approximately 20 kcal. So 100 kcal is roughly 5 syns. This is an approximation &mdash; Slimming World has never officially published the exact formula, but the 20 kcal figure is consistent across their published syn values.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why are some foods free on Slimming World?</summary>
+          <div class="answer">
+            <p>Free foods are foods that Slimming World considers unlikely to cause overeating in practice. They tend to be high in protein or fibre, bulky, and relatively low in calorie density. Lean chicken, eggs, potatoes, pasta, rice, beans, fruit, and most vegetables are all free. The theory is that you will naturally stop eating before you overconsume.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I have more than 15 syns a day?</summary>
+          <div class="answer">
+            <p>The standard Slimming World guidance for weight loss is 5 to 15 syns per day. Going above 15 regularly will slow weight loss for most people. For maintenance, 15 to 25 syns per day is typical, though individual results vary.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Slimming World just calorie counting?</summary>
+          <div class="answer">
+            <p>Functionally, yes. Syns are derived from calorie content, and the free food list is built around foods that are difficult to overconsume in calorie terms. The packaging is different &mdash; group support, food optimising language, no weighing of free foods &mdash; but the underlying mechanism is energy balance.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Converter", title: "Syns to calories", description: "Convert any syn value to kilocalories and back.", href: "/tools/syns-to-calories/" },
+    { label: "Guide", title: "From SW to calories", description: "Step-by-step migration from Slimming World to independent tracking.", href: "/guides/from-sw-to-calories/" },
+    { label: "Guide", title: "What is a calorie?", description: "The unit behind every diet, explained properly.", href: "/guides/what-is-a-calorie/" }
+  ]} />
+</Base>

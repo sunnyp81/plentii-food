@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Macros Calculator UK",
+    "url": "https://plentii.food/tools/macros-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Free UK macro calculator. Set your goal — cut, maintain, or lean bulk — and get personalised protein, fat, and carbohydrate targets in grams and percentages."
+  }
+];
+---
+<Base title="Macros Calculator UK — Cut, Maintain, Lean Bulk — Plentii" description="Free UK macro calculator. Set your goal (cut, maintain, lean bulk), input your stats, and get personalised P/F/C targets in grams and percentages." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'Macros Calculator'}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Tool · Free · No account</span>
+      <h1>Macros Calculator</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Protein first, then fat, then carbs fill the rest. Set your goal and get a personalised macro split.</p>
+    </header>
+    <div class="max-w-[720px] mx-auto px-6">
+      <div class="calc">
+        <div class="calc-header">
+          <h2>Your stats</h2>
+          <span class="calc-tag">Protein-first</span>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="macros-form">
+            <div class="calc-row">
+              <label for="sex">Sex</label>
+              <select id="sex" class="calc-select">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="avg">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="age">Age</label>
+              <input type="number" id="age" class="calc-input" value="35" min="15" max="100">
+            </div>
+            <div class="calc-row">
+              <label for="height">Height (cm)</label>
+              <input type="number" id="height" class="calc-input" value="170" min="100" max="250">
+            </div>
+            <div class="calc-row">
+              <label for="weight">Weight (kg)</label>
+              <input type="number" id="weight" class="calc-input" value="75" min="30" max="300" step="0.1">
+            </div>
+            <div class="calc-row">
+              <label for="activity">Activity level</label>
+              <select id="activity" class="calc-select">
+                <option value="1.2">Sedentary</option>
+                <option value="1.375" selected>Lightly active</option>
+                <option value="1.55">Moderately active</option>
+                <option value="1.725">Very active</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="goal">Goal</label>
+              <select id="goal" class="calc-select">
+                <option value="0.8">Cut (&minus;20%)</option>
+                <option value="1" selected>Maintain</option>
+                <option value="1.1">Lean bulk (+10%)</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="protein-pref">Protein preference</label>
+              <select id="protein-pref" class="calc-select">
+                <option value="1.6">Standard (1.6 g/kg)</option>
+                <option value="1.8" selected>Higher (1.8 g/kg)</option>
+                <option value="2.2">Maximal (2.2 g/kg)</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="fat-pref">Fat preference</label>
+              <select id="fat-pref" class="calc-select">
+                <option value="0.2">Low (20% of kcal)</option>
+                <option value="0.25" selected>Moderate (25% of kcal)</option>
+                <option value="0.35">Higher (35% of kcal)</option>
+              </select>
+            </div>
+            <button type="submit" class="calc-button">Calculate macros</button>
+          </form>
+          <div class="calc-result" id="result">
+            <span class="calc-result-empty">Enter your details and hit calculate.</span>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Estimate only. Not medical advice. Adjust based on real-world results after 2-3 weeks.</p>
+      </div>
+    </div>
+    <div class="article-body">
+      <h2>How this calculator works</h2>
+      <p>The calculator estimates your basal metabolic rate using Mifflin-St Jeor, multiplies it by your activity level to get TDEE, then applies your goal multiplier. Macros are allocated in a fixed priority: protein first (based on body weight), fat second (as a percentage of target calories), and carbohydrates fill the remainder.</p>
+      <p>This protein-first approach ensures you hit the minimum threshold for muscle protein synthesis regardless of whether you are cutting, maintaining, or bulking. The fat floor prevents hormonal disruption (going below 20 % of calories from fat is not recommended for most people). Carbohydrates flex up or down to balance the energy budget.</p>
+
+      <h2>Why protein first</h2>
+      <p>Three reasons protein gets priority in any macro split:</p>
+      <ul>
+        <li><strong>Satiety.</strong> Protein is the most filling macronutrient per calorie. Higher protein intakes reduce hunger and spontaneous snacking, which makes a calorie deficit easier to sustain.</li>
+        <li><strong>Thermic effect of food (TEF).</strong> Your body uses roughly 20-30 % of protein calories just to digest and process them, compared to 5-10 % for carbs and 0-3 % for fat. Higher protein means slightly higher total energy expenditure.</li>
+        <li><strong>Lean mass preservation.</strong> During a calorie deficit, adequate protein (1.6-2.2 g/kg) minimises muscle loss. During a surplus, it supports muscle gain alongside resistance training.</li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Do I need to hit my macros exactly every day?</summary>
+          <div class="answer">No. Weekly averages matter more than daily precision. If you are within 10 g of each target on most days, you are doing well. Obsessing over single-gram accuracy creates unnecessary stress and is not supported by the research.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What if my carbs come out very low on a cut?</summary>
+          <div class="answer">If your carb target drops below roughly 100 g, consider reducing your fat percentage to free up more calories for carbohydrates. Extremely low carbs can impair training performance and recovery, especially for high-intensity exercise. Alternatively, slightly reduce protein toward 1.6 g/kg — the difference in muscle retention between 1.6 and 2.2 g/kg is small for most people.</div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    {label:'Tool', title:'TDEE calculator', description:'Find your maintenance calories with UK-friendly units.', href:'/tools/tdee-calculator-uk/'},
+    {label:'Guide', title:'Macros explained', description:'What protein, fat and carbs actually do and why the ratio matters.', href:'/guides/what-are-macros/'},
+    {label:'Guide', title:'Lean bulk & recomp', description:'How to gain muscle without excessive fat gain.', href:'/guides/lean-bulk-recomp/'}
+  ]} />
+</Base>
+<script>
+  document.getElementById('macros-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const sex = (document.getElementById('sex') as HTMLSelectElement).value;
+    const age = parseFloat((document.getElementById('age') as HTMLInputElement).value);
+    const cm = parseFloat((document.getElementById('height') as HTMLInputElement).value);
+    const kg = parseFloat((document.getElementById('weight') as HTMLInputElement).value);
+    const activity = parseFloat((document.getElementById('activity') as HTMLSelectElement).value);
+    const goal = parseFloat((document.getElementById('goal') as HTMLSelectElement).value);
+    const proteinPerKg = parseFloat((document.getElementById('protein-pref') as HTMLSelectElement).value);
+    const fatPct = parseFloat((document.getElementById('fat-pref') as HTMLSelectElement).value);
+
+    let bmr = 10 * kg + 6.25 * cm - 5 * age;
+    if (sex === 'male') bmr += 5;
+    else if (sex === 'female') bmr -= 161;
+    else bmr -= 78;
+
+    const tdee = Math.round(bmr * activity);
+    const target = Math.round(tdee * goal);
+    const proteinG = Math.round(kg * proteinPerKg);
+    const fatG = Math.round((target * fatPct) / 9);
+    const carbsG = Math.round((target - proteinG * 4 - fatG * 9) / 4);
+    const pPct = Math.round((proteinG * 4 / target) * 100);
+    const fPct = Math.round((fatG * 9 / target) * 100);
+    const cPct = 100 - pPct - fPct;
+
+    const chickenBreasts = (proteinG / 35).toFixed(1);
+    const greekYog = (proteinG / 17).toFixed(1);
+    const wheyScoops = (proteinG / 24).toFixed(1);
+    const eggs = (proteinG / 6).toFixed(1);
+
+    document.getElementById('result')!.innerHTML = `
+      <span class="calc-result-headline">Your macros</span>
+      <span class="calc-result-primary">${target.toLocaleString()}<span class="unit">kcal / day</span></span>
+      <div class="calc-result-row"><span class="label">Protein</span><span class="value">${proteinG} g (${pPct}%)</span></div>
+      <div class="calc-result-row"><span class="label">Fat</span><span class="value">${fatG} g (${fPct}%)</span></div>
+      <div class="calc-result-row"><span class="label">Carbs</span><span class="value">${carbsG} g (${cPct}%)</span></div>
+      <div class="calc-translate">
+        <span class="calc-translate-label">In food terms — protein hit list</span>
+        <div class="calc-translate-grid">
+          <div class="pill"><span class="lab">Chicken breasts</span><span class="val">${chickenBreasts}</span></div>
+          <div class="pill"><span class="lab">Greek yog 170 g</span><span class="val">${greekYog}</span></div>
+          <div class="pill"><span class="lab">Whey scoops</span><span class="val">${wheyScoops}</span></div>
+          <div class="pill"><span class="lab">Eggs</span><span class="val">${eggs}</span></div>
+        </div>
+      </div>
+    `;
+  });
+</script>

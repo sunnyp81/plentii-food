@@ -1,0 +1,90 @@
+---
+import '../../styles/global.css';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+---
+<Base title="Methodology — How Plentii Calculates — Plentii" description="Data sources, calculator formulas, error margins, and the regulatory standards plentii uses. McCance & Widdowson, USDA, NHS, EU 1169/2011.">
+  <main class="pt-16 pb-20">
+    <div class="article-body">
+      <Breadcrumb crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
+        { label: 'Methodology' }
+      ]} />
+
+      <h1 class="!text-[clamp(2.4rem,2rem+2vw,3.6rem)] mb-6">Methodology</h1>
+
+      <p class="lede">Plentii's food data and calculator outputs are derived from published, peer-reviewed, or regulatory sources. This page documents what we use, how we use it, and where the margins of error sit.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Food composition data sources</h2>
+      <ul>
+        <li><strong>McCance &amp; Widdowson's <em>Composition of Foods</em></strong> (7th edition, PHE) — primary UK source for nutrient values.</li>
+        <li><strong>USDA FoodData Central</strong> — supplementary source for foods not covered in McCance &amp; Widdowson.</li>
+        <li><strong>Manufacturer nutritional panels</strong> — used for branded products, cross-referenced against regulatory databases where available.</li>
+      </ul>
+      <p>All values are expressed per 100 g. Serving sizes are derived from NHS portion guidance and UK-standard packaging.</p>
+
+      <h2>Calculator formulas</h2>
+
+      <h4>TDEE / BMR</h4>
+      <p>Mifflin-St Jeor equation (1990). Within &plusmn;10&ndash;15% of measured indirect calorimetry for most adults.</p>
+
+      <h4>BMI</h4>
+      <p>Weight (kg) &divide; height (m)&sup2;. NHS standard calculation.</p>
+
+      <h4>Macros</h4>
+      <p>Protein-first sequencing at user-selected g/kg, fat at user-selected percentage of calories, carbohydrates as remainder.</p>
+
+      <h4>Syns approximation</h4>
+      <p>1 syn &asymp; 20 kcal &plusmn;15%, macro-adjusted. Slimming World does not publish the formula; this is an approximation.</p>
+
+      <h4>WW points approximation</h4>
+      <p>Era-specific multipliers: ProPoints ~35, SmartPoints ~33, PersonalPoints ~33 kcal/point, macro-adjusted. WW's algorithm is proprietary and personalised; these are estimates.</p>
+
+      <h4>Alcohol units</h4>
+      <p>NHS formula: (volume ml &times; ABV%) &divide; 1000.</p>
+
+      <h2>Error margins and disclaimers</h2>
+      <div class="key-facts">
+        <div class="fact">
+          <span class="fact-num">Calories</span>
+          <span class="fact-headline">&plusmn;10&ndash;15%</span>
+          <span class="fact-body">Mifflin-St Jeor validation range for most adults</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Syns</span>
+          <span class="fact-headline">&plusmn;15%</span>
+          <span class="fact-body">SW does not publish the formula; conversion is approximate</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">WW Points</span>
+          <span class="fact-headline">&plusmn;15&ndash;20%</span>
+          <span class="fact-body">WW algorithm is proprietary and personalised</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">Food Labels</span>
+          <span class="fact-headline">&plusmn;20%</span>
+          <span class="fact-body">EU Regulation 1169/2011 tolerance for declared values</span>
+        </div>
+      </div>
+      <p>All calculator outputs are estimates, not prescriptions.</p>
+
+      <h2>Regulatory standards</h2>
+      <ul>
+        <li><strong>EU Regulation 1169/2011</strong> (retained in UK law) — food information to consumers.</li>
+        <li><strong>NHS Eatwell Guide</strong> — dietary reference framework.</li>
+        <li><strong>SACN</strong> (Scientific Advisory Committee on Nutrition) — referenced for protein and fibre guidance.</li>
+        <li><strong>NICE guidelines</strong> — referenced for eating disorder and YMYL content guardrails.</li>
+      </ul>
+    </div>
+  </main>
+
+  <Related items={[
+    { label: 'Standards', title: 'Editorial Policy', description: 'How content is researched, written, reviewed, and corrected.', href: '/about/editorial-policy/' },
+    { label: 'People', title: 'Team', description: 'Who writes the content, who reviews it, and the roles we are hiring for.', href: '/about/team/' },
+    { label: 'Overview', title: 'About', description: 'What plentii is, who it is for, and why it exists.', href: '/about/' }
+  ]} />
+</Base>

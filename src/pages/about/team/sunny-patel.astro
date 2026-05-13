@@ -1,0 +1,69 @@
+---
+import '../../../styles/global.css';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import Related from '../../../components/Related.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sunny Patel",
+    "jobTitle": "Founder & Editor",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Plentii",
+      "url": "https://plentii.food/"
+    },
+    "sameAs": [
+      "https://sunnypatel.co.uk/"
+    ],
+    "url": "https://plentii.food/about/team/sunny-patel/"
+  }
+];
+---
+<Base title="Sunny Patel — Founder & Editor — Plentii" description="Sunny Patel is the founder and editor of plentii.food. MBA, SEO consultant, not a clinical contributor. Full role disclosure." schema={schema}>
+  <main class="pt-16 pb-20">
+    <div class="article-body">
+      <Breadcrumb crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
+        { label: 'Team', href: '/about/team/' },
+        { label: 'Sunny Patel' }
+      ]} />
+
+      <h1 class="!text-[clamp(2.4rem,2rem+2vw,3.6rem)] mb-3">Sunny Patel</h1>
+      <span class="inline-block px-4 py-1.5 bg-green-soft text-green text-[0.82rem] font-mono uppercase tracking-widest rounded-full mb-8">Founder & Editor</span>
+
+      <p>Sunny built plentii because the problem wouldn't leave him alone. As an SEO consultant running a portfolio of UK content sites, he kept seeing the same searches: "how many calories is a syn", "WW points to calories", "what is a macro". Millions of UK adults asking the same translation questions that no single site answered without trying to sell them a programme.</p>
+
+      <p>Plentii is that site. Diet-agnostic, judgement-free, built on public data and published formulas.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>What Sunny does at plentii</h2>
+      <ul>
+        <li>Editorial direction and content architecture</li>
+        <li>Data sourcing and calculator design</li>
+        <li>Technical SEO and site infrastructure</li>
+      </ul>
+
+      <h2>What Sunny does not do</h2>
+      <ul>
+        <li>Write clinical nutrition content</li>
+        <li>Provide medical advice</li>
+        <li>Endorse or recommend specific diet programmes</li>
+      </ul>
+
+      <h2>Conflicts of interest</h2>
+      <p>Sunny owns and operates a portfolio of UK content websites, some of which earn affiliate revenue from health and fitness products. Where those commercial interests overlap with plentii content, the overlap is disclosed on the relevant page.</p>
+      <p>Sunny is not a nutritionist, dietitian, doctor, or regulated health professional. He does not hold clinical qualifications and does not claim clinical authority.</p>
+    </div>
+  </main>
+
+  <Related items={[
+    { label: 'People', title: 'Team', description: 'The full team behind plentii and the roles we are hiring for.', href: '/about/team/' },
+    { label: 'Standards', title: 'Editorial Policy', description: 'How content is researched, written, reviewed, and corrected.', href: '/about/editorial-policy/' },
+    { label: 'Overview', title: 'About', description: 'What plentii is, who it is for, and why it exists.', href: '/about/' }
+  ]} />
+</Base>

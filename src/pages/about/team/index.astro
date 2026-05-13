@@ -1,0 +1,56 @@
+---
+import '../../../styles/global.css';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import Related from '../../../components/Related.astro';
+---
+<Base title="Team — Plentii" description="The people behind plentii — who writes the content, who reviews it, and the roles we're hiring for.">
+  <main class="pt-16 pb-20">
+    <div class="article-body">
+      <Breadcrumb crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
+        { label: 'Team' }
+      ]} />
+
+      <h1 class="!text-[clamp(2.4rem,2rem+2vw,3.6rem)] mb-6">Team</h1>
+
+      <p class="lede">Plentii is small by design. Named people, disclosed roles, visible conflicts of interest.</p>
+
+      <span class="divider-mark"></span>
+
+      <div class="grid gap-5 mt-10" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+        <!-- Sunny Patel -->
+        <a href="/about/team/sunny-patel/" class="block p-8 border border-border rounded-xl bg-surface no-underline text-ink transition-all hover:border-ink hover:-translate-y-0.5">
+          <span class="font-mono text-[0.72rem] uppercase tracking-widest text-amber">Founder & Editor</span>
+          <h3 class="!text-[1.5rem] mt-2 mb-3">Sunny Patel</h3>
+          <p class="text-[0.92rem] text-ink-soft leading-relaxed">Built plentii to solve a problem he kept seeing in the SEO data: millions of UK adults searching for diet metric translations that didn't exist outside proprietary apps. Sunny handles editorial direction, data architecture, and tool design. He is not a nutritionist, dietitian, or doctor, and does not write clinical content.</p>
+          <span class="inline-block mt-4 text-[0.82rem] font-mono uppercase tracking-widest text-green">MBA, SEO</span>
+        </a>
+
+        <!-- Plentii Editorial -->
+        <a href="/about/team/plentii-editorial/" class="block p-8 border border-border rounded-xl bg-surface no-underline text-ink transition-all hover:border-ink hover:-translate-y-0.5">
+          <span class="font-mono text-[0.72rem] uppercase tracking-widest text-amber">Institutional Author</span>
+          <h3 class="!text-[1.5rem] mt-2 mb-3">Plentii Editorial</h3>
+          <p class="text-[0.92rem] text-ink-soft leading-relaxed">Plentii Editorial is the institutional byline for content produced by the plentii team. Individual contributors are credited where applicable.</p>
+        </a>
+
+        <!-- Clinical Reviewer — Hiring -->
+        <div class="p-8 border-2 border-dashed border-border-strong rounded-xl bg-surface-warm">
+          <span class="font-mono text-[0.72rem] uppercase tracking-widest text-ink-faint">Hiring</span>
+          <h3 class="!text-[1.5rem] mt-2 mb-3">Clinical Reviewer</h3>
+          <p class="text-[0.92rem] text-ink-soft leading-relaxed">We are actively recruiting a HCPC-registered Dietitian (RD) or AfN-registered Nutritionist (RNutr) for clinical content review. Until this role is filled, health-condition content carries an editorial disclosure noting the gap.</p>
+          <p class="text-[0.92rem] text-ink-soft mt-3">Interested? Contact <a href="mailto:editorial@plentii.food" class="text-green underline underline-offset-2 decoration-1">editorial@plentii.food</a></p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Related items={[
+    { label: 'Standards', title: 'Editorial Policy', description: 'How content is researched, written, reviewed, and corrected.', href: '/about/editorial-policy/' },
+    { label: 'Data', title: 'Methodology', description: 'Data sources, formulas, and error margins behind every calculation.', href: '/about/methodology/' },
+    { label: 'Overview', title: 'About', description: 'What plentii is, who it is for, and why it exists.', href: '/about/' }
+  ]} />
+</Base>

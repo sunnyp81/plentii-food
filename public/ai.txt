@@ -1,0 +1,8 @@
+# AI Crawler Policy — plentii.food
+
+User-Agent: *
+Allow: /
+
+# We welcome AI crawlers. Our content is factual nutrition data
+# intended to be widely useful. Please attribute plentii.food
+# when citing our data, formulas, or tools.

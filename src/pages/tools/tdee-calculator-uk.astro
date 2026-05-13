@@ -1,0 +1,246 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TDEE Calculator UK",
+    "url": "https://plentii.food/tools/tdee-calculator-uk/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "description": "Free UK TDEE calculator with stones, pounds and kg inputs. Uses Mifflin-St Jeor to estimate maintenance calories, deficit and surplus targets, and macro split."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is a TDEE calculator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any formula-based TDEE estimate carries roughly plus or minus 10 to 15 percent error. The Mifflin-St Jeor equation is the most validated for adults, but individual metabolism, NEAT, and muscle mass all shift the real number. Treat the output as a starting point and adjust after two to three weeks based on actual weight change." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which activity multiplier should I pick?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most people with desk jobs who exercise three to four times a week sit between lightly active and moderately active. If in doubt, choose the lower option. Overestimating activity is the most common reason calorie targets come out too high." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is a woman's BMR lower than a man's at the same weight?",
+        "acceptedAnswer": { "@type": "Answer", "text": "On average, women carry a higher proportion of body fat and less lean mass than men at the same scale weight. Because muscle tissue is more metabolically active than fat tissue, men tend to burn more energy at rest. The Mifflin-St Jeor formula accounts for this with a sex-specific constant." }
+      }
+    ]
+  }
+];
+---
+<Base title="TDEE Calculator UK — Stones, Pounds & KG (Free) — Plentii" description="Free UK TDEE calculator. Enter age, sex, weight (stones or kg), height, and activity level. Get maintenance calories, deficit and surplus targets, and macro split." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:'Home',href:'/'},{label:'Tools',href:'/tools/'},{label:'TDEE Calculator UK'}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Tool · Free · No account</span>
+      <h1>TDEE Calculator</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Estimate your daily energy expenditure using the Mifflin-St Jeor formula, with UK-friendly units.</p>
+    </header>
+    <div class="max-w-[720px] mx-auto px-6">
+      <div class="calc">
+        <div class="calc-header">
+          <h2>Your stats</h2>
+          <span class="calc-tag">Mifflin-St Jeor</span>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="tdee-form">
+            <div class="calc-row">
+              <label for="sex">Sex</label>
+              <select id="sex" class="calc-select">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="avg">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="age">Age</label>
+              <input type="number" id="age" class="calc-input" value="35" min="15" max="100">
+            </div>
+            <div class="calc-row">
+              <label>Height</label>
+              <div class="calc-toggle" id="height-toggle">
+                <button type="button" class="active" data-unit="cm">cm</button>
+                <button type="button" data-unit="ftin">ft + in</button>
+              </div>
+              <div id="height-cm"><input type="number" id="height-cm-val" class="calc-input" value="170" min="100" max="250" placeholder="cm"></div>
+              <div id="height-ftin" class="calc-pair" style="display:none;">
+                <input type="number" id="height-ft" class="calc-input" value="5" min="3" max="7" placeholder="ft">
+                <input type="number" id="height-in" class="calc-input" value="7" min="0" max="11" placeholder="in">
+              </div>
+            </div>
+            <div class="calc-row">
+              <label>Weight</label>
+              <div class="calc-toggle" id="weight-toggle">
+                <button type="button" class="active" data-unit="kg">kg</button>
+                <button type="button" data-unit="stlbs">st + lbs</button>
+              </div>
+              <div id="weight-kg"><input type="number" id="weight-kg-val" class="calc-input" value="75" min="30" max="300" step="0.1" placeholder="kg"></div>
+              <div id="weight-stlbs" class="calc-pair" style="display:none;">
+                <input type="number" id="weight-st" class="calc-input" value="11" min="4" max="40" placeholder="st">
+                <input type="number" id="weight-lbs" class="calc-input" value="11" min="0" max="13" step="0.1" placeholder="lbs">
+              </div>
+            </div>
+            <div class="calc-row">
+              <label for="activity">Activity level</label>
+              <select id="activity" class="calc-select">
+                <option value="1.2">Sedentary — desk job, little exercise</option>
+                <option value="1.375" selected>Lightly active — 1-3 sessions/week</option>
+                <option value="1.55">Moderately active — 3-5 sessions/week</option>
+                <option value="1.725">Very active — 6-7 sessions/week</option>
+                <option value="1.9">Extremely active — physical job + training</option>
+              </select>
+            </div>
+            <div class="calc-row">
+              <label for="goal">Goal</label>
+              <select id="goal" class="calc-select">
+                <option value="0.8">Lose fat (−20%)</option>
+                <option value="0.85" selected>Steady fat loss (−15%)</option>
+                <option value="1">Maintain</option>
+                <option value="1.1">Lean bulk (+10%)</option>
+              </select>
+            </div>
+            <button type="submit" class="calc-button">Calculate TDEE</button>
+          </form>
+          <div class="calc-result" id="result">
+            <span class="calc-result-empty">Enter your details and hit calculate.</span>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Estimate only. Not medical advice. Individual metabolism varies by roughly 10-15 % either side of any formula.</p>
+      </div>
+    </div>
+    <div class="article-body">
+      <h2>How this calculator works</h2>
+      <p>The calculator uses the Mifflin-St Jeor equation to estimate your basal metabolic rate (BMR) — the energy your body burns at complete rest. It then multiplies BMR by an activity factor to give your total daily energy expenditure (TDEE). Finally, it applies your chosen goal multiplier to set a calorie target for fat loss, maintenance, or lean gain.</p>
+      <p>Macros are split protein-first: 1.8 g per kg of body weight for protein, 25 % of target calories from fat, and the remainder from carbohydrates. This split suits most adults who resistance train. If you do not train, a lower protein target (around 1.2 g/kg) is fine.</p>
+
+      <h2>Mifflin-St Jeor formula</h2>
+      <div class="callout">
+        <strong>The maths</strong>
+        <p><strong>Men:</strong> BMR = 10 &times; weight (kg) + 6.25 &times; height (cm) &minus; 5 &times; age + 5</p>
+        <p><strong>Women:</strong> BMR = 10 &times; weight (kg) + 6.25 &times; height (cm) &minus; 5 &times; age &minus; 161</p>
+        <p><strong>Prefer not to say:</strong> BMR = 10 &times; weight (kg) + 6.25 &times; height (cm) &minus; 5 &times; age &minus; 78 (midpoint)</p>
+        <p>TDEE = BMR &times; activity multiplier</p>
+      </div>
+
+      <h2>Activity multipliers — pick honestly</h2>
+      <ul>
+        <li><strong>Sedentary (1.2)</strong> — desk-based job, no structured exercise. Walking to the car does not count.</li>
+        <li><strong>Lightly active (1.375)</strong> — one to three gym sessions or long walks per week.</li>
+        <li><strong>Moderately active (1.55)</strong> — three to five sessions per week with moderate intensity.</li>
+        <li><strong>Very active (1.725)</strong> — six to seven sessions per week, or an active job plus some training.</li>
+        <li><strong>Extremely active (1.9)</strong> — physical manual labour plus daily hard training. Very few people sit here.</li>
+      </ul>
+
+      <h2>What to do with the result</h2>
+      <p>Use the target number as a starting budget for the next two to three weeks. Weigh yourself under the same conditions each morning and track the weekly average. If weight moves in the right direction at roughly 0.5 to 1 % of body weight per week, the target is working. If not, adjust by 100 to 150 kcal and re-test.</p>
+      <p>Do not chase precision. The calculator gives a sensible starting point — your body provides the feedback loop.</p>
+
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How accurate is a TDEE calculator?</summary>
+          <div class="answer">Any formula-based TDEE estimate carries roughly &plusmn;10-15 % error. The Mifflin-St Jeor equation is the most validated for adults, but individual metabolism, non-exercise activity thermogenesis (NEAT), and muscle mass all shift the real number. Treat the output as a starting point and adjust after two to three weeks based on actual weight change.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Which activity multiplier should I pick?</summary>
+          <div class="answer">Most people with desk jobs who exercise three to four times a week sit between lightly active and moderately active. If in doubt, choose the lower option. Overestimating activity is the most common reason calorie targets come out too high.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Why is a woman's BMR lower than a man's at the same weight?</summary>
+          <div class="answer">On average, women carry a higher proportion of body fat and less lean mass than men at the same scale weight. Because muscle tissue is more metabolically active than fat tissue, men tend to burn more energy at rest. The Mifflin-St Jeor formula accounts for this with a sex-specific constant: +5 for men, &minus;161 for women.</div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    {label:'Tool', title:'Macros calculator', description:'Get personalised protein, fat and carb targets in grams.', href:'/tools/macros-calculator/'},
+    {label:'Tool', title:'BMI calculator UK', description:'Stones-and-pounds BMI with NHS categories and honest caveats.', href:'/tools/bmi-calculator-uk/'},
+    {label:'Guide', title:'Calorie deficit', description:'How to set and sustain a deficit without wrecking your metabolism.', href:'/guides/calorie-deficit/'}
+  ]} />
+</Base>
+<script>
+  // Toggle helpers
+  function initToggle(toggleId: string, panels: Record<string, string>) {
+    const toggle = document.getElementById(toggleId)!;
+    toggle.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('button');
+      if (!btn) return;
+      toggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const unit = btn.dataset.unit!;
+      Object.entries(panels).forEach(([key, id]) => {
+        (document.getElementById(id) as HTMLElement).style.display = key === unit ? '' : 'none';
+      });
+    });
+  }
+  initToggle('height-toggle', { cm: 'height-cm', ftin: 'height-ftin' });
+  initToggle('weight-toggle', { kg: 'weight-kg', stlbs: 'weight-stlbs' });
+
+  function getHeight(): number {
+    const active = document.querySelector('#height-toggle button.active') as HTMLElement;
+    if (active.dataset.unit === 'cm') return parseFloat((document.getElementById('height-cm-val') as HTMLInputElement).value);
+    const ft = parseFloat((document.getElementById('height-ft') as HTMLInputElement).value) || 0;
+    const inch = parseFloat((document.getElementById('height-in') as HTMLInputElement).value) || 0;
+    return (ft * 12 + inch) * 2.54;
+  }
+  function getWeight(): number {
+    const active = document.querySelector('#weight-toggle button.active') as HTMLElement;
+    if (active.dataset.unit === 'kg') return parseFloat((document.getElementById('weight-kg-val') as HTMLInputElement).value);
+    const st = parseFloat((document.getElementById('weight-st') as HTMLInputElement).value) || 0;
+    const lbs = parseFloat((document.getElementById('weight-lbs') as HTMLInputElement).value) || 0;
+    return (st * 14 + lbs) * 0.453592;
+  }
+
+  document.getElementById('tdee-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const sex = (document.getElementById('sex') as HTMLSelectElement).value;
+    const age = parseFloat((document.getElementById('age') as HTMLInputElement).value);
+    const cm = getHeight();
+    const kg = getWeight();
+    const activity = parseFloat((document.getElementById('activity') as HTMLSelectElement).value);
+    const goal = parseFloat((document.getElementById('goal') as HTMLSelectElement).value);
+
+    let bmr = 10 * kg + 6.25 * cm - 5 * age;
+    if (sex === 'male') bmr += 5;
+    else if (sex === 'female') bmr -= 161;
+    else bmr -= 78;
+
+    const tdee = Math.round(bmr * activity);
+    const target = Math.round(tdee * goal);
+    const proteinG = Math.round(kg * 1.8);
+    const fatG = Math.round((target * 0.25) / 9);
+    const carbsG = Math.round((target - proteinG * 4 - fatG * 9) / 4);
+    const syns = Math.round(target / 20);
+    const wwPts = Math.round(target / 35);
+    const pPct = Math.round((proteinG * 4 / target) * 100);
+    const fPct = Math.round((fatG * 9 / target) * 100);
+    const cPct = 100 - pPct - fPct;
+
+    document.getElementById('result')!.innerHTML = `
+      <span class="calc-result-headline">Your target</span>
+      <span class="calc-result-primary">${target.toLocaleString()}<span class="unit">kcal / day</span></span>
+      <div class="calc-result-row"><span class="label">BMR</span><span class="value">${Math.round(bmr).toLocaleString()} kcal</span></div>
+      <div class="calc-result-row"><span class="label">TDEE (maintenance)</span><span class="value">${tdee.toLocaleString()} kcal</span></div>
+      <div class="calc-result-row"><span class="label">Protein</span><span class="value">${proteinG} g</span></div>
+      <div class="calc-result-row"><span class="label">Fat</span><span class="value">${fatG} g</span></div>
+      <div class="calc-result-row"><span class="label">Carbs</span><span class="value">${carbsG} g</span></div>
+      <div class="calc-translate">
+        <span class="calc-translate-label">Translated into other metrics</span>
+        <div class="calc-translate-grid">
+          <div class="pill"><span class="lab">Syns / day</span><span class="val">~${syns}</span></div>
+          <div class="pill"><span class="lab">WW pts / day</span><span class="val">~${wwPts}</span></div>
+          <div class="pill"><span class="lab">Macros %</span><span class="val">${pPct}/${fPct}/${cPct}</span></div>
+        </div>
+      </div>
+    `;
+  });
+</script>

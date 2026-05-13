@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is BMR? Basal Metabolic Rate Explained UK",
+    "description": "BMR is the calories your body burns at complete rest. How it's calculated, why it falls with age, and what raises (and doesn't raise) it.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-is-bmr/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a normal BMR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For adult women, BMR typically ranges from 1,200 to 1,600 kcal per day. For adult men, 1,500 to 2,000 kcal. The variation depends primarily on lean body mass, height, age, and sex. A taller, more muscular person will have a higher BMR than a shorter, lighter person of the same age." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I eat below my BMR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Technically you can, but it is rarely advisable outside medical supervision. Eating below BMR for extended periods increases muscle loss, reduces metabolic rate, disrupts hormones, and makes the diet harder to sustain. A moderate deficit (10-25% below TDEE, which keeps intake above BMR) is safer and more effective long-term." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does muscle raise BMR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Muscle tissue burns roughly 13 kcal per kg per day at rest, compared to about 4.5 kcal per kg for fat tissue. Adding 5 kg of muscle would raise your BMR by about 65 kcal per day. It is not a massive number, but it compounds over time and is one of the strongest arguments for resistance training during weight loss." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between BMR and RMR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "BMR (Basal Metabolic Rate) is measured under strict laboratory conditions: 12+ hours fasted, complete rest, thermoneutral environment. RMR (Resting Metabolic Rate) is measured under less strict conditions and is typically 5-10% higher than BMR because it includes the minor energy cost of being awake. In practice, most online calculators estimate RMR and label it BMR." }
+      }
+    ]
+  }
+];
+---
+<Base title="What Is BMR? Basal Metabolic Rate Explained UK — Plentii" description="BMR is the calories your body burns at complete rest. How it's calculated, why it falls with age, and what raises (and doesn't raise) it." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"What is BMR?"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 5 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What is BMR?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Basal Metabolic Rate &mdash; what your body costs to run when you do nothing at all.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: SACN &middot; ISSN &middot; NHS</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Most of the energy you burn in a day is spent on things you never think about: your heart beating, your lungs expanding, your liver processing, your brain running its background processes. That baseline &mdash; the energy cost of being alive &mdash; is your Basal Metabolic Rate. It accounts for 60 to 75 per cent of your total daily energy expenditure, and it is the number that sets the floor beneath everything else.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>BMR versus RMR</h2>
+      <p>You will see both terms used, often interchangeably. They are not quite the same thing.</p>
+      <p><strong>BMR (Basal Metabolic Rate)</strong> is measured under strict laboratory conditions: you must have fasted for at least 12 hours, slept in the lab overnight, and lie completely still in a thermoneutral (temperature-controlled) room. It represents the absolute minimum energy your body needs to sustain vital functions.</p>
+      <p><strong>RMR (Resting Metabolic Rate)</strong> is measured under less strict conditions. You fast for 3&ndash;4 hours instead of 12, and the measurement is taken while you are resting but awake, in a clinical setting rather than a sleep lab. RMR is typically 5&ndash;10% higher than BMR because it includes the minor energy cost of being awake and having recently moved.</p>
+      <p>In practice, every online calculator and most clinical settings measure (or estimate) RMR and call it BMR. The difference is small enough that it does not matter for practical purposes. When this guide says BMR, it means the number you will get from a standard equation or calculator.</p>
+
+      <h2>How BMR is measured</h2>
+      <p>The gold standard is <strong>indirect calorimetry</strong>. You breathe into a sealed hood or mask for 15&ndash;30 minutes while a machine measures the volume of oxygen consumed and carbon dioxide produced. From these gas exchange ratios, it calculates your energy expenditure at rest. This is accurate to within about 5% and is available through some NHS dietetic services, private clinics, and university sport science labs.</p>
+      <p>For everyone else, there are prediction equations. The most widely validated for adults is Mifflin-St Jeor.</p>
+
+      <div class="callout">
+        <strong>Mifflin-St Jeor equation</strong>
+        Men: BMR = (10 &times; weight in kg) + (6.25 &times; height in cm) &minus; (5 &times; age in years) + 5<br/>
+        Women: BMR = (10 &times; weight in kg) + (6.25 &times; height in cm) &minus; (5 &times; age in years) &minus; 161
+      </div>
+
+      <p>This equation is accurate to within about 10% for most people. It tends to overestimate BMR in people with a high body fat percentage (because fat tissue is metabolically cheaper than lean tissue), and underestimate in very muscular individuals. If you know your body fat percentage, the Katch-McArdle formula (which uses lean body mass instead of total weight) is more accurate.</p>
+
+      <h2>What affects BMR</h2>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing factors affecting BMR in order of influence: lean mass, age, sex, hormones, climate">
+          <text x="300" y="20" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8B928D" letter-spacing="0.08em">FACTORS AFFECTING BMR (RELATIVE INFLUENCE)</text>
+          <g transform="translate(0,40)">
+            <text x="115" y="18" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Lean mass</text>
+            <rect x="120" y="5" width="420" height="22" rx="3" fill="#2D5A3D"/>
+
+            <text x="115" y="52" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Age</text>
+            <rect x="120" y="39" width="280" height="22" rx="3" fill="#2D5A3D" opacity="0.8"/>
+
+            <text x="115" y="86" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Sex</text>
+            <rect x="120" y="73" width="200" height="22" rx="3" fill="#2D5A3D" opacity="0.6"/>
+
+            <text x="115" y="120" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Hormones</text>
+            <rect x="120" y="107" width="140" height="22" rx="3" fill="#C68F1F" opacity="0.7"/>
+
+            <text x="115" y="154" text-anchor="end" font-family="'Inter', sans-serif" font-size="11" fill="#4A524D">Climate</text>
+            <rect x="120" y="141" width="60" height="22" rx="3" fill="#8B928D" opacity="0.5"/>
+          </g>
+        </svg>
+        <p class="viz-caption">Lean mass is the dominant factor. Everything else is secondary.</p>
+      </div>
+
+      <p><strong>Lean body mass</strong> is the strongest predictor of BMR. Muscle, organs, and bone are metabolically active tissue &mdash; they require energy to maintain. Fat tissue is relatively inert. Two people of the same weight can have very different BMRs if one carries significantly more muscle. This is why resistance training is the most effective long-term strategy for maintaining metabolic rate.</p>
+      <p><strong>Age</strong> reduces BMR primarily through its effect on muscle mass. After 30, the average adult loses 3&ndash;5% of muscle mass per decade without resistance training. The BMR decline attributed to ageing is largely a decline in lean tissue, not an inevitable metabolic slowdown.</p>
+      <p><strong>Sex.</strong> Men have a higher BMR than women on average, mainly because they carry more muscle mass and less body fat at the same weight. The Mifflin-St Jeor equation accounts for this with a 166 kcal/day offset (the +5 for men versus &minus;161 for women).</p>
+      <p><strong>Hormones.</strong> Thyroid hormones (T3 and T4) are the primary metabolic regulators. Hypothyroidism can reduce BMR by 10&ndash;15%, while hyperthyroidism can increase it by a similar margin. Testosterone, oestrogen, cortisol, and insulin also influence metabolic rate, but their effects are smaller and more complex.</p>
+      <p><strong>Climate.</strong> Cold environments slightly increase BMR because the body expends energy maintaining core temperature. The effect is real but small (a few per cent) and is not a viable weight-loss strategy.</p>
+
+      <h2>Why BMR drops as you lose weight</h2>
+      <p>When you diet, your BMR decreases. This happens for two reasons.</p>
+      <p>First, you have less mass. A smaller body requires less energy to maintain. This is simple physics and is fully expected.</p>
+      <p>Second, <strong>metabolic adaptation</strong> (sometimes called "adaptive thermogenesis"). Your body reduces energy expenditure beyond what the loss of mass alone would predict. Thyroid output decreases, NEAT drops (you fidget less, move less, feel more lethargic), and the efficiency of muscle contractions increases. The result is that your actual BMR may be 5&ndash;15% lower than predicted by equations at the same weight.</p>
+      <p>The MATADOR study (Byrne et al., 2018) showed that intermittent dieting &mdash; two weeks in deficit, two weeks at maintenance &mdash; reduced metabolic adaptation compared to continuous dieting and resulted in greater fat loss over the same total deficit. Diet breaks are not indulgence; they are a physiological strategy.</p>
+
+      <h2>Things that don't raise BMR</h2>
+      <p>There is a large market for products and habits that claim to "boost metabolism". Most of them do not work in any meaningful way.</p>
+      <p><strong>Green tea and caffeine.</strong> Caffeine increases metabolic rate by about 3&ndash;5% for a few hours. Green tea catechins may add a tiny amount on top. The total effect is roughly 50&ndash;100 kcal per day &mdash; real, but equivalent to eating one fewer biscuit. Not transformative.</p>
+      <p><strong>Cold showers and ice baths.</strong> Brief cold exposure activates brown adipose tissue and burns some additional calories. The effect is small (10&ndash;30 kcal per session) and fades as your body adapts. Cold exposure has genuine benefits for recovery and mood, but metabolic boosting is not one of them.</p>
+      <p><strong>Spicy food.</strong> Capsaicin raises metabolic rate briefly by about 8%. On a 2,000 kcal day, that is 20 kcal. Eat chillies because you like them, not because they will change your body composition.</p>
+      <p><strong>Fat-burner supplements.</strong> Most contain caffeine, green tea extract, and various herbal ingredients with minimal evidence. At best they replicate the effect of a cup of coffee. At worst they contain undisclosed stimulants with cardiovascular risks. Save your money.</p>
+      <p><strong>Eating six small meals instead of three.</strong> The thermic effect of food is determined by total intake, not meal frequency. Six meals of 300 kcal produce the same TEF as three meals of 600 kcal. Meal timing is a preference, not a metabolic lever.</p>
+      <p><strong>What actually works:</strong> resistance training and adequate protein. Building and maintaining muscle tissue is the only sustainable way to raise BMR. Everything else is noise.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is a normal BMR?</summary>
+          <div class="answer">
+            <p>For adult women, BMR typically ranges from 1,200 to 1,600 kcal per day. For adult men, 1,500 to 2,000 kcal. The variation depends primarily on lean body mass, height, age, and sex. A taller, more muscular person will have a higher BMR than a shorter, lighter person of the same age.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I eat below my BMR?</summary>
+          <div class="answer">
+            <p>Technically you can, but it is rarely advisable outside medical supervision. Eating below BMR for extended periods increases muscle loss, reduces metabolic rate, disrupts hormones, and makes the diet harder to sustain. A moderate deficit (10&ndash;25% below TDEE, which keeps intake above BMR) is safer and more effective long-term.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does muscle raise BMR?</summary>
+          <div class="answer">
+            <p>Yes. Muscle tissue burns roughly 13 kcal per kg per day at rest, compared to about 4.5 kcal per kg for fat tissue. Adding 5 kg of muscle would raise your BMR by about 65 kcal per day. It is not a massive number, but it compounds over time and is one of the strongest arguments for resistance training during weight loss.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the difference between BMR and RMR?</summary>
+          <div class="answer">
+            <p>BMR (Basal Metabolic Rate) is measured under strict laboratory conditions: 12+ hours fasted, complete rest, thermoneutral environment. RMR (Resting Metabolic Rate) is measured under less strict conditions and is typically 5&ndash;10% higher than BMR because it includes the minor energy cost of being awake. In practice, most online calculators estimate RMR and label it BMR.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "TDEE calculator", description: "Estimate your total daily energy expenditure with UK-specific defaults.", href: "/tools/tdee-calculator-uk/" },
+    { label: "Guide", title: "What is TDEE?", description: "The total number your body burns in a day.", href: "/guides/what-is-tdee/" },
+    { label: "Guide", title: "Calorie deficit", description: "How big, how long, and what to expect.", href: "/guides/calorie-deficit/" }
+  ]} />
+</Base>

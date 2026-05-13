@@ -1,0 +1,183 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "WW Points Explained: SmartPoints & Personal Points UK",
+    "description": "Weight Watchers' points system has had multiple versions. What each one measures, how they're calculated, and how to convert WW points to calories.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-are-ww-points/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many calories is one WW point?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Under the current PersonalPoints system, one point is roughly 30 to 40 kcal, but the exact figure varies by food because the formula penalises sugar and saturated fat while rewarding protein. A high-protein, low-sugar food will have fewer points per calorie than a sugary, fatty one." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did Weight Watchers change their points system?",
+        "acceptedAnswer": { "@type": "Answer", "text": "WW has updated its points formula five times since 1997 to reflect evolving nutritional science and to differentiate from simple calorie counting. Each version added new nutritional factors (fibre, sugar, saturated fat, protein) to nudge members toward better food choices, not just lower calorie totals." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are zero point foods on WW?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zero point foods are items WW assigns no points to, encouraging unlimited consumption. The list includes most fruits and vegetables, eggs, skinless chicken and turkey breast, fish, shellfish, tofu, fat-free yoghurt, beans, lentils, and corn. Under PersonalPoints, the list is personalised based on your eating habits." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is WW just calorie counting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "At its core, yes — WW controls calorie intake by assigning a daily points budget. But the formula weights nutritional quality (penalising sugar and saturated fat, rewarding protein and fibre), so it is calorie counting with built-in dietary opinion. The group support, app tracking, and coaching layer additional value beyond the maths." }
+      }
+    ]
+  }
+];
+---
+<Base title="WW Points Explained: SmartPoints & Personal Points UK — Plentii" description="Weight Watchers' points system has had multiple versions. What each one measures, how they're calculated, and how to convert WW points to calories." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"WW points explained"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 7 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What are Weight Watchers points?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">Three eras, two different formulas, one underlying logic &mdash; and a programme that has changed names more often than it has changed mechanism.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: WW International &middot; NHS &middot; BDA</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Weight Watchers has been running for more than fifty years and has changed its points formula five times. Every version has been calorie counting with a nutritional opinion layered on top. The opinion has evolved &mdash; from fat-phobic in the 1990s to sugar-aware today &mdash; but the underlying mechanism has never changed: give members a daily budget, make some foods cost more than others, and let the maths create an energy deficit.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>A brief history of WW points</h2>
+      <p><strong>1997 &mdash; Original Points.</strong> The first formula was based on calories, fat, and fibre. Higher fat meant more points; higher fibre meant fewer. It was simple, effective, and openly fat-phobic in the way most 1990s nutrition advice was.</p>
+      <p><strong>2010 &mdash; ProPoints.</strong> WW overhauled the formula to account for protein, carbohydrate, fat, and fibre. Fruit became zero points for the first time, which was controversial (a banana is about 90 kcal and was suddenly "free"). The rationale was that nobody got overweight eating too much fruit.</p>
+      <p><strong>2015 &mdash; SmartPoints.</strong> Sugar and saturated fat were added as penalty factors. Lean protein was rewarded more heavily. The formula became: calories as the base, plus penalties for sugar and saturated fat, minus a credit for protein. This version pushed members toward whole foods and away from ultra-processed snacks.</p>
+      <p><strong>2018 &mdash; Freestyle / Flex.</strong> Not a formula change but a significant expansion of the zero-point food list. Eggs, skinless chicken breast, fish, beans, lentils, tofu, and fat-free yoghurt all became zero points. The daily budget was reduced to compensate. In the UK this was branded as "Flex".</p>
+      <p><strong>2021 &mdash; PersonalPoints.</strong> The current system. The formula is the same as SmartPoints, but the zero-point food list is now personalised. Members complete an assessment, and WW assigns them a tailored list of zero-point foods and a corresponding daily budget. Two members eating the same meal might track different point values.</p>
+
+      <h2>How the current formula works</h2>
+      <p>WW has never published the exact PersonalPoints formula, but it has confirmed the inputs: calories, saturated fat, sugar, protein, and (in some versions) fibre and unsaturated fat. Independent reverse-engineering by nutritionists and food bloggers has produced a close approximation.</p>
+
+      <div class="callout">
+        <strong>Approximate SmartPoints / PersonalPoints formula</strong>
+        Points &asymp; (Calories &div; 33) + (Saturated fat g &times; 0.3) + (Sugar g &times; 0.4) &minus; (Protein g &times; 0.5). The result is rounded to the nearest whole number, with a minimum of zero for foods on the zero-point list.
+      </div>
+
+      <p>The practical effect: a 200 kcal chicken breast (high protein, no sugar, low sat fat) costs about 2 points. A 200 kcal chocolate bar (moderate protein, high sugar, moderate sat fat) costs about 8 points. Same calories, very different point costs. That is the "nutritional opinion" WW is embedding into the maths.</p>
+
+      <h2>Zero point foods</h2>
+      <p>Under PersonalPoints, the zero-point list is personalised, but the core foods that appear on most members' lists include:</p>
+      <ul>
+        <li>Most fruits and vegetables (excluding avocado, olives, and dried fruit in some plans)</li>
+        <li>Skinless chicken and turkey breast</li>
+        <li>Eggs</li>
+        <li>Fish and shellfish</li>
+        <li>Tofu and tempeh</li>
+        <li>Fat-free plain yoghurt</li>
+        <li>Beans, lentils, and chickpeas</li>
+        <li>Sweetcorn and peas</li>
+        <li>Potatoes (in some personalised plans)</li>
+      </ul>
+      <p>Zero points does not mean zero calories. A large chicken breast is zero points and 250 kcal. Three eggs are zero points and about 230 kcal. The system works because most people do not overeat these foods &mdash; but some do, and for them the zero-point concept can mask a calorie surplus.</p>
+
+      <h2>Daily budgets</h2>
+      <p>Under PersonalPoints, daily budgets are personalised based on age, sex, height, weight, and the composition of your zero-point food list. Broadly:</p>
+      <ul>
+        <li><strong>Women:</strong> 22 to 32 points per day (typically 26&ndash;30 for most women aged 30&ndash;50)</li>
+        <li><strong>Men:</strong> 28 to 42 points per day (typically 32&ndash;38 for most men aged 30&ndash;50)</li>
+        <li><strong>Weekly bonus points:</strong> An additional pool of points (typically 14&ndash;28) that can be spread across the week or saved for a single occasion</li>
+      </ul>
+      <p>If your zero-point food list is larger (more foods are "free"), your daily budget will be lower to compensate. The total energy intake target is roughly the same regardless of which personalisation you receive.</p>
+
+      <h2>WW points versus syns versus calories</h2>
+      <p>All three systems control energy intake. The difference is in how they package the information.</p>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of 100 kcal in four metrics: calories, syns, SmartPoints, and ProPoints">
+          <text x="300" y="24" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8B928D" letter-spacing="0.08em">100 KCAL EXPRESSED IN FOUR METRICS</text>
+          <g transform="translate(0, 45)">
+            <rect x="30" y="0" width="120" height="100" rx="8" fill="#E8EEE9" stroke="#D4CDBF" stroke-width="1"/>
+            <text x="90" y="36" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" letter-spacing="0.06em">CALORIES</text>
+            <text x="90" y="68" text-anchor="middle" font-family="'Fraunces', serif" font-size="28" fill="#1A1F1C" font-weight="400">100</text>
+            <text x="90" y="88" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#4A524D">kcal</text>
+
+            <rect x="170" y="0" width="120" height="100" rx="8" fill="#E8EEE9" stroke="#D4CDBF" stroke-width="1"/>
+            <text x="230" y="36" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" letter-spacing="0.06em">SYNS</text>
+            <text x="230" y="68" text-anchor="middle" font-family="'Fraunces', serif" font-size="28" fill="#1A1F1C" font-weight="400">5</text>
+            <text x="230" y="88" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#4A524D">syns</text>
+
+            <rect x="310" y="0" width="120" height="100" rx="8" fill="#E8EEE9" stroke="#D4CDBF" stroke-width="1"/>
+            <text x="370" y="36" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" letter-spacing="0.06em">SMARTPOINTS</text>
+            <text x="370" y="68" text-anchor="middle" font-family="'Fraunces', serif" font-size="28" fill="#1A1F1C" font-weight="400">3&ndash;7</text>
+            <text x="370" y="88" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#4A524D">varies by food</text>
+
+            <rect x="450" y="0" width="120" height="100" rx="8" fill="#E8EEE9" stroke="#D4CDBF" stroke-width="1"/>
+            <text x="510" y="36" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D" letter-spacing="0.06em">PROPOINTS</text>
+            <text x="510" y="68" text-anchor="middle" font-family="'Fraunces', serif" font-size="28" fill="#1A1F1C" font-weight="400">3</text>
+            <text x="510" y="88" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#4A524D">approx.</text>
+          </g>
+        </svg>
+        <p class="viz-caption">100 kcal translates differently in each system because syns track energy only, while WW points also penalise sugar and saturated fat.</p>
+      </div>
+
+      <p>Calories are transparent: you see exactly what you are tracking, but you make all the food-quality decisions yourself. Syns simplify by only counting non-free foods, hiding the total. WW points add a nutritional lens, penalising junk food and rewarding whole food, but the formula is opaque and changes every few years.</p>
+
+      <h2>Switching away from WW or leaving altogether</h2>
+      <p>If you are thinking about leaving WW and switching to calorie or macro counting, the key conversion to know is that one SmartPoint or PersonalPoint is roughly 30 to 40 kcal, depending on the food. High-protein, low-sugar foods sit at the lower end; sugary, fatty foods sit at the higher end.</p>
+      <p>The bigger adjustment is learning to track zero-point foods. If you have been eating chicken, eggs, beans, and fruit without counting them, you will need to start logging those calories. Most people find their "zero-point" intake is 800 to 1,200 kcal per day &mdash; a significant amount that WW's system deliberately hides from view.</p>
+      <p>Our guide to <a href="/guides/from-ww-to-calories/">moving from WW to calorie counting</a> covers the transition in detail.</p>
+
+      <h2>Not affiliated</h2>
+      <p>Plentii is not affiliated with, endorsed by, or connected to WW International (formerly Weight Watchers) in any way. "WW", "Weight Watchers", "SmartPoints", "ProPoints", "PersonalPoints", and "Freestyle" are trademarks of WW International, Inc. We reference the programme for educational purposes only.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many calories is one WW point?</summary>
+          <div class="answer">
+            <p>Under the current PersonalPoints system, one point is roughly 30 to 40 kcal, but the exact figure varies by food because the formula penalises sugar and saturated fat while rewarding protein. A high-protein, low-sugar food will have fewer points per calorie than a sugary, fatty one.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why did Weight Watchers change their points system?</summary>
+          <div class="answer">
+            <p>WW has updated its points formula five times since 1997 to reflect evolving nutritional science and to differentiate from simple calorie counting. Each version added new nutritional factors (fibre, sugar, saturated fat, protein) to nudge members toward better food choices, not just lower calorie totals.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What are zero point foods on WW?</summary>
+          <div class="answer">
+            <p>Zero point foods are items WW assigns no points to, encouraging unlimited consumption. The list includes most fruits and vegetables, eggs, skinless chicken and turkey breast, fish, shellfish, tofu, fat-free yoghurt, beans, lentils, and corn. Under PersonalPoints, the list is personalised based on your eating habits.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is WW just calorie counting?</summary>
+          <div class="answer">
+            <p>At its core, yes &mdash; WW controls calorie intake by assigning a daily points budget. But the formula weights nutritional quality (penalising sugar and saturated fat, rewarding protein and fibre), so it is calorie counting with built-in dietary opinion. The group support, app tracking, and coaching layer additional value beyond the maths.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Converter", title: "WW points to calories", description: "Convert WW points to approximate kilocalories.", href: "/tools/ww-points-to-calories/" },
+    { label: "Guide", title: "From WW to calories", description: "Step-by-step migration from Weight Watchers to independent tracking.", href: "/guides/from-ww-to-calories/" },
+    { label: "Guide", title: "What is a syn?", description: "Slimming World's metric explained plainly.", href: "/guides/what-is-a-syn/" }
+  ]} />
+</Base>

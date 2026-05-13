@@ -1,0 +1,41 @@
+# plentii.food
+
+> Diet-agnostic nutrition data for the UK. Calories, syns, WW points, macros — one lookup, every metric.
+
+## What this site does
+plentii.food translates nutrition data across dieting frameworks. Instead of learning one system, users see all 15 metrics side by side for any food or goal.
+
+## Core pages
+
+### Guides
+- /guides/what-is-a-calorie/ — How calories work, Atwater system, 20% tolerance band
+- /guides/what-is-a-syn/ — Slimming World syns explained, 1 syn ≈ 20 kcal
+- /guides/what-are-ww-points/ — WW points across all eras (ProPoints, SmartPoints, PersonalPoints)
+- /guides/what-are-macros/ — Protein, fat, carbs — what each does, how to track
+- /guides/what-is-tdee/ — Total daily energy expenditure: BMR + TEF + NEAT + EAT
+- /guides/what-is-bmr/ — Basal metabolic rate, Mifflin-St Jeor formula
+- /guides/calorie-deficit/ — Safe deficit ranges, timelines, side effects
+- /guides/calorie-surplus-and-recomp/ — Muscle gain rates, lean bulk vs recomp vs maingain
+
+### Tools
+- /tools/tdee-calculator-uk/ — TDEE calculator with metric/imperial toggle and multi-framework results
+- /tools/syns-to-calories-converter/ — Convert Slimming World syns to calories
+- /tools/ww-points-to-calories-converter/ — Convert WW points (any era) to calories
+- /tools/macros-calculator/ — Protein-first macro split calculator
+- /tools/bmi-calculator-uk/ — BMI with NHS categories and healthy weight range
+- /tools/alcohol-units-calculator/ — UK alcohol units with NHS 14-unit weekly visual
+
+### About
+- /about/ — What We Mean by Good Eating manifesto
+- /about/editorial-policy/ — How we source, fact-check, and correct
+- /about/methodology/ — Formulas, data sources, error margins
+- /about/team/ — Who writes and reviews content
+- /about/team/sunny-patel/ — Founder profile
+- /about/team/plentii-editorial/ — Institutional author byline
+
+## Key facts
+- UK English, gender-neutral, zero-shame tone
+- Diet-agnostic: no framework is "best"
+- YMYL content: all health claims cite peer-reviewed sources
+- No recipes (partner site shecookssheeats.com handles recipes)
+- Independent: no affiliate deals influence recommendations

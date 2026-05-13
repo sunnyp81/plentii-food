@@ -1,0 +1,90 @@
+---
+import '../../styles/global.css';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Plentii",
+    "url": "https://plentii.food/",
+    "ethicsPolicy": "https://plentii.food/about/editorial-policy/",
+    "correctionsPolicy": "https://plentii.food/about/editorial-policy/#corrections",
+    "ownershipFundingInfo": "https://plentii.food/about/editorial-policy/#funding"
+  }
+];
+---
+<Base title="Editorial Policy — Plentii" description="How plentii content is researched, written, reviewed, and corrected. Our sources, our process, and our commitment to accuracy." schema={schema}>
+  <main class="pt-16 pb-20">
+    <div class="article-body">
+      <Breadcrumb crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'About', href: '/about/' },
+        { label: 'Editorial Policy' }
+      ]} />
+
+      <h1 class="!text-[clamp(2.4rem,2rem+2vw,3.6rem)] mb-6">Editorial Policy</h1>
+
+      <p class="lede">Every page on plentii is written to be trusted. That means showing our working, naming our sources, dating our content, and correcting ourselves publicly when we get something wrong.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>How content is researched</h2>
+      <p>We build every claim from the source upward. Primary sources come first; secondary sources fill gaps only where primary data is unavailable or insufficiently granular for UK audiences.</p>
+      <h4>Primary sources</h4>
+      <ul>
+        <li>NHS England clinical and public health guidance</li>
+        <li>NICE (National Institute for Health and Care Excellence) guidelines</li>
+        <li>USDA FoodData Central</li>
+        <li>McCance &amp; Widdowson's <em>Composition of Foods</em> (7th edition, PHE)</li>
+        <li>Peer-reviewed journals: PubMed, The Lancet, BMJ, American Journal of Clinical Nutrition</li>
+      </ul>
+      <h4>Secondary sources</h4>
+      <ul>
+        <li>UK government food regulations (EU Regulation 1169/2011, retained in UK law)</li>
+        <li>British Dietetic Association (BDA) position papers</li>
+        <li>SACN (Scientific Advisory Committee on Nutrition) reports</li>
+      </ul>
+      <p>We do not cite social media, influencer content, or proprietary brand materials as evidence.</p>
+
+      <h2>How content is written</h2>
+      <ul>
+        <li>Plain UK English, targeting approximately an 8th-grade reading level.</li>
+        <li>Every factual claim is linked to its source or tagged with the regulation it derives from.</li>
+        <li>No unnamed "experts say" attributions. Every expert is named and their credential specified.</li>
+        <li>No body-shame language, no diet tribe endorsement, no before-and-after imagery.</li>
+      </ul>
+
+      <h2>How content is reviewed</h2>
+      <p>All content is reviewed by a named editor before publication.</p>
+      <p>YMYL content (health conditions, clinical nutrition) is additionally reviewed by a qualified professional where available.</p>
+      <div class="callout">
+        <strong>Clinical review disclosure</strong>
+        We are currently recruiting a HCPC-registered Dietitian (RD) or AfN-registered Nutritionist (RNutr) for clinical review. Until that hire is made, health-condition content carries a disclosure noting the gap.
+      </div>
+
+      <h2 id="corrections">How we handle corrections</h2>
+      <ul>
+        <li>Errors of fact are corrected immediately and the correction noted at the top of the page.</li>
+        <li>Errors of emphasis or interpretation are updated and re-dated.</li>
+        <li>No silent edits. The publication date and last-updated date are visible on every page.</li>
+      </ul>
+
+      <h2 id="funding">Funding and independence</h2>
+      <p>Plentii is independently owned. No external investors, no diet brand affiliations, no pharmaceutical sponsorship.</p>
+      <p>Revenue comes from affiliate commissions on products genuinely recommended, clearly disclosed on every page that contains affiliate links.</p>
+      <p>Affiliate relationships never influence editorial recommendations. The product comes first, the affiliate link second.</p>
+
+      <h2>Contact</h2>
+      <p>If you find an error, have a source correction, or want to suggest an improvement: <a href="mailto:editorial@plentii.food">editorial@plentii.food</a></p>
+    </div>
+  </main>
+
+  <Related items={[
+    { label: 'Data', title: 'Methodology', description: 'Data sources, formulas, and error margins behind every plentii calculation.', href: '/about/methodology/' },
+    { label: 'People', title: 'Team', description: 'Who writes the content, who reviews it, and the roles we are hiring for.', href: '/about/team/' },
+    { label: 'Overview', title: 'About', description: 'What plentii is, who it is for, and why it exists.', href: '/about/' }
+  ]} />
+</Base>

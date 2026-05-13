@@ -1,0 +1,186 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Calorie Deficit Guide UK: How Much, How Long, How Sustainable",
+    "description": "A calorie deficit is the energy gap that drives weight loss. How big to make it, how long it really takes, and the plateaus and side effects to expect.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/calorie-deficit/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How big should my calorie deficit be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For most people, a deficit of 10-25% below TDEE is optimal. That typically works out to 300-750 kcal per day. A 500 kcal daily deficit produces roughly 0.45 kg (1 lb) of fat loss per week. Larger deficits accelerate weight loss but increase muscle loss, hunger, and metabolic adaptation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to lose a stone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "At a 500 kcal daily deficit, losing one stone (6.35 kg) of body fat takes approximately 14 weeks in theory. In practice, add 30-50% for water fluctuations, metabolic adaptation, tracking imprecision, and life — so 18 to 21 weeks is more realistic. Larger deficits are faster but harder to sustain." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why has my weight loss plateaued?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Plateaus happen for four main reasons: metabolic adaptation (your body burns less as you lose weight), NEAT suppression (you move less without realising), tracking drift (portions creep up), and water retention masking fat loss. A diet break (1-2 weeks at maintenance calories) can help reset adaptation. Recalculating your TDEE at your new weight is essential." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I eat back exercise calories?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Partially. Exercise calorie estimates from watches and machines are typically 30-50% too high. If your tracker says you burned 400 kcal, eating back 200-250 kcal is a reasonable approach. If your deficit is already moderate (300-500 kcal), you can eat back half your estimated exercise calories without derailing progress." }
+      }
+    ]
+  }
+];
+---
+<Base title="Calorie Deficit Guide UK: How Much, How Long, How Sustainable — Plentii" description="A calorie deficit is the energy gap that drives weight loss. How big to make it, how long it really takes, and the plateaus and side effects to expect." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"Calorie deficit"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Practical &middot; 11 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">Calorie deficit for weight loss UK.</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">How big, how long, how sustainable &mdash; and the side effects nobody puts on the diet ad.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Practical Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: NHS &middot; SACN &middot; ISSN &middot; Byrne et al. 2018</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">Every diet that has ever produced weight loss has done so by creating a calorie deficit. Slimming World, Weight Watchers, keto, carnivore, intermittent fasting, clean eating, the Mediterranean diet &mdash; they all work for the same reason: they make you eat less energy than your body expends. The packaging varies. The physics does not. This guide is about the physics, and about the biology that makes the physics harder than it sounds.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>What a calorie deficit actually means</h2>
+      <p>A calorie deficit is the gap between the energy your body uses (your <a href="/guides/what-is-tdee/">TDEE</a>) and the energy you consume from food and drink. When that gap is negative &mdash; you eat less than you burn &mdash; your body draws on stored energy (primarily body fat, but also some muscle glycogen and, if protein is inadequate, muscle tissue) to make up the difference.</p>
+      <p>One kilogram of body fat stores approximately 7,700 kcal of energy. To lose one kilogram of fat, you need a cumulative deficit of roughly 7,700 kcal. At a daily deficit of 500 kcal, that is about 15 days. At 750 kcal per day, about 10 days. The maths is simple. The execution is not, because your body is not a passive fuel tank &mdash; it actively resists depletion.</p>
+      <p>The size of the deficit matters more as a percentage of TDEE than as an absolute number. A 500 kcal deficit is conservative for a man with a TDEE of 3,000 kcal (17%) but aggressive for a woman with a TDEE of 1,600 kcal (31%). Think in percentages, not just calories.</p>
+
+      <h2>How big should the deficit be?</h2>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deficit spectrum from 5% to 40%, showing sweet spot at 10-25%">
+          <defs>
+            <linearGradient id="defgrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#E8EEE9"/>
+              <stop offset="25%" stop-color="#2D5A3D"/>
+              <stop offset="60%" stop-color="#2D5A3D"/>
+              <stop offset="85%" stop-color="#C68F1F"/>
+              <stop offset="100%" stop-color="#8B928D"/>
+            </linearGradient>
+          </defs>
+          <rect x="40" y="40" width="520" height="30" rx="6" fill="url(#defgrad)"/>
+          <text x="90" y="32" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#8B928D">5&ndash;10%</text>
+          <text x="90" y="90" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#8B928D">Too small</text>
+          <text x="90" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#8B928D">for most goals</text>
+
+          <text x="280" y="32" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#2D5A3D" font-weight="600">10&ndash;25%</text>
+          <text x="280" y="90" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#2D5A3D" font-weight="600">Sweet spot</text>
+          <text x="280" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#2D5A3D">sustainable + effective</text>
+
+          <text x="470" y="32" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#C68F1F">25&ndash;40%</text>
+          <text x="470" y="90" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#C68F1F">Faster but costly</text>
+          <text x="470" y="102" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#C68F1F">more muscle loss, harder</text>
+
+          <line x1="170" y1="38" x2="170" y2="72" stroke="#D4CDBF" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="430" y1="38" x2="430" y2="72" stroke="#D4CDBF" stroke-width="1" stroke-dasharray="3,3"/>
+        </svg>
+        <p class="viz-caption">The 10&ndash;25% deficit range is where most people find the best balance between speed and sustainability.</p>
+      </div>
+
+      <p><strong>Conservative (5&ndash;10% deficit, ~100&ndash;250 kcal/day).</strong> Very slow fat loss. Suitable for people who are already lean and want to cut without losing performance, or for reverse dieting out of a long diet. Most people will not see meaningful scale changes week to week at this level.</p>
+      <p><strong>Moderate (10&ndash;25% deficit, ~250&ndash;600 kcal/day).</strong> The sweet spot for most people. You lose 0.25&ndash;0.75 kg per week (depending on starting weight), maintain most of your muscle with adequate protein, and the diet is sustainable for 8&ndash;16 weeks before needing a break. This is where the evidence for long-term success is strongest.</p>
+      <p><strong>Aggressive (25&ndash;40% deficit, ~600&ndash;1,000+ kcal/day).</strong> Faster weight loss, but at a cost. Hunger increases significantly. Muscle loss accelerates unless protein is very high (2.0+ g/kg) and resistance training is maintained. Metabolic adaptation kicks in faster. Mood, sleep, and libido are more likely to suffer. Suitable for short bursts (2&ndash;4 weeks) with medical oversight, or for people with a high starting body fat percentage (BMI 35+) where the absolute deficit, though large, is a modest percentage of a high TDEE.</p>
+
+      <h2>How fast will I lose weight?</h2>
+      <p>A reasonable target is 0.5&ndash;1% of bodyweight per week. For an 80 kg person, that is 0.4&ndash;0.8 kg per week. For a 60 kg person, 0.3&ndash;0.6 kg per week. Heavier people can sustain faster absolute loss; lighter people should aim lower.</p>
+      <p>The scale will not move linearly. Water retention from sodium, carbohydrate intake, menstrual cycle, stress, sleep, and bowel contents can swing the scale by 1&ndash;3 kg day to day. Judge trends over two to four weeks, not single weigh-ins. If you find daily weighing stressful, weigh weekly (same day, same conditions) and average over the month.</p>
+
+      <h2>How long to lose 1, 2, or 3 stone</h2>
+      <p>One stone is 6.35 kg. At roughly 7,700 kcal per kg of fat, losing one stone requires a cumulative deficit of about 48,900 kcal.</p>
+      <ul>
+        <li><strong>At 500 kcal/day deficit:</strong> ~14 weeks in theory. Add 30&ndash;50% for real-world friction &rarr; <strong>18&ndash;21 weeks</strong>.</li>
+        <li><strong>At 750 kcal/day deficit:</strong> ~9 weeks in theory &rarr; <strong>12&ndash;14 weeks</strong> realistically.</li>
+        <li><strong>At 1,000 kcal/day deficit:</strong> ~7 weeks in theory &rarr; <strong>9&ndash;10 weeks</strong> realistically, but sustainability is poor for most people.</li>
+      </ul>
+      <p>For two stone, roughly double the timeline. For three stone, triple. But the maths becomes less accurate over longer periods because metabolic adaptation reduces your TDEE and you need to recalculate every 4&ndash;6 weeks.</p>
+
+      <h2>Plateaus</h2>
+      <p>If your weight has not moved for two or more weeks despite consistent adherence, one or more of these factors is at play.</p>
+      <p><strong>Metabolic adaptation.</strong> Your body burns fewer calories as you lose weight &mdash; both because you have less mass and because of adaptive thermogenesis (your metabolism slows beyond what the mass loss predicts). Recalculate your TDEE at your new weight.</p>
+      <p><strong>NEAT suppression.</strong> You move less without realising it. You stand less, walk fewer steps, fidget less, and are generally more lethargic. This can reduce energy expenditure by 200&ndash;400 kcal per day compared to when you started the diet. A step counter helps: if your daily steps have dropped by 2,000+ since you started dieting, you have found the problem.</p>
+      <p><strong>Tracking drift.</strong> Portions creep up. The tablespoon of olive oil becomes a generous pour. The "roughly 30 g" of cheese becomes 45 g. The banana you do not bother logging adds 100 kcal. After eight weeks of tracking, most people are under-reporting by 10&ndash;20% compared to week one.</p>
+      <p><strong>Water retention masking fat loss.</strong> You may still be losing fat but retaining water (from cortisol, sodium, menstrual cycle, or increased training volume). A common pattern: the scale stalls for two weeks, then drops 1.5 kg overnight. This is the "whoosh effect" &mdash; fat cells fill with water as they empty of fat, then release the water all at once. It is real, and it is maddening.</p>
+      <p><strong>Diet breaks</strong> (1&ndash;2 weeks at maintenance calories) can help. The MATADOR study showed that intermittent dieting &mdash; two weeks on, two weeks off &mdash; produced better fat loss outcomes than continuous dieting over the same total time in deficit. The break allows hormones, NEAT, and appetite regulation to partially recover.</p>
+
+      <h2>Side effects</h2>
+      <p>A calorie deficit is a physiological stressor. It has side effects, and pretending otherwise is dishonest. Knowing what to expect helps you distinguish normal discomfort from red flags.</p>
+      <p><strong>Hunger.</strong> Inevitable at the start. Usually improves after 1&ndash;2 weeks as appetite hormones (ghrelin, leptin) adjust. High protein, high fibre, and adequate water reduce hunger. If hunger is severe and persistent after three weeks, the deficit is probably too large.</p>
+      <p><strong>Sleep disruption.</strong> Going to bed hungry can disrupt sleep onset and reduce sleep quality. Some people benefit from saving a portion of their calories for a bedtime snack (a small high-protein option like Greek yoghurt or cottage cheese).</p>
+      <p><strong>Mood changes.</strong> Irritability, reduced patience, and lower stress tolerance are common in the first two to four weeks. If mood deterioration is severe or persistent, reduce the deficit.</p>
+      <p><strong>Reduced libido.</strong> Low energy availability suppresses sex hormones. In women, this can disrupt the menstrual cycle (a sign the deficit is too aggressive). In men, testosterone may drop. Both usually resolve when calories are restored to maintenance.</p>
+      <p><strong>Menstrual disruption.</strong> If your period becomes irregular or stops, the deficit is too large, your body fat is too low, or both. This is a medical concern (Relative Energy Deficiency in Sport, RED-S) and requires professional guidance, not a smaller meal.</p>
+
+      <h2>Deficit and perimenopause / andropause</h2>
+      <p>The standard deficit advice applies, but with adjustments.</p>
+      <p><strong>Perimenopause (typically 45&ndash;55).</strong> Declining oestrogen shifts fat distribution toward the abdomen, reduces muscle mass, disrupts sleep, and can increase cortisol. Aggressive deficits during this phase tend to backfire &mdash; they increase cortisol further, worsen sleep, and accelerate muscle loss. A moderate deficit (10&ndash;15%), high protein (2.0+ g/kg), and resistance training is the evidence-based approach. Weight loss will be slower. Accept that.</p>
+      <p><strong>Andropause (gradual, from ~40).</strong> Testosterone decline reduces muscle recovery and motivation. The deficit can stay at 15&ndash;20%, but protein needs increase (2.0+ g/kg) and recovery time between training sessions may need to lengthen. Sleep quality becomes more important &mdash; poor sleep accelerates muscle loss in a deficit.</p>
+
+      <h2>When a calorie deficit is not the right tool</h2>
+      <ul>
+        <li><strong>Eating disorder recovery.</strong> If you have a history of anorexia, bulimia, or binge eating, calorie restriction should only happen under clinical supervision. A deficit can re-trigger the disorder.</li>
+        <li><strong>Pregnancy.</strong> Energy restriction during pregnancy can harm foetal development. Weight management in pregnancy should be guided by a midwife or obstetrician.</li>
+        <li><strong>Children and adolescents.</strong> Growing bodies need energy. Calorie restriction in young people should only happen under medical direction.</li>
+        <li><strong>Acute life stress.</strong> Bereavement, divorce, job loss, severe illness. Adding a diet on top of a crisis is not resilience; it is overload. Wait until you have capacity.</li>
+        <li><strong>Athletic performance peaks.</strong> If you have a race, match, or competition in the next 4&ndash;6 weeks, now is not the time to cut. Fuel your performance, then diet in the off-season.</li>
+        <li><strong>Chronic sleep deprivation.</strong> If you are consistently getting less than 6 hours of sleep, the hormonal disruption (elevated cortisol, suppressed leptin, elevated ghrelin) makes dieting both harder and less effective. Fix sleep first.</li>
+      </ul>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How big should my calorie deficit be?</summary>
+          <div class="answer">
+            <p>For most people, a deficit of 10&ndash;25% below TDEE is optimal. That typically works out to 300&ndash;750 kcal per day. A 500 kcal daily deficit produces roughly 0.45 kg (1 lb) of fat loss per week. Larger deficits accelerate weight loss but increase muscle loss, hunger, and metabolic adaptation.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does it take to lose a stone?</summary>
+          <div class="answer">
+            <p>At a 500 kcal daily deficit, losing one stone (6.35 kg) of body fat takes approximately 14 weeks in theory. In practice, add 30&ndash;50% for water fluctuations, metabolic adaptation, tracking imprecision, and life &mdash; so 18 to 21 weeks is more realistic. Larger deficits are faster but harder to sustain.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why has my weight loss plateaued?</summary>
+          <div class="answer">
+            <p>Plateaus happen for four main reasons: metabolic adaptation (your body burns less as you lose weight), NEAT suppression (you move less without realising), tracking drift (portions creep up), and water retention masking fat loss. A diet break (1&ndash;2 weeks at maintenance calories) can help reset adaptation. Recalculating your TDEE at your new weight is essential.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Should I eat back exercise calories?</summary>
+          <div class="answer">
+            <p>Partially. Exercise calorie estimates from watches and machines are typically 30&ndash;50% too high. If your tracker says you burned 400 kcal, eating back 200&ndash;250 kcal is a reasonable approach. If your deficit is already moderate (300&ndash;500 kcal), you can eat back half your estimated exercise calories without derailing progress.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "TDEE calculator", description: "Estimate your total daily energy expenditure with UK-specific defaults.", href: "/tools/tdee-calculator-uk/" },
+    { label: "Guide", title: "What are macros?", description: "Protein, fat, and carbs explained for UK adults.", href: "/guides/what-are-macros/" },
+    { label: "Guide", title: "From SW to calories", description: "Step-by-step migration from Slimming World to independent tracking.", href: "/guides/from-sw-to-calories/" }
+  ]} />
+</Base>

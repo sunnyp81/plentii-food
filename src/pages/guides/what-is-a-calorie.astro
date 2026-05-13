@@ -1,0 +1,172 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Related from '../../components/Related.astro';
+import '../../styles/global.css';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is a Calorie? UK Guide With Real Examples",
+    "description": "A calorie is a unit of energy, but the kcal on your packet isn't the whole story. What it measures, when it's wrong, and how UK labels actually work.",
+    "author": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "publisher": { "@type": "Organization", "name": "Plentii", "url": "https://plentii.food" },
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-28",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plentii.food/guides/what-is-a-calorie/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is kcal the same as a calorie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In everyday UK usage, yes. When a food label says 200 kcal, it means 200 kilocalories, which is what most people simply call '200 calories'. The scientific 'small calorie' (cal) is one-thousandth of a kilocalorie and is never used on food packaging." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are UK food labels?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Under EU Regulation 1169/2011 (retained in UK law), energy values on food labels must be within a tolerance band. In practice, studies show declared values can be up to 20% above or below the true energy content, and enforcement is complaint-driven rather than routine." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many calories should I eat a day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The NHS uses 2,000 kcal/day for women and 2,500 kcal/day for men as reference intakes. Your real number depends on age, height, weight, muscle mass, and activity level. A TDEE calculator gives a better personal estimate." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are all calories equal?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Thermodynamically, yes — a kilocalorie is a kilocalorie. Physiologically, no. Protein has a higher thermic effect (you burn more digesting it), fibre calories are partly inaccessible, and whole foods take more energy to break down than ultra-processed equivalents. The source matters." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Atwater system?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Atwater system is the standard method used worldwide (including the UK) to estimate the energy content of food. It assigns general conversion factors: 4 kcal per gram of protein, 4 kcal per gram of carbohydrate, 9 kcal per gram of fat, 7 kcal per gram of alcohol, and 2 kcal per gram of fibre." }
+      }
+    ]
+  }
+];
+---
+<Base title="What Is a Calorie? UK Guide With Real Examples — Plentii" description="A calorie is a unit of energy, but the kcal on your packet isn't the whole story. What it measures, when it's wrong, and how UK labels actually work." schema={schema}>
+  <article class="py-[clamp(40px,6vw,80px)] pb-[clamp(60px,8vw,100px)]">
+    <header class="max-w-[760px] mx-auto mb-14 px-6">
+      <Breadcrumb crumbs={[{label:"Home",href:"/"},{label:"Guides",href:"/guides/"},{label:"What is a calorie?"}]} />
+      <span class="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-green mb-[18px] block">Foundations &middot; 8 min read</span>
+      <h1 class="font-display text-[clamp(2rem,1.4rem+3vw,3.6rem)] font-[350] leading-[1.05] tracking-[-0.035em] mb-5">What is a calorie?</h1>
+      <p class="text-[clamp(1.35rem,1.25rem+0.5vw,1.6rem)] font-display italic text-ink-soft leading-[1.4]">A unit of energy with a 200-year-old definition, a regulated formula, and a tolerance band wider than most people realise.</p>
+      <div class="flex gap-[22px] mt-6 font-mono text-[0.78rem] uppercase tracking-wide text-ink-faint flex-wrap">
+        <span>UK Plain-English Guide</span>
+        <span>Updated April 2026</span>
+        <span>Sources: NHS &middot; USDA &middot; EU 1169/2011</span>
+      </div>
+    </header>
+    <div class="article-body">
+      <p class="lede">A calorie is a unit of energy. That is the answer most people want, and it is correct as far as it goes. But the number on your food label is not a measurement in the way a kitchen scale measures grams. It is an estimate, derived from a formula invented in the nineteenth century, applied with a tolerance band that allows the real energy content to sit up to twenty per cent above or below what the packet says. Understanding that distinction is the difference between counting calories well and counting them anxiously.</p>
+
+      <span class="divider-mark"></span>
+
+      <h2>The technical definition</h2>
+      <p>The word calorie was first used by the French chemist Nicolas Cl&eacute;ment in 1824. He defined it as the amount of heat needed to raise the temperature of one kilogram of water by one degree Celsius. That unit is technically a kilocalorie (kcal), or what food labels call a Calorie with a capital C. The "small calorie" (cal) is one-thousandth of that and is used only in chemistry labs.</p>
+      <p>In practice, when a UK food label says 200 kcal, it means 200 kilocalories. When your friend says "I ate 200 calories", they also mean 200 kilocalories. The two terms are interchangeable in everyday speech, and fighting that convention is a waste of everyone's time.</p>
+      <p>The method used to determine how many kilocalories a food contains is called the Atwater system, named after the American chemist Wilbur Olin Atwater. Rather than burning every food in a calorimeter, the Atwater system assigns a fixed energy value to each macronutrient based on averages measured across hundreds of foods in the late 1800s.</p>
+
+      <div class="callout">
+        <strong>Atwater general factors</strong>
+        Protein: 4 kcal per gram &middot; Carbohydrate: 4 kcal per gram &middot; Fat: 9 kcal per gram &middot; Alcohol: 7 kcal per gram &middot; Fibre: 2 kcal per gram
+      </div>
+
+      <p>These factors are averages. The true energy yield of protein, for example, ranges from about 3.4 to 4.4 kcal/g depending on the amino acid profile. The Atwater system trades precision for practicality, and for most purposes that trade is acceptable.</p>
+
+      <h2>How UK food labels calculate calories</h2>
+      <p>UK food labelling is governed by EU Regulation 1169/2011, which was retained in domestic law after Brexit. The regulation requires that energy values be expressed in both kilojoules (kJ) and kilocalories (kcal), calculated using the Atwater general factors listed above.</p>
+      <p>Manufacturers are not required to burn their products in a calorimeter. Instead, they analyse the macronutrient composition (protein, carbohydrate, fat, fibre, and sometimes alcohol) and multiply by the Atwater factors. The result is a calculated estimate, not a direct measurement.</p>
+      <p>The regulation permits a tolerance band on declared values. In practice, enforcement bodies across Europe and the UK have used a guideline of roughly &plusmn;20% for energy values, though the regulation itself does not state a single fixed number. Enforcement is complaint-driven: trading standards will investigate if a product is flagged, but routine lab testing of every SKU is not feasible.</p>
+      <p>What this means for you: a label that says 100 kcal may contain anywhere from about 80 to 120 kcal in reality. Over a single meal that is noise. Over a full day of meticulous tracking, the cumulative error can be meaningful &mdash; which is why the best approach to calorie counting is to aim for consistency rather than false precision.</p>
+
+      <div class="viz">
+        <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tolerance band showing 80-120 kcal range for a 100 kcal label value">
+          <rect x="50" y="50" width="500" height="24" rx="4" fill="#E8EEE9"/>
+          <rect x="150" y="50" width="300" height="24" rx="4" fill="#C68F1F" opacity="0.25"/>
+          <rect x="275" y="44" width="50" height="36" rx="4" fill="#2D5A3D"/>
+          <text x="300" y="66" text-anchor="middle" fill="#FAF7F2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="500">100</text>
+          <text x="150" y="42" text-anchor="middle" fill="#4A524D" font-family="'JetBrains Mono', monospace" font-size="10">80 kcal</text>
+          <text x="450" y="42" text-anchor="middle" fill="#4A524D" font-family="'JetBrains Mono', monospace" font-size="10">120 kcal</text>
+          <text x="50" y="96" fill="#8B928D" font-family="'Inter', sans-serif" font-size="10">Lower bound (−20%)</text>
+          <text x="550" y="96" text-anchor="end" fill="#8B928D" font-family="'Inter', sans-serif" font-size="10">Upper bound (+20%)</text>
+          <line x1="150" y1="48" x2="150" y2="76" stroke="#C68F1F" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="450" y1="48" x2="450" y2="76" stroke="#C68F1F" stroke-width="1.5" stroke-dasharray="3,3"/>
+        </svg>
+        <p class="viz-caption">A 100 kcal label value can legally represent anywhere from roughly 80 to 120 kcal of actual energy content.</p>
+      </div>
+
+      <h2>Why your "100 kcal" might not be 100 kcal</h2>
+      <p>Beyond label tolerances, three factors make the number on the packet even less precise than it appears.</p>
+      <p><strong>Cooking changes energy availability.</strong> Raw starch is partially resistant to digestion. Cooking gelatinises it, making more of the energy accessible. A raw potato and a baked potato of the same weight do not deliver the same number of usable calories to your body, even though the Atwater calculation is identical for both.</p>
+      <p><strong>Absorption is not 100%.</strong> The Atwater system assumes a standard absorption rate, but real absorption varies by food structure. Whole almonds, for example, deliver roughly 25% fewer calories than their label suggests because a significant fraction of the fat passes through the gut undigested. Finely ground almond flour is absorbed much more completely. The food matrix matters.</p>
+      <p><strong>Satiety does not equal energy.</strong> Two foods with identical calorie counts can leave you feeling very differently full. A 200 kcal chicken breast (high protein, high satiety) and a 200 kcal slice of white bread (low protein, rapidly digested) are metabolically different experiences, even though the energy label is the same. Calories measure energy, not hunger management.</p>
+
+      <h2>Calories versus syns versus WW points</h2>
+      <p>If you have used Slimming World or Weight Watchers, you have already been counting calories &mdash; you just used a different unit. Syns are roughly equivalent to 20 kcal each. WW SmartPoints weight the calculation toward protein and away from sugar and saturated fat, so one SmartPoint is roughly 30&ndash;40 kcal depending on the food's nutritional profile.</p>
+      <p>All three systems are trying to solve the same problem: making energy intake manageable. Calories are the most transparent (you can see exactly what you are tracking), but they require you to make your own judgements about food quality. Syns and points embed those judgements into the scoring system, which is simpler for some people and more frustrating for others.</p>
+      <p>There is more detail in our guides to <a href="/guides/what-is-a-syn/">what a syn is</a> and <a href="/guides/what-are-ww-points/">how WW points work</a>.</p>
+
+      <h2>Daily calorie needs by sex and age (UK)</h2>
+      <p>The NHS reference intakes are 2,000 kcal per day for women and 2,500 kcal per day for men. These are population averages used for food labelling, not personalised recommendations. Your actual total daily energy expenditure (TDEE) depends on your age, height, weight, body composition, and physical activity level.</p>
+      <p>A sedentary 55-year-old woman who weighs 60 kg may need closer to 1,600 kcal. An active 28-year-old man who weighs 90 kg and trains four days a week may need 3,200 kcal or more. The NHS numbers are a starting point, not a destination.</p>
+      <p>For a personalised estimate, use a <a href="/tools/tdee-calculator-uk/">TDEE calculator</a>, then adjust based on what actually happens to your weight over two to four weeks. No formula replaces real-world feedback.</p>
+
+      <h2>When calories are not the right metric</h2>
+      <p>Calorie counting is a powerful tool, but it is not the right tool for everyone or every situation.</p>
+      <ul>
+        <li><strong>Eating disorder recovery.</strong> If you are recovering from anorexia, bulimia, or binge eating disorder, calorie counting can reinforce the obsessive patterns that therapy is trying to dismantle. Work with your treatment team, not a food label.</li>
+        <li><strong>Athletic performance.</strong> Elite and serious recreational athletes often need to think in macronutrients (protein, carbs, fats) rather than total energy, because the composition of their intake affects training adaptation, recovery, and body composition in ways that a single number cannot capture.</li>
+        <li><strong>Children and adolescents.</strong> Growing bodies have different and rapidly changing energy needs. Calorie restriction in children should only ever be guided by a paediatrician or registered dietitian.</li>
+        <li><strong>Pregnancy and breastfeeding.</strong> Energy needs increase, but the increase is not as large as "eating for two" suggests (roughly 200 kcal extra in the third trimester, 300&ndash;500 kcal extra while breastfeeding). The focus should be on nutrient density, not calorie counting.</li>
+        <li><strong>Severe perimenopause symptoms.</strong> Hormonal upheaval can make weight, appetite, and energy levels unpredictable. Aggressive calorie restriction during this phase can worsen symptoms. A moderate, protein-focused approach with strength training is usually more productive.</li>
+      </ul>
+
+      <span class="divider-mark"></span>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is kcal the same as a calorie?</summary>
+          <div class="answer">
+            <p>In everyday UK usage, yes. When a food label says 200 kcal, it means 200 kilocalories, which is what most people simply call "200 calories". The scientific "small calorie" (cal) is one-thousandth of a kilocalorie and is never used on food packaging.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How accurate are UK food labels?</summary>
+          <div class="answer">
+            <p>Under EU Regulation 1169/2011 (retained in UK law), energy values on food labels must be within a tolerance band. In practice, studies show declared values can be up to 20% above or below the true energy content, and enforcement is complaint-driven rather than routine.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How many calories should I eat a day?</summary>
+          <div class="answer">
+            <p>The NHS uses 2,000 kcal/day for women and 2,500 kcal/day for men as reference intakes. Your real number depends on age, height, weight, muscle mass, and activity level. A <a href="/tools/tdee-calculator-uk/">TDEE calculator</a> gives a better personal estimate.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Are all calories equal?</summary>
+          <div class="answer">
+            <p>Thermodynamically, yes &mdash; a kilocalorie is a kilocalorie. Physiologically, no. Protein has a higher thermic effect (you burn more digesting it), fibre calories are partly inaccessible, and whole foods take more energy to break down than ultra-processed equivalents. The source matters.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What is the Atwater system?</summary>
+          <div class="answer">
+            <p>The Atwater system is the standard method used worldwide (including the UK) to estimate the energy content of food. It assigns general conversion factors: 4 kcal per gram of protein, 4 kcal per gram of carbohydrate, 9 kcal per gram of fat, 7 kcal per gram of alcohol, and 2 kcal per gram of fibre. It was developed in the 1890s by Wilbur Olin Atwater and remains the basis for all UK food labelling today.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+  <Related items={[
+    { label: "Calculator", title: "TDEE calculator", description: "Estimate your total daily energy expenditure with UK-specific defaults.", href: "/tools/tdee-calculator-uk/" },
+    { label: "Guide", title: "Calorie deficit", description: "How big, how long, and the side effects nobody mentions.", href: "/guides/calorie-deficit/" },
+    { label: "Guide", title: "What are macros?", description: "Protein, fat, and carbs explained for UK adults.", href: "/guides/what-are-macros/" }
+  ]} />
+</Base>
