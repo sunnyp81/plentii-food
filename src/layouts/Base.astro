@@ -1,4 +1,6 @@
 ---
+import SidebarTOC from '../components/SidebarTOC.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -40,6 +42,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site).href;
   </header>
 
   <slot />
+  <SidebarTOC />
 
   <footer class="bg-ink text-[rgba(250,247,242,0.7)] pt-20 pb-10 mt-20">
     <div class="max-w-[1400px] mx-auto px-6">
